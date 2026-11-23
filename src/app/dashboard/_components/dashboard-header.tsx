@@ -10,6 +10,7 @@ interface DashboardHeaderProps {
   activePageId: string;
   range: Period;
   updatedLabel: string;
+  base?: string;
 }
 
 export const dashboardHref = (dashboardId: string, page: string, range: Period, base = "/dashboard") =>
@@ -51,18 +52,18 @@ export function PeriodLinks({ range, hrefFor }: { range: Period; hrefFor: (p: Pe
   );
 }
 
-export function DashboardHeader({ dashboardId, name, sources, pages, activePageId, range, updatedLabel }: DashboardHeaderProps) {
+export function DashboardHeader({ dashboardId, name, sources, pages, activePageId, range, updatedLabel, base = "/dashboard" }: DashboardHeaderProps) {
   return (
     <>
       {/* Command & action bar */}
       <div className="bg-surface-container-lowest border-b border-outline-variant/30 px-6 py-2 flex flex-wrap items-center justify-between gap-3 select-none">
         <div className="flex items-center gap-3 min-w-0">
-          <Link href="/" className="p-0.5 text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors flex items-center justify-center" title="Back to dashboards">
+          <Link href="/manage" className="p-0.5 text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors flex items-center justify-center" title="Back to dashboards">
             <span className="material-symbols-outlined text-[18px]">arrow_back</span>
           </Link>
           <div className="h-4 w-px bg-outline-variant/30" />
           <div className="flex items-center gap-1 text-[0.875rem]">
-            <Link href="/" className="text-outline hover:text-on-surface cursor-pointer">
+            <Link href="/manage" className="text-outline hover:text-on-surface cursor-pointer">
               Dashboards
             </Link>
             <span className="text-outline-variant mx-0.5">/</span>
@@ -72,7 +73,7 @@ export function DashboardHeader({ dashboardId, name, sources, pages, activePageI
         </div>
 
         <div className="flex items-center gap-3 ml-auto">
-          <PeriodLinks range={range} hrefFor={(p) => dashboardHref(dashboardId, activePageId, p)} />
+          <PeriodLinks range={range} hrefFor={(p) => dashboardHref(dashboardId, activePageId, p, base)} />
 
           <div className="hidden lg:flex items-center gap-1 text-outline font-mono text-[0.75rem]">
             <span className="material-symbols-outlined text-[14px]">history</span>
@@ -109,7 +110,7 @@ export function DashboardHeader({ dashboardId, name, sources, pages, activePageI
             return (
               <Link
                 key={p.id}
-                href={dashboardHref(dashboardId, p.id, range)}
+                href={dashboardHref(dashboardId, p.id, range, base)}
                 className={[
                   "py-2.5 border-b-2 text-[0.8125rem] flex items-center gap-1.5 transition-colors whitespace-nowrap",
                   active ? "border-primary text-on-surface font-semibold" : "border-transparent text-outline hover:text-on-surface font-medium",

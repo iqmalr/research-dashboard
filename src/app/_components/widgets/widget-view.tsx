@@ -4,6 +4,10 @@ import { BarChart } from "../bar-chart";
 import { LineChart } from "../line-chart";
 import { StatCard } from "../stat-card";
 import { WidgetCard } from "../widget-card";
+import { DonutChart } from "../donut-chart";
+import { GaugeChart } from "../gauge-chart";
+import { ScatterChart } from "../scatter-chart";
+import { SparklineChart } from "../sparkline-chart";
 
 export interface WidgetViewProps {
   widget: Widget;
@@ -92,13 +96,94 @@ export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewP
     const points = view.points.map((p) => ({ label: axisLabel(p.x), value: p.y, tip: `${axisLabel(p.x)}: ${fmt(p.y, f)}` }));
     const height = Math.max(96, widget.grid.h * 148 - 150);
     const meta = [f?.unit === "percent" ? null : `Total ${fmt(total, f)}`, staleLabel].filter(Boolean).join(" • ");
-    const Chart = widget.type === "line" ? LineChart : BarChart;
-    return frame(<Chart data={points} height={height} showAllLabels={points.length <= 12} />, meta);
+    const isArea = widget.type === "area";
+    const Chart = (widget.type === "line" || isArea) ? LineChart : BarChart;
+    return frame(<Chart data={points} height={height} showAllLabels={points.length <= 12} area={isArea} />, meta);
+  }
+
+  if (view.kind === "gauge") {
+    const f = widget.format?.value;
+    const valLabel = fmt(view.value ?? 0, f);
+    const targetLabel = view.target !== null ? fmt(view.target, f) : undefined;
+    return frame(<GaugeChart value={view.value} target={view.target} valueLabel={valLabel} targetLabel={targetLabel} />);
+  }
+
+  if (view.kind === "scatter") {
+    if (view.points.length === 0) return frame(<Problem icon="scatter_plot" title="No data" />);
+    const height = Math.max(96, widget.grid.h * 148 - 150);
+    return frame(<ScatterChart points={view.points} height={height} />);
+  }
+
+  if (view.kind === "sparkline") {
+    const f = widget.format?.value;
+    const range = getPath(data, "meta.range").value;
+    return (
+      <WidgetCard title={widget.title} meta={staleLabel} source={footer} className="h-full">
+        <div className="flex flex-col h-full">
+          <div className="text-[1.75rem] font-bold text-on-surface leading-none mb-1">{fmt(view.value, f)}</div>
+          {typeof view.delta === "number" && (
+            <div className={`text-[0.75rem] font-mono mb-2 ${view.delta >= 0 ? "text-emerald-700" : "text-error"}`}>
+              {view.delta >= 0 ? "▲" : "▼"} {Math.abs(view.delta).toFixed(1)}% vs. prev {typeof range === "string" ? range : "period"}
+            </div>
+          )}
+          <div className="flex-1 min-h-0">
+            <SparklineChart points={view.points} height={48} />
+          </div>
+        </div>
+      </WidgetCard>
+    );
   }
 
   if (view.kind === "items") {
     if (view.items.length === 0) return frame(<Problem icon="donut_small" title="No data" />);
     const f = widget.format?.value;
+
+    if (widget.type === "donut") {
+      const slices = view.items.map((it) => ({ label: it.label, value: it.value }));
+      return frame(<DonutChart slices={slices} fmt={(v) => fmt(v, f)} />);
+    }
+
+    if (widget.type === "list") {
+      const max = view.items[0]?.value || 1;
+      return frame(
+        <div className="space-y-2.5 pt-1 overflow-y-auto">
+          {view.items.map((it, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <span className="font-mono text-[0.75rem] text-outline w-5 text-right shrink-0">{i + 1}</span>
+              <span className="flex-1 truncate text-[0.8125rem] text-on-surface">{it.label}</span>
+              <div className="flex items-center gap-2 shrink-0">
+                <div className="w-16 h-1.5 bg-surface-container rounded-full overflow-hidden">
+                  <div className="h-full bg-primary-container rounded-full" style={{ width: `${(it.value / max) * 100}%` }} />
+                </div>
+                <span className="font-mono font-semibold text-[0.75rem] text-on-surface tabular-nums w-16 text-right">{fmt(it.value, f)}</span>
+              </div>
+            </div>
+          ))}
+        </div>,
+      );
+    }
+
+    if (widget.type === "heatmap") {
+      const max = Math.max(...view.items.map((it) => it.value), 1);
+      return frame(
+        <div className="grid gap-1 pt-1" style={{ gridTemplateColumns: `repeat(auto-fill, minmax(72px, 1fr))` }}>
+          {view.items.map((it, i) => {
+            const intensity = Math.min(it.value / max, 1);
+            return (
+              <div
+                key={i}
+                className="flex flex-col items-center justify-center rounded p-2 text-center"
+                style={{ background: `color-mix(in srgb, var(--primary-container) ${Math.round(intensity * 70 + 10)}%, var(--surface-container))` }}
+                title={`${it.label}: ${fmt(it.value, f)}`}
+              >
+                <span className="text-[0.625rem] text-on-surface-variant truncate w-full">{it.label}</span>
+                <span className="font-mono font-semibold text-[0.75rem] text-on-surface tabular-nums">{fmt(it.value, f)}</span>
+              </div>
+            );
+          })}
+        </div>,
+      );
+    }
 
     if (widget.type === "funnel") {
       const first = view.items[0].value || 1;

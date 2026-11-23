@@ -56,7 +56,10 @@ export type WidgetViewData =
   | { kind: "stat"; value: string | number | boolean | null; delta: number | null | undefined }
   | { kind: "series"; points: { x: string; y: number }[] }
   | { kind: "items"; items: { label: string; value: number }[] }
-  | { kind: "table"; columns: TableColumn[]; rows: unknown[] };
+  | { kind: "table"; columns: TableColumn[]; rows: unknown[] }
+  | { kind: "gauge"; value: number | null; target: number | null }
+  | { kind: "scatter"; points: { x: number; y: number; label: string }[] }
+  | { kind: "sparkline"; value: string | number | boolean | null; delta: number | null | undefined; points: { x: string; y: number }[] };
 
 export interface Resolved {
   issues: SlotIssue[];
@@ -147,11 +150,21 @@ export function resolveWidget(widget: Widget, data: unknown): Resolved {
     };
   }
 
+  if (widget.type === "gauge") {
+    const val = scalar("value", true);
+    const tgt = scalar("target", true, true);
+    if (issues.length) return { issues };
+    return {
+      issues,
+      view: { kind: "gauge", value: val as number | null, target: tgt as number | null },
+    };
+  }
+
   const list = rows();
   if (!list) return { issues };
   const rowCount = list.length;
 
-  if (widget.type === "bar" || widget.type === "line") {
+  if (widget.type === "bar" || widget.type === "line" || widget.type === "area") {
     const okX = rowField(list, "x", b.x, false);
     const okY = rowField(list, "y", b.y, true);
     if (!okX || !okY) return { issues, rowCount };
@@ -162,7 +175,7 @@ export function resolveWidget(widget: Widget, data: unknown): Resolved {
     };
   }
 
-  if (widget.type === "breakdown" || widget.type === "funnel") {
+  if (widget.type === "breakdown" || widget.type === "funnel" || widget.type === "donut" || widget.type === "list" || widget.type === "heatmap") {
     const okL = rowField(list, "label", b.label, false);
     const okV = rowField(list, "value", b.value, true);
     if (!okL || !okV) return { issues, rowCount };
@@ -172,6 +185,44 @@ export function resolveWidget(widget: Widget, data: unknown): Resolved {
       view: {
         kind: "items",
         items: list.map((r) => ({ label: text(getPath(r, b.label).value), value: num(getPath(r, b.value).value) })),
+      },
+    };
+  }
+
+  if (widget.type === "scatter") {
+    const okX = rowField(list, "x", b.x, true);
+    const okY = rowField(list, "y", b.y, true);
+    if (!okX || !okY) return { issues, rowCount };
+    const hasLabel = Boolean(b.label);
+    return {
+      issues,
+      rowCount,
+      view: {
+        kind: "scatter",
+        points: list.map((r) => ({
+          x: num(getPath(r, b.x).value),
+          y: num(getPath(r, b.y).value),
+          label: hasLabel ? text(getPath(r, b.label!).value) : "",
+        })),
+      },
+    };
+  }
+
+  if (widget.type === "sparkline") {
+    const value = scalar("value", false);
+    const delta = scalar("delta", true, true);
+    const okX = rowField(list, "x", b.x, false);
+    const okY = rowField(list, "y", b.y, true);
+    if (issues.length) return { issues, rowCount };
+    if (!okX || !okY) return { issues, rowCount };
+    return {
+      issues,
+      rowCount,
+      view: {
+        kind: "sparkline",
+        value: value as string | number | boolean | null,
+        delta: delta as number | null | undefined,
+        points: list.map((r) => ({ x: text(getPath(r, b.x).value), y: num(getPath(r, b.y).value) })),
       },
     };
   }

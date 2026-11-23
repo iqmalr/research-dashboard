@@ -6,7 +6,7 @@ export function parsePeriod(v: unknown): Period {
   return PERIODS.includes(v as Period) ? (v as Period) : DEFAULT_PERIOD;
 }
 
-export const WIDGET_TYPES = ["stat", "bar", "line", "breakdown", "funnel", "table"] as const;
+export const WIDGET_TYPES = ["stat", "bar", "line", "area", "breakdown", "donut", "funnel", "gauge", "heatmap", "list", "scatter", "sparkline", "table"] as const;
 export type WidgetType = (typeof WIDGET_TYPES)[number];
 
 export const UNITS = ["number", "currency", "percent", "bytes", "date", "text"] as const;
@@ -147,6 +147,22 @@ export const SLOTS: Record<WidgetType, SlotDef[]> = {
   breakdown: [ROWS, { key: "label", label: "Label", kind: "rowField" }, { key: "value", label: "Value", kind: "rowNumber", formattable: true }],
   funnel: [ROWS, { key: "label", label: "Label", kind: "rowField" }, { key: "value", label: "Value", kind: "rowNumber", formattable: true }],
   table: [ROWS],
+  area: [ROWS, { key: "x", label: "X axis", kind: "rowField" }, { key: "y", label: "Y axis", kind: "rowNumber", formattable: true }],
+  donut: [ROWS, { key: "label", label: "Label", kind: "rowField" }, { key: "value", label: "Value", kind: "rowNumber", formattable: true }],
+  gauge: [
+    { key: "value", label: "Value", kind: "number", formattable: true },
+    { key: "target", label: "Target", kind: "number", optional: true },
+  ],
+  heatmap: [ROWS, { key: "label", label: "Label", kind: "rowField" }, { key: "value", label: "Value", kind: "rowNumber", formattable: true }],
+  list: [ROWS, { key: "label", label: "Label", kind: "rowField" }, { key: "value", label: "Value", kind: "rowNumber", formattable: true }],
+  scatter: [ROWS, { key: "x", label: "X value", kind: "rowNumber" }, { key: "y", label: "Y value", kind: "rowNumber" }, { key: "label", label: "Label", kind: "rowField", optional: true }],
+  sparkline: [
+    { key: "value", label: "Current value", kind: "scalar", formattable: true },
+    { key: "delta", label: "Delta (%)", kind: "number", optional: true },
+    { key: "rows", label: "Trend rows", kind: "rows" },
+    { key: "x", label: "X axis", kind: "rowField" },
+    { key: "y", label: "Y (trend)", kind: "rowNumber" },
+  ],
 };
 
 export const DEFAULT_SIZE: Record<WidgetType, { w: number; h: number }> = {
@@ -156,6 +172,13 @@ export const DEFAULT_SIZE: Record<WidgetType, { w: number; h: number }> = {
   breakdown: { w: 4, h: 2 },
   funnel: { w: 4, h: 2 },
   table: { w: 8, h: 2 },
+  area: { w: 8, h: 2 },
+  donut: { w: 5, h: 2 },
+  gauge: { w: 3, h: 2 },
+  heatmap: { w: 6, h: 2 },
+  list: { w: 4, h: 2 },
+  scatter: { w: 6, h: 2 },
+  sparkline: { w: 3, h: 2 },
 };
 
 export const WIDGET_META: Record<WidgetType, { label: string; icon: string; desc: string }> = {
@@ -165,4 +188,11 @@ export const WIDGET_META: Record<WidgetType, { label: string; icon: string; desc
   breakdown: { label: "Breakdown", icon: "donut_small", desc: "Share per category" },
   funnel: { label: "Funnel", icon: "filter_alt", desc: "Step-by-step drop-off" },
   table: { label: "Table", icon: "table_chart", desc: "Rows with chosen columns" },
+  area: { label: "Area", icon: "area_chart", desc: "Filled trend over a period" },
+  donut: { label: "Donut", icon: "donut_large", desc: "Share per category as a ring" },
+  gauge: { label: "Gauge", icon: "speed", desc: "Value vs. target as an arc" },
+  heatmap: { label: "Heatmap", icon: "grid_on", desc: "Intensity grid per category" },
+  list: { label: "List", icon: "format_list_numbered", desc: "Ranked items with values" },
+  scatter: { label: "Scatter", icon: "scatter_plot", desc: "X-Y correlation between two values" },
+  sparkline: { label: "Sparkline", icon: "trending_up", desc: "Number with inline trend chart" },
 };
