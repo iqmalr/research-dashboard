@@ -23,6 +23,12 @@ export interface TableColumn {
   format?: Format;
 }
 
+export interface TableOptions {
+  search?: boolean;
+  sortable?: boolean;
+  pageSize?: number;
+}
+
 export interface GridPos {
   x: number;
   y: number;
@@ -39,6 +45,8 @@ export interface Widget {
   bindings: Record<string, string>;
   /** table only */
   columns?: TableColumn[];
+  /** table only: search / sort / pagination toggles */
+  tableOptions?: TableOptions;
   /** slot -> format */
   format?: Record<string, Format>;
   grid: GridPos;

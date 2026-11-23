@@ -7,7 +7,7 @@ import { FieldTree } from "@/components/field-tree";
 import { WidgetView } from "@/components/widgets/widget-view";
 import { saveWidgetAction } from "@/lib/actions";
 import { GRID_COLS, MAX_H } from "@/lib/grid";
-import { PERIODS, SLOTS, UNITS, WIDGET_META, WIDGET_TYPES, type Format, type Period, type SlotKind, type SourceInfo, type TableColumn, type Unit, type Widget, type WidgetType } from "@/lib/types";
+import { PERIODS, SLOTS, UNITS, WIDGET_META, WIDGET_TYPES, type Format, type Period, type SlotKind, type SourceInfo, type TableColumn, type TableOptions, type Unit, type Widget, type WidgetType } from "@/lib/types";
 import { viewProps, type SnapMap } from "@/lib/view";
 import { formatValue, getPath, isNumeric, isScalar, resolveWidget } from "@/lib/widget-data";
 
@@ -79,6 +79,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
   const patch = (p: Partial<Widget>) => setDraft((d) => ({ ...d, ...p }));
   const setBinding = (slot: string, path: string) => setDraft((d) => ({ ...d, bindings: { ...d.bindings, [slot]: path } }));
   const setColumns = (fn: (c: TableColumn[]) => TableColumn[]) => setDraft((d) => ({ ...d, columns: fn(d.columns ?? []) }));
+  const setTableOptions = (p: Partial<TableOptions>) => setDraft((d) => ({ ...d, tableOptions: { ...d.tableOptions, ...p } }));
   const setGrid = (k: keyof Widget["grid"], v: number) => setDraft((d) => ({ ...d, grid: { ...d.grid, [k]: Number.isFinite(v) ? v : 0 } }));
 
   function pick(path: string) {
@@ -382,6 +383,55 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
               </div>
             )}
           </div>
+
+          {/* Table options */}
+          {draft.type === "table" && (
+            <div className="space-y-2.5">
+              <Label>Table options</Label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={!!draft.tableOptions?.search}
+                  onChange={(e) => setTableOptions({ search: e.target.checked || undefined })}
+                  className="rounded accent-primary"
+                />
+                <span className="text-[0.8125rem] text-on-surface">Search bar</span>
+              </label>
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={!!draft.tableOptions?.sortable}
+                  onChange={(e) => setTableOptions({ sortable: e.target.checked || undefined })}
+                  className="rounded accent-primary"
+                />
+                <span className="text-[0.8125rem] text-on-surface">Sortable columns</span>
+              </label>
+              <div>
+                <label className="flex items-center gap-2 cursor-pointer mb-1.5">
+                  <input
+                    type="checkbox"
+                    checked={!!draft.tableOptions?.pageSize}
+                    onChange={(e) => setTableOptions({ pageSize: e.target.checked ? 10 : undefined })}
+                    className="rounded accent-primary"
+                  />
+                  <span className="text-[0.8125rem] text-on-surface">Pagination</span>
+                </label>
+                {!!draft.tableOptions?.pageSize && (
+                  <select
+                    value={draft.tableOptions.pageSize}
+                    onChange={(e) => setTableOptions({ pageSize: Number(e.target.value) })}
+                    className={inputClass}
+                  >
+                    {[5, 10, 20, 50].map((n) => (
+                      <option key={n} value={n}>
+                        {n} rows per page
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Format of the main value */}
           {mainSlot && (

@@ -8,6 +8,7 @@ import { DonutChart } from "../donut-chart";
 import { GaugeChart } from "../gauge-chart";
 import { ScatterChart } from "../scatter-chart";
 import { SparklineChart } from "../sparkline-chart";
+import { TableWidget } from "../table-widget";
 
 export interface WidgetViewProps {
   widget: Widget;
@@ -244,52 +245,13 @@ export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewP
   // table
   if (view.rows.length === 0) return frame(<Problem icon="table_rows" title="No rows" />);
   return frame(
-    <div className="overflow-x-auto">
-      <table className="w-full text-[0.75rem]">
-        <thead>
-          <tr className="border-b border-surface-container">
-            {view.columns.map((c, i) => (
-              <th key={i} className={`pb-2.5 font-semibold text-on-surface-variant whitespace-nowrap ${i === 0 ? "text-left pr-4" : "text-right pl-4"}`}>
-                {c.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {view.rows.map((row, r) => (
-            <tr key={r} className="border-b border-surface-container-high hover:bg-surface-container-low transition-colors">
-              {view.columns.map((c, i) => {
-                const v = getPath(row, c.field).value;
-                const empty = v === null || v === undefined;
-                if (i === 0) {
-                  return (
-                    <td key={i} className="py-2 pr-4 font-mono text-on-surface whitespace-nowrap">
-                      {fmt(v, c.format)}
-                    </td>
-                  );
-                }
-                return (
-                  <td key={i} className="py-2 pl-4 text-right font-mono tabular-nums text-on-surface whitespace-nowrap">
-                    {empty ? (
-                      <span className="text-outline-variant">—</span>
-                    ) : c.format?.unit === "percent" && typeof v === "number" ? (
-                      // tint grows with the value, so a table of percentages reads as a heatmap
-                      <span
-                        className="inline-block px-1.5 py-0.5 rounded font-semibold"
-                        style={{ backgroundColor: `color-mix(in srgb, var(--primary-container) ${Math.round(Math.min(Math.max(v, 0), 100) * 0.4)}%, transparent)` }}
-                      >
-                        {fmt(v, c.format)}
-                      </span>
-                    ) : (
-                      fmt(v, c.format)
-                    )}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>,
+    <TableWidget
+      columns={view.columns}
+      rows={view.rows}
+      currency={currency}
+      search={widget.tableOptions?.search}
+      sortable={widget.tableOptions?.sortable}
+      pageSize={widget.tableOptions?.pageSize}
+    />,
   );
 }
