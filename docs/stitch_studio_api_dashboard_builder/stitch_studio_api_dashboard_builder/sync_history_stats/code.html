@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#00504a","on-primary-container":"#a3faef","surface":"#f8f9fa","error":"#ba1a1a","tertiary-fixed":"#dce2f7","on-tertiary-fixed":"#141b2b","secondary-fixed-dim":"#6bd8cb","background":"#f8f9fa","inverse-on-surface":"#f0f1f2","error-container":"#ffdad6","surface-variant":"#e1e3e4","on-primary-fixed":"#00201d","tertiary":"#4a5162","primary-fixed-dim":"#80d5cb","outline":"#6e7977","surface-dim":"#d9dadb","secondary-container":"#86f2e4","inverse-primary":"#80d5cb","surface-container-low":"#f3f4f5","primary-container":"#0f766e","on-error-container":"#93000a","surface-bright":"#f8f9fa","tertiary-container":"#62697b","primary-fixed":"#9cf2e8","on-primary":"#ffffff","on-secondary-container":"#006f66","secondary":"#006a61","on-surface":"#191c1d","surface-tint":"#006a63","on-secondary":"#ffffff","on-secondary-fixed-variant":"#005049","surface-container-high":"#e7e8e9","outline-variant":"#bdc9c6","tertiary-fixed-dim":"#c0c6db","on-tertiary":"#ffffff","on-surface-variant":"#3e4947","on-background":"#191c1d","on-secondary-fixed":"#00201d","surface-container":"#edeeef","secondary-fixed":"#89f5e7","on-tertiary-container":"#e3e9ff","surface-container-highest":"#e1e3e4","inverse-surface":"#2e3132","on-error":"#ffffff","on-tertiary-fixed-variant":"#404758","surface-container-lowest":"#ffffff","primary":"#005c55"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.375rem","space-base":"0.75rem",margin:"1rem","space-2xl":"2rem","margin-lg":"1.5rem",gutter:"0.75rem","space-lg":"1rem","space-md":"0.5rem","space-xl":"1.5rem","space-2xs":"0.125rem","space-xs":"0.25rem","gutter-lg":"1rem"},fontFamily:{"code-md":["JetBrains Mono"],"body-sm":["Inter"],"metric-display":["Inter"],"headline-sm":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"code-lg":["JetBrains Mono"],"label-sm":["Inter"],"headline-lg":["Inter"],"code-sm":["JetBrains Mono"]},fontSize:{"code-md":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"body-sm":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"metric-display":["1.75rem",{lineHeight:"2.25rem",letterSpacing:"-0.025em",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"500"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["0.9375rem",{lineHeight:"1.5rem",letterSpacing:"-0.005em",fontWeight:"400"}],"body-md":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"0",fontWeight:"400"}],"code-lg":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"-0.01em",fontWeight:"500"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.04em",fontWeight:"600"}],"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"code-sm":["0.75rem",{lineHeight:"1.125rem",letterSpacing:"0",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center text-on-primary font-headline-sm text-xs font-bold">S</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">Stats</span><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium tracking-wide uppercase">Studio Ops</span></div><button aria-label="Collapse sidebar" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="p-space-sm"><div class="px-space-xs py-space-2xs mb-space-xs"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Workspace</span></div><nav class="space-y-space-2xs" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold"><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sources" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span>Sources</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sync-history" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Sync history</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav></div></div><div class="flex flex-col border-t border-outline-variant/20 p-space-base bg-surface-container-lowest"><div class="flex items-center gap-space-xs mb-space-base"><span class="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/20"></span><span class="font-code-sm text-code-sm text-outline truncate">All daemons active</span></div><div class="flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-label-md text-label-md font-semibold overflow-hidden shrink-0 border border-outline-variant/30">ER</div><div class="min-w-0 flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-semibold truncate leading-tight">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline truncate leading-tight">Lead Engineer</span></div></div><button aria-label="Account menu" class="text-outline hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/20 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-base"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-on-surface cursor-pointer font-medium">Acme Studio</span><span class="text-outline-variant">/</span><span class="text-on-surface font-semibold">Production</span><span class="font-label-sm text-label-sm ml-space-xs px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium">v2.4.1</span></div><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><div class="flex items-center gap-space-xs text-outline font-code-sm text-code-sm"><span class="material-symbols-outlined text-[14px]">schedule</span><span>Scheduled: daily at 04:00 UTC • Next in 14h</span></div></div><div class="flex items-center gap-space-base"><button class="flex items-center gap-space-sm px-space-base py-space-xs bg-surface-container-low hover:bg-surface-container border border-outline-variant/30 rounded text-outline hover:text-on-surface transition-all font-body-sm text-body-sm" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-md text-label-md">Quick find</span><kbd class="font-code-sm text-code-sm bg-surface-container-highest px-space-xs rounded text-on-surface-variant border border-outline-variant/40">⌘K</kbd></button><button class="flex items-center gap-space-xs px-space-base py-space-xs rounded bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-body-sm text-body-sm font-medium" type="button"><span class="material-symbols-outlined text-[16px]">sync</span><span>Sync all</span></button><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida/ALJJyrCgJC84k2oehWBShWU1UwTEEIzVSbOgm6WLBPDAC3g14ZdbWDjxSC9mDqopt_Wiq6btyNdtk6iOzYtrHE8ZT2G_EHiVvGosxtEneN_0R29rLbz-t3fWGoGeFHDLajAILEZ8zJrUIY_N0MZ9-B39jEdt09j8dMHkGwYZ40e1bUKflV5EVOS4DG_DZzf--PY87DUSxHmJ7pGViROgX_SCJgQq3Bww1qCC56XOqKxFwpZf"/></div></header><main class="w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<script>
+    (function activateSyncNav() {
+      const navLinks = document.querySelectorAll('aside nav a');
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-path') === 'sync-history') {
+          link.className = 'flex items-center gap-space-sm px-space-base py-space-xs rounded font-body-sm text-body-sm bg-secondary-container text-on-secondary-container font-semibold transition-all';
+        } else {
+          link.className = 'flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm';
+        }
+      });
+    })();
+  </script>
+<div class="px-space-xl py-space-lg flex flex-col gap-space-lg">
+<!-- Top Bar: Page Meta & Next Scheduled Cron Status Widget -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-base">
+<div class="flex flex-col space-y-space-2xs">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-semibold">Sync history</h1>
+<span class="font-code-sm text-code-sm px-space-sm py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium">cron-v2</span>
+</div>
+<p class="font-body-md text-body-md text-outline max-w-3xl">
+          Audit log of automated cron runs and manual telemetry sync operations across connected workspace sources.
+        </p>
+</div>
+<!-- Metadata / Next sync widget -->
+<div class="flex items-center gap-space-base shrink-0">
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-base py-space-sm rounded-lg border border-outline-variant/30 shadow-sm">
+<div class="w-7 h-7 rounded bg-secondary-container/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">update</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Next schedule</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface font-medium">Tomorrow, 02:00 <span class="text-outline">Europe/Paris</span></span>
+<button class="font-label-sm text-label-sm text-primary hover:text-primary-container font-semibold transition-colors hover:underline" type="button">Change</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Telemetry Aggregate Metric Ribbon -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-base">
+<div class="bg-surface-container-lowest p-space-base rounded-lg border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">Sync Success Rate</span>
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-metric-display text-metric-display text-on-surface font-semibold tracking-tight">92.8%</span>
+<span class="font-code-sm text-code-sm text-primary font-medium">+1.4%</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-space-2xs">Last 48 hours telemetry</span>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded-lg border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">Avg Batch Duration</span>
+<span class="material-symbols-outlined text-[16px]">timer</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-metric-display text-metric-display text-on-surface font-semibold tracking-tight">1,306</span>
+<span class="font-code-sm text-code-sm text-outline">ms</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-space-2xs">p95 latency threshold: 2,500ms</span>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded-lg border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">Connected Sources</span>
+<span class="material-symbols-outlined text-[16px]">hub</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-metric-display text-metric-display text-on-surface font-semibold tracking-tight">5 / 5</span>
+<span class="font-code-sm text-code-sm text-primary font-medium">Healthy</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-space-2xs">1 auth refresh required</span>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded-lg border border-outline-variant/30 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-md text-label-md uppercase tracking-wider">Failed Transactions</span>
+<span class="material-symbols-outlined text-[16px] text-error">error</span>
+</div>
+<div class="flex items-baseline gap-space-xs mt-space-xs">
+<span class="font-metric-display text-metric-display text-error font-semibold tracking-tight">1</span>
+<span class="font-code-sm text-code-sm text-error bg-error-container/40 px-space-xs rounded">Requires key</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-space-2xs">stripe.v2 revenue gateway</span>
+</div>
+</div>
+<!-- Filters & Action Toolbar -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg border border-outline-variant/30 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-base">
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Dashboard Filter -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-2xs rounded border border-outline-variant/20 hover:border-outline-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-outline">dashboard</span>
+<label class="font-label-sm text-label-sm text-outline" for="filter-dashboard">Dashboard:</label>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none cursor-pointer pr-space-xs font-medium" id="filter-dashboard">
+<option value="all">All Dashboards</option>
+<option value="football">Football Analytics AI</option>
+<option value="cms">CMS Articles</option>
+<option value="billing">Studio Auth &amp; Billing</option>
+<option value="mobile">Mobile Client Telemetry</option>
+<option value="dev">Developer Platform</option>
+</select>
+</div>
+<!-- Status Filter -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-2xs rounded border border-outline-variant/20 hover:border-outline-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-outline">adjust</span>
+<label class="font-label-sm text-label-sm text-outline" for="filter-status">Status:</label>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none cursor-pointer pr-space-xs font-medium" id="filter-status">
+<option value="all">All Statuses</option>
+<option value="success">Success</option>
+<option value="failed">Failed</option>
+</select>
+</div>
+<!-- Trigger Filter -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-2xs rounded border border-outline-variant/20 hover:border-outline-variant/50 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-outline">bolt</span>
+<label class="font-label-sm text-label-sm text-outline" for="filter-trigger">Trigger:</label>
+<select class="bg-transparent font-body-sm text-body-sm text-on-surface focus:outline-none cursor-pointer pr-space-xs font-medium" id="filter-trigger">
+<option value="all">All Triggers</option>
+<option value="scheduled">Scheduled</option>
+<option value="manual">Manual</option>
+</select>
+</div>
+<!-- Reset Button (conditional) -->
+<button class="hidden text-outline hover:text-on-surface font-label-md text-label-md px-space-xs transition-colors" id="reset-filters" type="button">
+          Clear filters
+        </button>
+</div>
+<!-- Right Action & Filter Count Status -->
+<div class="flex items-center justify-between md:justify-end gap-space-base pt-space-xs md:pt-0 border-t md:border-t-0 border-outline-variant/20">
+<span class="font-code-sm text-code-sm text-outline" id="run-count">Showing 3 executions (14 sources)</span>
+<div class="h-4 w-px bg-outline-variant/30 hidden sm:block"></div>
+<button class="flex items-center gap-space-xs px-space-sm py-space-2xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-all font-body-sm text-body-sm font-medium" id="refresh-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>Refresh log</span>
+</button>
+</div>
+</div>
+<!-- Execution Groups Table Container -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 overflow-hidden shadow-sm flex flex-col">
+<!-- Universal Table Header -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-xs bg-surface-container-low border-b border-outline-variant/20 font-label-sm text-label-sm uppercase tracking-wider text-outline items-center select-none">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-xs">
+<span>Source Name &amp; Channel</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3">Target Dashboard</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">Status</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right">Duration</div>
+<div class="hidden sm:block sm:col-span-2 lg:col-span-3">HTTP Result / Diagnostics</div>
+</div>
+<!-- GROUP 1: Recent failure / mixed run -->
+<section class="border-b border-outline-variant/30 run-group" data-status="failed" data-trigger="scheduled">
+<!-- Group Header Card -->
+<div class="bg-surface-container-low/70 hover:bg-surface-container-low px-space-base py-space-sm flex flex-wrap items-center justify-between gap-space-sm border-b border-outline-variant/20 transition-colors">
+<div class="flex items-center flex-wrap gap-space-base">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-outline">schedule</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Today, 02:00 UTC</span>
+<span class="font-code-sm text-code-sm text-outline">(04:00 Local)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium border border-outline-variant/30">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>Scheduled Cron</span>
+</span>
+<!-- Warning Pill -->
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded bg-amber-50 text-amber-800 border border-amber-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+<span>4 of 5 sources succeeded</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline">
+<span class="material-symbols-outlined text-[15px]">timer</span>
+<span>Total run: <strong class="text-on-surface font-semibold">1,420 ms</strong></span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-space-2xs rounded hover:bg-surface-container-high" title="Copy batch correlation ID" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Nested Rows Group 1 -->
+<div class="divide-y divide-outline-variant/15">
+<!-- Row 1.1 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="football" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">table_rows</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">v2 users</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">REST</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Football Analytics AI</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              412 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline flex items-center gap-space-xs">
+<span class="text-emerald-700 bg-emerald-50 px-space-xs rounded border border-emerald-200 font-medium">200 OK</span>
+<span class="text-outline truncate">• 1,420 rows ingested</span>
+</div>
+</div>
+<!-- Row 1.2 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="billing" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">webhook</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">stripe.billing_v2</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">Webhook</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Auth &amp; Billing</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              320 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline flex items-center gap-space-xs">
+<span class="text-emerald-700 bg-emerald-50 px-space-xs rounded border border-emerald-200 font-medium">200 OK</span>
+<span class="text-outline truncate">• Event queue flushed</span>
+</div>
+</div>
+<!-- Row 1.3: FAILED ROW -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm bg-rose-50/20 hover:bg-rose-50/40 transition-colors items-center source-row" data-dashboard="billing" data-status="failed">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0">warning</span>
+<span class="font-code-md text-code-md text-error font-medium truncate">v2 revenue</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-error-container/30 text-error font-semibold">API</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Auth &amp; Billing</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-rose-50 text-rose-800 border border-rose-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
+<span>Failed</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-error font-semibold">
+              184 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm flex items-center gap-space-xs">
+<span class="font-mono text-rose-600 bg-rose-50 px-1.5 py-0.5 rounded border border-rose-200 font-medium">401 key rejected</span>
+<button class="text-primary hover:underline font-label-sm text-label-sm font-medium" type="button">Re-auth</button>
+</div>
+</div>
+<!-- Row 1.4 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="football" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">memory</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">infer_stream.onnx</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">RPC</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Football Analytics AI</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              265 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 1.5 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="cms" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">cloud_done</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">cdn-cached</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">CDN</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">CMS Articles</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              239 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+</div>
+</section>
+<!-- GROUP 2: Manual triggered run -->
+<section class="border-b border-outline-variant/30 run-group" data-status="success" data-trigger="manual">
+<!-- Group Header Card -->
+<div class="bg-surface-container-low/70 hover:bg-surface-container-low px-space-base py-space-sm flex flex-wrap items-center justify-between gap-space-sm border-b border-outline-variant/20 transition-colors">
+<div class="flex items-center flex-wrap gap-space-base">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-outline">history</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Yesterday, 16:45 UTC</span>
+<span class="font-code-sm text-code-sm text-outline">(18:45 Local)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<!-- Manual Avatar Badge -->
+<span class="inline-flex items-center gap-space-xs px-space-sm py-space-2xs rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium border border-outline-variant/30">
+<div class="w-3.5 h-3.5 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-[9px] font-bold">D</div>
+<span>Manual by Dana</span>
+</span>
+<!-- Success Pill -->
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>5 of 5 sources succeeded</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline">
+<span class="material-symbols-outlined text-[15px]">timer</span>
+<span>Total run: <strong class="text-on-surface font-semibold">1,190 ms</strong></span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-space-2xs rounded hover:bg-surface-container-high" title="Copy correlation ID" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Nested Rows Group 2 -->
+<div class="divide-y divide-outline-variant/15">
+<!-- Row 2.1 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="football" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">table_rows</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">v2 users</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">REST</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Football Analytics AI</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              398 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 2.2 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="billing" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">webhook</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">stripe.billing_v2</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">Webhook</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Auth &amp; Billing</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              310 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 2.3 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="billing" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">database</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">v2 revenue</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">API</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Auth &amp; Billing</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              240 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 2.4 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="football" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">memory</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">infer_stream.onnx</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">RPC</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Football Analytics AI</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              242 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+</div>
+</section>
+<!-- GROUP 3: Scheduled run -->
+<section class="run-group" data-status="success" data-trigger="scheduled">
+<!-- Group Header Card -->
+<div class="bg-surface-container-low/70 hover:bg-surface-container-low px-space-base py-space-sm flex flex-wrap items-center justify-between gap-space-sm border-b border-outline-variant/20 transition-colors">
+<div class="flex items-center flex-wrap gap-space-base">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-outline">schedule</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Yesterday, 02:00 UTC</span>
+<span class="font-code-sm text-code-sm text-outline">(04:00 Local)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium border border-outline-variant/30">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span>Scheduled Cron</span>
+</span>
+<!-- Success Pill -->
+<span class="inline-flex items-center gap-space-2xs px-space-sm py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>5 of 5 sources succeeded</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline">
+<span class="material-symbols-outlined text-[15px]">timer</span>
+<span>Total run: <strong class="text-on-surface font-semibold">1,310 ms</strong></span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors p-space-2xs rounded hover:bg-surface-container-high" title="Copy batch correlation ID" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Nested Rows Group 3 -->
+<div class="divide-y divide-outline-variant/15">
+<!-- Row 3.1 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="football" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">table_rows</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">v2 users</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">REST</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Football Analytics AI</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              405 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 3.2 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="billing" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">webhook</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">stripe.billing_v2</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">Webhook</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Auth &amp; Billing</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              315 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 3.3 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="billing" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">database</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">v2 revenue</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">API</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Studio Auth &amp; Billing</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              290 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+<!-- Row 3.4 -->
+<div class="grid grid-cols-12 gap-space-sm px-space-base py-space-sm hover:bg-surface-container-lowest/80 transition-colors items-center source-row" data-dashboard="cms" data-status="success">
+<div class="col-span-12 sm:col-span-4 lg:col-span-3 flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline shrink-0">account_tree</span>
+<span class="font-code-md text-code-md text-on-surface font-medium truncate">headless-cms/graphql</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-surface-container text-outline">GQL</span>
+</div>
+<div class="col-span-12 sm:col-span-3 lg:col-span-3 flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container shrink-0"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">CMS Articles</span>
+</div>
+<div class="col-span-6 sm:col-span-2 lg:col-span-2">
+<span class="inline-flex items-center gap-space-2xs px-space-xs py-space-2xs rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Success</span>
+</span>
+</div>
+<div class="col-span-6 sm:col-span-1 lg:col-span-1 text-right font-code-md text-code-md text-outline">
+              300 ms
+            </div>
+<div class="col-span-12 sm:col-span-2 lg:col-span-3 font-code-sm text-code-sm text-outline">
+              —
+            </div>
+</div>
+</div>
+</section>
+</div>
+<!-- Bottom Pagination & Audit Retention Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm py-space-xs text-outline font-label-md text-label-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>Telemetry retention: 30 days stored locally in memory-mapped buffer. Older logs archived to S3 cold tier.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-sm py-space-xs rounded border border-outline-variant/30 text-on-surface hover:bg-surface-container transition-colors disabled:opacity-40" disabled="">Previous</button>
+<span class="font-code-sm text-code-sm text-on-surface font-medium">Page 1 of 12</span>
+<button class="px-space-sm py-space-xs rounded border border-outline-variant/30 text-on-surface hover:bg-surface-container transition-colors">Next</button>
+</div>
+</div>
+</div>
+<script>
+    (function initSyncFilterInteractivity() {
+      const dashboardSelect = document.getElementById('filter-dashboard');
+      const statusSelect = document.getElementById('filter-status');
+      const triggerSelect = document.getElementById('filter-trigger');
+      const resetBtn = document.getElementById('reset-filters');
+      const runCountEl = document.getElementById('run-count');
+      const refreshBtn = document.getElementById('refresh-btn');
+
+      function applyFilters() {
+        const dashboard = dashboardSelect.value;
+        const status = statusSelect.value;
+        const trigger = triggerSelect.value;
+
+        const isFiltered = (dashboard !== 'all' || status !== 'all' || trigger !== 'all');
+        if (resetBtn) {
+          resetBtn.classList.toggle('hidden', !isFiltered);
+        }
+
+        const groups = document.querySelectorAll('.run-group');
+        let visibleGroups = 0;
+        let visibleSources = 0;
+
+        groups.forEach(group => {
+          const groupTrigger = group.getAttribute('data-trigger');
+          const groupRows = group.querySelectorAll('.source-row');
+
+          let matchesTrigger = (trigger === 'all' || groupTrigger === trigger);
+          let visibleGroupRows = 0;
+
+          groupRows.forEach(row => {
+            const rowDashboard = row.getAttribute('data-dashboard');
+            const rowStatus = row.getAttribute('data-status');
+
+            const matchDash = (dashboard === 'all' || rowDashboard === dashboard);
+            const matchStat = (status === 'all' || rowStatus === status);
+
+            if (matchDash && matchStat && matchesTrigger) {
+              row.classList.remove('hidden');
+              visibleGroupRows++;
+              visibleSources++;
+            } else {
+              row.classList.add('hidden');
+            }
+          });
+
+          if (matchesTrigger && visibleGroupRows > 0) {
+            group.classList.remove('hidden');
+            visibleGroups++;
+          } else {
+            group.classList.add('hidden');
+          }
+        });
+
+        if (runCountEl) {
+          runCountEl.textContent = `Showing ${visibleGroups} execution${visibleGroups !== 1 ? 's' : ''} (${visibleSources} source${visibleSources !== 1 ? 's' : ''})`;
+        }
+      }
+
+      if (dashboardSelect) dashboardSelect.addEventListener('change', applyFilters);
+      if (statusSelect) statusSelect.addEventListener('change', applyFilters);
+      if (triggerSelect) triggerSelect.addEventListener('change', applyFilters);
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          dashboardSelect.value = 'all';
+          statusSelect.value = 'all';
+          triggerSelect.value = 'all';
+          applyFilters();
+        });
+      }
+
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', () => {
+          const icon = refreshBtn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.classList.add('animate-spin');
+            setTimeout(() => {
+              icon.classList.remove('animate-spin');
+            }, 600);
+          }
+        });
+      }
+    })();
+  </script>
+</div></main></div></body></html>

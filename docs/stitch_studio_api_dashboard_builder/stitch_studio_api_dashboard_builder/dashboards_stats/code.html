@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#00504a","on-primary-container":"#a3faef","surface":"#f8f9fa","error":"#ba1a1a","tertiary-fixed":"#dce2f7","on-tertiary-fixed":"#141b2b","secondary-fixed-dim":"#6bd8cb","background":"#f8f9fa","inverse-on-surface":"#f0f1f2","error-container":"#ffdad6","surface-variant":"#e1e3e4","on-primary-fixed":"#00201d","tertiary":"#4a5162","primary-fixed-dim":"#80d5cb","outline":"#6e7977","surface-dim":"#d9dadb","secondary-container":"#86f2e4","inverse-primary":"#80d5cb","surface-container-low":"#f3f4f5","primary-container":"#0f766e","on-error-container":"#93000a","surface-bright":"#f8f9fa","tertiary-container":"#62697b","primary-fixed":"#9cf2e8","on-primary":"#ffffff","on-secondary-container":"#006f66","secondary":"#006a61","on-surface":"#191c1d","surface-tint":"#006a63","on-secondary":"#ffffff","on-secondary-fixed-variant":"#005049","surface-container-high":"#e7e8e9","outline-variant":"#bdc9c6","tertiary-fixed-dim":"#c0c6db","on-tertiary":"#ffffff","on-surface-variant":"#3e4947","on-background":"#191c1d","on-secondary-fixed":"#00201d","surface-container":"#edeeef","secondary-fixed":"#89f5e7","on-tertiary-container":"#e3e9ff","surface-container-highest":"#e1e3e4","inverse-surface":"#2e3132","on-error":"#ffffff","on-tertiary-fixed-variant":"#404758","surface-container-lowest":"#ffffff","primary":"#005c55"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.375rem","space-base":"0.75rem",margin:"1rem","space-2xl":"2rem","margin-lg":"1.5rem",gutter:"0.75rem","space-lg":"1rem","space-md":"0.5rem","space-xl":"1.5rem","space-2xs":"0.125rem","space-xs":"0.25rem","gutter-lg":"1rem"},fontFamily:{"code-md":["JetBrains Mono"],"body-sm":["Inter"],"metric-display":["Inter"],"headline-sm":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"code-lg":["JetBrains Mono"],"label-sm":["Inter"],"headline-lg":["Inter"],"code-sm":["JetBrains Mono"]},fontSize:{"code-md":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"body-sm":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"metric-display":["1.75rem",{lineHeight:"2.25rem",letterSpacing:"-0.025em",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"500"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["0.9375rem",{lineHeight:"1.5rem",letterSpacing:"-0.005em",fontWeight:"400"}],"body-md":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"0",fontWeight:"400"}],"code-lg":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"-0.01em",fontWeight:"500"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.04em",fontWeight:"600"}],"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"code-sm":["0.75rem",{lineHeight:"1.125rem",letterSpacing:"0",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center text-on-primary font-headline-sm text-xs font-bold">S</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">Stats</span><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium tracking-wide uppercase">Studio Ops</span></div><button aria-label="Collapse sidebar" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="p-space-sm"><div class="px-space-xs py-space-2xs mb-space-xs"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Workspace</span></div><nav class="space-y-space-2xs" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold"><a aria-current="page" class="flex items-center gap-space-sm px-space-base py-space-xs rounded transition-all bg-secondary-container text-on-secondary-container font-semibold" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sources" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span>Sources</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sync-history" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Sync history</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav></div></div><div class="flex flex-col border-t border-outline-variant/20 p-space-base bg-surface-container-lowest"><div class="flex items-center gap-space-xs mb-space-base"><span class="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/20"></span><span class="font-code-sm text-code-sm text-outline truncate">All daemons active</span></div><div class="flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-label-md text-label-md font-semibold overflow-hidden shrink-0 border border-outline-variant/30">ER</div><div class="min-w-0 flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-semibold truncate leading-tight">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline truncate leading-tight">Lead Engineer</span></div></div><button aria-label="Account menu" class="text-outline hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/20 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-base"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-on-surface cursor-pointer font-medium">Acme Studio</span><span class="text-outline-variant">/</span><span class="text-on-surface font-semibold">Production</span><span class="font-label-sm text-label-sm ml-space-xs px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium">v2.4.1</span></div><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><div class="flex items-center gap-space-xs text-outline font-code-sm text-code-sm"><span class="material-symbols-outlined text-[14px]">schedule</span><span>Scheduled: daily at 04:00 UTC • Next in 14h</span></div></div><div class="flex items-center gap-space-base"><button class="flex items-center gap-space-sm px-space-base py-space-xs bg-surface-container-low hover:bg-surface-container border border-outline-variant/30 rounded text-outline hover:text-on-surface transition-all font-body-sm text-body-sm" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-md text-label-md">Quick find</span><kbd class="font-code-sm text-code-sm bg-surface-container-highest px-space-xs rounded text-on-surface-variant border border-outline-variant/40">⌘K</kbd></button><button class="flex items-center gap-space-xs px-space-base py-space-xs rounded bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-body-sm text-body-sm font-medium" type="button"><span class="material-symbols-outlined text-[16px]">sync</span><span>Sync all</span></button><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida/ALJJyrCgJC84k2oehWBShWU1UwTEEIzVSbOgm6WLBPDAC3g14ZdbWDjxSC9mDqopt_Wiq6btyNdtk6iOzYtrHE8ZT2G_EHiVvGosxtEneN_0R29rLbz-t3fWGoGeFHDLajAILEZ8zJrUIY_N0MZ9-B39jEdt09j8dMHkGwYZ40e1bUKflV5EVOS4DG_DZzf--PY87DUSxHmJ7pGViROgX_SCJgQq3Bww1qCC56XOqKxFwpZf"/></div></header><main class="w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-xl max-w-[1400px] w-full mx-auto space-y-space-xl">
+<!-- Header / Page Top Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-base pb-space-base border-b border-outline-variant/30">
+<div class="space-y-space-2xs min-w-0">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Dashboards</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs flex-wrap">
+<span class="font-code-sm text-code-sm text-on-surface font-medium">5 active dashboards</span>
+<span class="text-outline-variant">•</span>
+<span>8 connected data sources</span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-sm text-code-sm text-outline">Global refresh daily at 04:00 UTC</span>
+</p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap shrink-0">
+<!-- Search filter -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline pointer-events-none">filter_list</span>
+<input class="pl-8 pr-8 py-1.5 h-8 bg-surface-container-lowest border border-outline-variant/40 rounded-[6px] text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all w-52" id="dashboard-search-input" placeholder="Filter dashboards... (/)" type="text"/>
+<kbd class="absolute right-2 font-code-sm text-code-sm bg-surface-container-high px-1 rounded text-on-surface-variant border border-outline-variant/40 leading-none py-0.5 pointer-events-none">/</kbd>
+</div>
+<!-- Refresh button + stamp -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest border border-outline-variant/40 rounded-[6px] px-2.5 py-1.5 h-8">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors font-body-sm text-body-sm" id="refresh-all-btn" title="Trigger manual refresh" type="button">
+<span class="material-symbols-outlined text-[16px] transition-transform" id="refresh-icon">refresh</span>
+<span class="font-medium text-xs">Refresh all</span>
+</button>
+<span class="w-px h-3.5 bg-outline-variant/40 mx-0.5"></span>
+<span class="font-code-sm text-[11px] text-outline whitespace-nowrap">18m ago</span>
+</div>
+<!-- Primary Action -->
+<button class="flex items-center gap-1.5 bg-primary-container hover:bg-primary text-on-primary px-3.5 py-1.5 h-8 rounded-[6px] font-body-sm text-body-sm font-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New dashboard</span>
+</button>
+</div>
+</div>
+<!-- Quick Status Ticker Banner -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-base bg-surface-container-low border border-outline-variant/30 rounded-[8px] p-space-base text-on-surface">
+<div class="flex items-center gap-space-base">
+<div class="w-8 h-8 rounded-[6px] bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+</div>
+<div class="min-w-0">
+<div class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Telemetry Total</div>
+<div class="font-headline-sm text-headline-sm font-semibold tabular-nums text-on-surface">2.41M <span class="font-code-sm text-[11px] text-secondary font-normal">+11.2%</span></div>
+</div>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="w-8 h-8 rounded-[6px] bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+</div>
+<div class="min-w-0">
+<div class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Median Latency</div>
+<div class="font-headline-sm text-headline-sm font-semibold tabular-nums text-on-surface">38.4ms <span class="font-code-sm text-[11px] text-outline font-normal">p95 82ms</span></div>
+</div>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="w-8 h-8 rounded-[6px] bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</div>
+<div class="min-w-0">
+<div class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Ingress Pipelines</div>
+<div class="font-headline-sm text-headline-sm font-semibold tabular-nums text-on-surface">7 / 8 <span class="font-code-sm text-[11px] text-error font-medium">1 degraded</span></div>
+</div>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="w-8 h-8 rounded-[6px] bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">cloud_sync</span>
+</div>
+<div class="min-w-0">
+<div class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Sync Integrity</div>
+<div class="font-headline-sm text-headline-sm font-semibold tabular-nums text-on-surface">99.78% <span class="font-code-sm text-[11px] text-secondary font-medium">Stable</span></div>
+</div>
+</div>
+</div>
+<!-- Dashboard Cards Grid: 3 columns, 16px (1rem) gutters -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="dashboard-grid">
+<!-- Card 1: Football Analytics AI -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-5 flex flex-col justify-between hover:border-outline-variant/70 transition-all group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary-container transition-colors">Football Analytics AI</h2>
+<button aria-label="Card actions" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-4">8 widgets • 2 sources</p>
+<!-- Middle Mini Stat Strip -->
+<div class="grid grid-cols-2 gap-space-sm py-space-sm px-space-base bg-surface-container-low rounded-[6px] border border-outline-variant/20 mb-4">
+<div>
+<div class="font-label-md text-label-md text-outline">Active Matches</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">48</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-outline">Predictions/sec</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">1,840</div>
+</div>
+</div>
+<!-- Micro Schema Preview -->
+<div class="flex items-center gap-1.5 font-code-sm text-[11px] text-on-surface-variant mb-4">
+<span class="px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 font-mono">api.fastfoot.io/v3</span>
+<span class="text-outline">→</span>
+<span class="text-outline">infer_stream.onnx</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span>All sources OK</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline font-mono">Updated 18m ago</span>
+</div>
+</article>
+<!-- Card 2: CMS Articles -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-5 flex flex-col justify-between hover:border-outline-variant/70 transition-all group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary-container transition-colors">CMS Articles</h2>
+<button aria-label="Card actions" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-4">6 widgets • 1 source</p>
+<!-- Middle Mini Stat Strip -->
+<div class="grid grid-cols-2 gap-space-sm py-space-sm px-space-base bg-surface-container-low rounded-[6px] border border-outline-variant/20 mb-4">
+<div>
+<div class="font-label-md text-label-md text-outline">Published</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">8,429</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-outline">Daily Views</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">142.8k</div>
+</div>
+</div>
+<!-- Micro Schema Preview -->
+<div class="flex items-center gap-1.5 font-code-sm text-[11px] text-on-surface-variant mb-4">
+<span class="px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 font-mono">headless-cms/graphql</span>
+<span class="text-outline">→</span>
+<span class="text-outline">cdn-cached</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span>All sources OK</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline font-mono">Updated 1h ago</span>
+</div>
+</article>
+<!-- Card 3: Studio Auth & Billing (ERROR STATE CARD) -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 border-l-[4px] border-l-[#DC2626] rounded-[8px] p-5 flex flex-col justify-between hover:border-r-outline-variant/70 transition-all relative">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Studio Auth &amp; Billing</h2>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-mono uppercase bg-[#FEF2F2] text-[#991B1B] border border-[#FECACA] font-semibold">Error</span>
+</div>
+<button aria-label="Card actions" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-3">12 widgets • 3 sources</p>
+<!-- Error Alert Banner -->
+<div class="bg-[#FEF2F2] border border-[#FECACA] text-[#991B1B] rounded-[6px] px-2.5 py-2 mb-3.5 flex items-start justify-between gap-2">
+<div class="flex items-start gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-[#DC2626] shrink-0 mt-0.5">error</span>
+<p class="font-code-sm text-[12px] leading-tight break-words">
+<span class="font-semibold">v2 revenue:</span> key rejected (401) for the past 2 hours
+              </p>
+</div>
+<button class="font-code-sm text-[11px] font-bold text-[#991B1B] hover:text-[#7F1D1D] underline shrink-0 cursor-pointer pt-0.5" type="button">
+              Fix
+            </button>
+</div>
+<!-- Middle Mini Stat Strip with degradation tone -->
+<div class="grid grid-cols-2 gap-space-sm py-space-sm px-space-base bg-surface-container-low rounded-[6px] border border-outline-variant/20 mb-4">
+<div>
+<div class="font-label-md text-label-md text-[#991B1B]">Failed Syncs</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-[#DC2626] tabular-nums">14</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-outline">Stale Endpoints</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">1</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-[#DC2626] font-medium">
+<span class="w-2 h-2 rounded-full bg-[#DC2626] inline-block animate-pulse"></span>
+<span>1 source failing</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline font-mono">Updated 2h ago</span>
+</div>
+</article>
+<!-- Card 4: Mobile Client Telemetry -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-5 flex flex-col justify-between hover:border-outline-variant/70 transition-all group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary-container transition-colors">Mobile Client Telemetry</h2>
+<button aria-label="Card actions" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-4">10 widgets • 2 sources</p>
+<!-- Middle Mini Stat Strip -->
+<div class="grid grid-cols-2 gap-space-sm py-space-sm px-space-base bg-surface-container-low rounded-[6px] border border-outline-variant/20 mb-4">
+<div>
+<div class="font-label-md text-label-md text-outline">Crash-free</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">99.82%</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-outline">DAU</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">38,150</div>
+</div>
+</div>
+<!-- Micro Schema Preview -->
+<div class="flex items-center gap-1.5 font-code-sm text-[11px] text-on-surface-variant mb-4">
+<span class="px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 font-mono">analytics.studio/ingest</span>
+<span class="text-outline">→</span>
+<span class="text-outline">ios+android</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span>All sources OK</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline font-mono">Updated 6h ago</span>
+</div>
+</article>
+<!-- Card 5: Developer Platform -->
+<article class="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-5 flex flex-col justify-between hover:border-outline-variant/70 transition-all group">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary-container transition-colors">Developer Platform</h2>
+<button aria-label="Card actions" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors -mr-1" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-outline mb-4">14 widgets • 4 sources</p>
+<!-- Middle Mini Stat Strip -->
+<div class="grid grid-cols-2 gap-space-sm py-space-sm px-space-base bg-surface-container-low rounded-[6px] border border-outline-variant/20 mb-4">
+<div>
+<div class="font-label-md text-label-md text-outline">API Latency</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">42ms</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-outline">Webhook Success</div>
+<div class="font-metric-display text-[22px] leading-7 font-bold text-on-surface tabular-nums">99.9%</div>
+</div>
+</div>
+<!-- Micro Schema Preview -->
+<div class="flex items-center gap-1.5 font-code-sm text-[11px] text-on-surface-variant mb-4">
+<span class="px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 font-mono">envoy-gateway-edge</span>
+<span class="text-outline">→</span>
+<span class="text-outline">global-mesh</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-600 inline-block"></span>
+<span>All sources OK</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline font-mono">Updated 4m ago</span>
+</div>
+</article>
+<!-- Card 6: Dashed "New dashboard" Card -->
+<button class="border-2 border-dashed border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest/50 hover:bg-surface-container-lowest rounded-[8px] p-5 flex flex-col items-center justify-center text-center transition-all group min-h-[220px]" type="button">
+<div class="w-10 h-10 rounded-[6px] bg-surface-container-high group-hover:bg-primary-container/10 group-hover:text-primary-container text-on-surface-variant flex items-center justify-center transition-colors mb-3">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+<span class="font-body-md text-body-md font-semibold text-on-surface mb-1 group-hover:text-primary-container transition-colors">
+          New dashboard
+        </span>
+<span class="font-body-sm text-body-sm text-outline max-w-[210px] leading-snug">
+          Create custom views with JSON API endpoints
+        </span>
+<span class="mt-4 font-code-sm text-[11px] text-on-surface-variant/70 border border-outline-variant/30 px-2 py-0.5 rounded bg-surface-container-low font-mono">
+          Press 'N' anywhere
+        </span>
+</button>
+</div>
+<!-- Bottom Secondary Info / Engine Daemon Summary -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-base border-t border-outline-variant/20 text-outline font-code-sm text-code-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>Polling engine active: v2.4.1-build-988</span>
+<span class="text-outline-variant">•</span>
+<span>All crons normal</span>
+</div>
+<div class="flex items-center gap-space-base">
+<a class="hover:text-on-surface transition-colors" href="#">API Docs</a>
+<a class="hover:text-on-surface transition-colors" href="#">Cron Schedules</a>
+<a class="hover:text-on-surface transition-colors" href="#">Audit Log</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple interaction behavior
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('dashboard-search-input');
+    const cards = document.querySelectorAll('#dashboard-grid article');
+    const refreshBtn = document.getElementById('refresh-all-btn');
+    const refreshIcon = document.getElementById('refresh-icon');
+
+    // Hotkey '/' to focus search
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // Client-side quick filter
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const val = e.target.value.toLowerCase().trim();
+        cards.forEach((card) => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(val)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    }
+
+    // Refresh rotation micro-interaction
+    if (refreshBtn && refreshIcon) {
+      refreshBtn.addEventListener('click', () => {
+        refreshIcon.classList.add('rotate-180');
+        setTimeout(() => {
+          refreshIcon.classList.remove('rotate-180');
+        }, 500);
+      });
+    }
+  });
+</script></main></div></body></html>

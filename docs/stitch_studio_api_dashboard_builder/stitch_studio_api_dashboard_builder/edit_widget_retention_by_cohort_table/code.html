@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#2e3132", "primary-container": "#0f766e", "secondary": "#006a61", "primary-fixed": "#9cf2e8", "on-tertiary-container": "#e3e9ff", "surface-container-highest": "#e1e3e4", "surface-variant": "#e1e3e4", "tertiary-fixed": "#dce2f7", "surface-dim": "#d9dadb", "tertiary": "#4a5162", "surface-container-high": "#e7e8e9", "on-secondary-container": "#006f66", "on-primary": "#ffffff", "primary": "#005c55", "surface-tint": "#006a63", "secondary-container": "#86f2e4", "on-surface": "#191c1d", "on-primary-fixed-variant": "#00504a", "on-tertiary-fixed-variant": "#404758", "surface-container": "#edeeef", "outline-variant": "#bdc9c6", "primary-fixed-dim": "#80d5cb", "surface": "#f8f9fa", "tertiary-container": "#62697b", "on-surface-variant": "#3e4947", "on-primary-container": "#a3faef", "on-tertiary": "#ffffff", "inverse-on-surface": "#f0f1f2", "on-secondary": "#ffffff", "surface-bright": "#f8f9fa", "on-tertiary-fixed": "#141b2b", "outline": "#6e7977", "on-primary-fixed": "#00201d", "tertiary-fixed-dim": "#c0c6db", "inverse-primary": "#80d5cb", "on-error-container": "#93000a", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#005049", "on-secondary-fixed": "#00201d", "secondary-fixed-dim": "#6bd8cb", "background": "#f8f9fa", "secondary-fixed": "#89f5e7", "surface-container-lowest": "#ffffff", "error": "#ba1a1a", "surface-container-low": "#f3f4f5", "on-background": "#191c1d", "on-error": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-2xs": "0.125rem", "space-xs": "0.25rem", "gutter": "0.75rem", "space-lg": "1rem", "gutter-lg": "1rem", "space-sm": "0.375rem", "margin": "1rem", "space-2xl": "2rem", "space-base": "0.75rem", "space-md": "0.5rem", "space-xl": "1.5rem", "margin-lg": "1.5rem" }, "fontFamily": { "code-md": ["JetBrains Mono"], "code-lg": ["JetBrains Mono"], "body-sm": ["Inter"], "label-sm": ["Inter"], "code-sm": ["JetBrains Mono"], "headline-lg": ["Inter"], "headline-sm": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-md": ["Inter"], "headline-md": ["Inter"], "metric-display": ["Inter"] }, "fontSize": { "code-md": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0", "fontWeight": "400" }], "code-lg": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0", "fontWeight": "400" }], "label-sm": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "600" }], "code-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg": ["1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0", "fontWeight": "400" }], "body-lg": ["0.9375rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.005em", "fontWeight": "400" }], "label-md": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "metric-display": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.025em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 w-full px-gutter-lg flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-base flex-1 min-w-0"><button aria-label="Go back" class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><div class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant whitespace-nowrap"><span>Edit widget</span><span class="text-outline-variant">/</span></div><div class="flex-1 max-w-sm"><input aria-label="Widget title" class="w-full px-space-sm py-space-2xs bg-transparent hover:bg-surface-container-low focus:bg-surface-container-lowest text-body-md font-body-md text-on-surface rounded outline-none focus:ring-1 focus:ring-primary transition-all truncate" placeholder="Widget title..." type="text" value="Conversion"/></div></div><div class="flex items-center gap-space-base"><nav class="flex items-center gap-space-sm" data-active-classes="bg-primary-container text-on-primary-container"><a class="px-space-base py-space-xs text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded transition-colors" data-path="widget-editor" href="#">Editor</a><a class="px-space-base py-space-xs text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded transition-colors" data-path="query-preview" href="#">Query</a><a class="px-space-base py-space-xs text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded transition-colors" data-path="schema-settings" href="#">Schema</a></nav><div class="flex items-center gap-space-sm"><button class="px-space-base py-space-xs text-body-sm font-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded transition-colors" type="button">Cancel</button><button class="px-space-base py-space-xs text-body-sm font-body-sm bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary rounded font-medium transition-colors" type="button">Apply</button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-surface min-h-[calc(100vh-2.25rem)]"><div class="flex flex-col w-full h-[calc(100vh-3.5rem)] overflow-hidden">
+<div class="flex flex-1 w-full overflow-hidden">
+<!-- LEFT COLUMN: Schema & Response Scoped Explorer (340px) -->
+<aside class="w-[340px] shrink-0 bg-surface flex flex-col justify-between overflow-y-auto select-none">
+<div class="flex flex-col">
+<!-- Explorer Header -->
+<div class="px-space-base py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider font-semibold">Response</span>
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code-sm text-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+<span>v2 users</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">02:00 UTC</span>
+</div>
+<!-- Breadcrumb / Scoped Path -->
+<div class="px-space-base py-space-xs flex items-center justify-between bg-surface">
+<div class="flex items-center gap-1 min-w-0">
+<span class="material-symbols-outlined text-outline text-[16px] cursor-pointer hover:text-on-surface">arrow_back</span>
+<span class="font-label-sm text-label-sm text-outline truncate cursor-pointer hover:underline">All fields</span>
+<span class="text-outline text-label-sm">/</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface truncate">breakdowns.retention</span>
+</div>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-[10px] leading-tight shrink-0 font-medium">4 items</span>
+</div>
+<!-- Field Filter -->
+<div class="p-space-base bg-surface">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-2 text-outline text-[18px]">search</span>
+<input class="w-full pl-7 pr-space-sm py-1 bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded outline-none placeholder:text-outline focus:bg-surface-container-lowest transition-colors" placeholder="Search scoped fields..." type="text"/>
+</div>
+</div>
+<!-- Scope Tree Header -->
+<div class="px-space-base pt-space-xs pb-1 flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Row Schema (breakdowns.retention[i])</span>
+<span class="font-code-sm text-code-sm text-outline">5 keys</span>
+</div>
+<!-- Fields Tree -->
+<div class="flex flex-col gap-0.5 px-space-xs py-1">
+<!-- Item 1: cohort -->
+<div class="group flex items-center justify-between px-space-base py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-4 text-center font-code-sm text-code-sm font-semibold text-primary">Aa</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface truncate">cohort</span>
+<span class="font-code-sm text-code-sm text-outline truncate">"2026-08"</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[16px]">check</span>
+</div>
+<!-- Item 2: signups -->
+<div class="group flex items-center justify-between px-space-base py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-4 text-center font-code-sm text-code-sm font-semibold text-tertiary">#</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface truncate">signups</span>
+<span class="font-code-sm text-code-sm text-outline truncate">64</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[16px]">check</span>
+</div>
+<!-- Item 3: m1_pct -->
+<div class="group flex items-center justify-between px-space-base py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-4 text-center font-code-sm text-code-sm font-semibold text-secondary">%</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface truncate">m1_pct</span>
+<span class="font-code-sm text-code-sm text-outline truncate">51.6</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[16px]">check</span>
+</div>
+<!-- Item 4: m2_pct (ACTIVE / BOUND) -->
+<div class="flex items-center justify-between px-space-base py-2 rounded bg-primary-container text-on-primary-container shadow-sm cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-4 text-center font-code-sm text-code-sm font-bold text-on-primary-container">%</span>
+<span class="font-code-sm text-code-sm font-bold truncate">m2_pct</span>
+<span class="font-code-sm text-code-sm opacity-80 truncate">39.1</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-[9px] tracking-wider uppercase font-bold">Active / Bound</span>
+<span class="material-symbols-outlined text-on-primary-container text-[16px]">check_circle</span>
+</div>
+</div>
+<!-- Item 5: m3_pct -->
+<div class="group flex items-center justify-between px-space-base py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-4 text-center font-code-sm text-code-sm font-semibold text-secondary">%</span>
+<span class="font-code-sm text-code-sm font-medium text-on-surface truncate">m3_pct</span>
+<span class="font-code-sm text-code-sm text-outline truncate">32.8</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-[16px]">check</span>
+</div>
+</div>
+</div>
+<!-- Bottom Hint Alert -->
+<div class="m-space-base p-space-sm bg-surface-container rounded flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[18px] shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">
+          Click any schema field on the left to immediately bind to the active slot.
+        </p>
+</div>
+</aside>
+<!-- CENTER PREVIEW COLUMN: Flexible Workspace Canvas -->
+<section class="flex-1 bg-surface-container-low flex flex-col p-space-xl overflow-y-auto">
+<!-- Preview Meta Bar -->
+<div class="flex items-center justify-between pb-space-base">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Preview (8 × 2)</span>
+<span class="text-outline text-body-sm">•</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Realtime evaluation
+          </span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant bg-surface px-2 py-0.5 rounded shadow-sm">
+          Widget layout: 8 cols × 2 rows
+        </div>
+</div>
+<!-- Live Widget Canvas Card (8 cols × 2 rows footprint) -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-md p-space-base flex flex-col gap-space-base">
+<!-- Widget Internal Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[20px]">table_chart</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Retention by cohort</span>
+</div>
+<div class="flex items-center gap-space-base">
+<div class="flex items-center gap-1 px-space-sm py-1 bg-surface-container-low hover:bg-surface-container text-on-surface rounded text-body-sm font-body-sm cursor-pointer">
+<span>Last 30 days</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded text-outline hover:text-on-surface hover:bg-surface-container-low" type="button">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Rendered Data Grid -->
+<div class="overflow-x-auto rounded bg-surface-container-low/40">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2 px-space-base font-semibold">Cohort</th>
+<th class="py-2 px-space-base text-right font-semibold">Signups</th>
+<th class="py-2 px-space-base text-right font-semibold">Month 1</th>
+<th class="py-2 px-space-base text-right font-semibold">Month 2</th>
+<th class="py-2 px-space-base text-right font-semibold">Month 3</th>
+</tr>
+</thead>
+<tbody class="font-code-md text-code-md text-on-surface divide-y-0">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-space-base font-medium">2026-08</td>
+<td class="py-2.5 px-space-base text-right">64</td>
+<td class="py-2.5 px-space-base text-right">
+<span class="inline-block px-2 py-0.5 rounded bg-primary/20 text-on-surface font-medium">51.6%</span>
+</td>
+<td class="py-2.5 px-space-base text-right">
+<span class="inline-block px-2 py-0.5 rounded bg-primary/10 text-on-surface font-medium">39.1%</span>
+</td>
+<td class="py-2.5 px-space-base text-right">
+<span class="inline-block px-2 py-0.5 rounded bg-primary/5 text-on-surface">32.8%</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-space-base font-medium">2026-09</td>
+<td class="py-2.5 px-space-base text-right">72</td>
+<td class="py-2.5 px-space-base text-right">
+<span class="inline-block px-2 py-0.5 rounded bg-primary/25 text-on-surface font-semibold">54.2%</span>
+</td>
+<td class="py-2.5 px-space-base text-right">
+<span class="inline-block px-2 py-0.5 rounded bg-primary/15 text-on-surface font-medium">41.7%</span>
+</td>
+<td class="py-2.5 px-space-base text-right text-outline">—</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-space-base font-medium">2026-10</td>
+<td class="py-2.5 px-space-base text-right">60</td>
+<td class="py-2.5 px-space-base text-right">
+<span class="inline-block px-2 py-0.5 rounded bg-primary/20 text-on-surface font-medium">50.0%</span>
+</td>
+<td class="py-2.5 px-space-base text-right text-outline">—</td>
+<td class="py-2.5 px-space-base text-right text-outline">—</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-2.5 px-space-base font-medium">2026-11</td>
+<td class="py-2.5 px-space-base text-right">85</td>
+<td class="py-2.5 px-space-base text-right text-outline">—</td>
+<td class="py-2.5 px-space-base text-right text-outline">—</td>
+<td class="py-2.5 px-space-base text-right text-outline">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Sync Diagnostics Bar -->
+<div class="flex items-center justify-between pt-space-xs text-on-surface-variant font-code-sm text-[11px]">
+<div class="flex items-center gap-space-base">
+<span>source: <strong class="text-on-surface font-medium">v2 users</strong></span>
+<span>•</span>
+<span>rows: <code class="text-primary font-code-sm">breakdowns.retention</code></span>
+<span>•</span>
+<span>columns: <strong class="text-on-surface font-medium">5</strong></span>
+</div>
+<span class="text-primary font-medium">Synced (14ms)</span>
+</div>
+</div>
+<!-- Collapsible Diagnostic Inspection Card -->
+<div class="mt-space-lg w-full bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-base py-space-sm bg-surface-container flex items-center justify-between cursor-pointer select-none">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface">arrow_drop_down</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase text-on-surface">Sample row inspection (breakdowns.retention[0])</span>
+</div>
+<span class="font-code-sm text-[11px] text-on-surface-variant">application/json</span>
+</div>
+<div class="p-space-base bg-surface font-code-sm text-code-sm overflow-x-auto text-on-surface leading-relaxed">
+<pre class="m-0"><span class="text-outline">{</span>
+  <span class="text-primary">"cohort"</span>: <span class="text-secondary">"2026-08"</span>,
+  <span class="text-primary">"signups"</span>: <span class="text-tertiary">64</span>,
+  <span class="text-primary">"m1_pct"</span>: <span class="text-tertiary">51.6</span>,
+  <span class="text-primary">"m2_pct"</span>: <span class="text-tertiary font-bold">39.1</span>,     <span class="text-primary-container font-semibold">// ACTIVE BINDING</span>
+  <span class="text-primary">"m3_pct"</span>: <span class="text-tertiary">32.8</span>
+<span class="text-outline">}</span></pre>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Widget Settings Inspector (340px) -->
+<aside class="w-[340px] shrink-0 bg-surface-container-lowest p-space-base flex flex-col gap-space-base overflow-y-auto">
+<!-- Section: Header version -->
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Configurator</span>
+<span class="font-code-sm text-code-sm text-outline">Widget v1.24</span>
+</div>
+<!-- Widget Type Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm text-on-surface font-medium">TYPE</label>
+<div class="grid grid-cols-3 gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="py-1.5 px-2 rounded text-body-sm font-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">Stat</button>
+<button class="py-1.5 px-2 rounded text-body-sm font-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">Bar</button>
+<button class="py-1.5 px-2 rounded text-body-sm font-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">Line</button>
+<button class="py-1.5 px-2 rounded text-body-sm font-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">Breakdown</button>
+<button class="py-1.5 px-2 rounded text-body-sm font-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" type="button">Funnel</button>
+<button class="py-1.5 px-2 rounded text-body-sm font-body-sm bg-primary-container text-on-primary-container font-medium shadow-sm" type="button">Table</button>
+</div>
+</div>
+<!-- FIELDS Configuration -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wider uppercase">Fields</span>
+<!-- Rows Source Path Binding -->
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Rows</span>
+<div class="flex items-center justify-between bg-surface-container-low px-space-sm py-1.5 rounded">
+<span class="font-code-sm text-code-sm text-on-surface font-medium truncate">breakdowns.retention</span>
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-[10px]">4 items</span>
+<button class="text-outline hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+</div>
+<!-- Columns List -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Columns (5)</span>
+</div>
+<!-- Column 1 -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1.5 rounded hover:bg-surface-container transition-colors">
+<input class="w-16 px-1.5 py-0.5 bg-surface text-body-sm font-body-sm text-on-surface rounded outline-none" type="text" value="Cohort"/>
+<span class="font-code-sm text-code-sm text-primary px-1 truncate flex-1">cohort</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface px-1.5 py-0.5 rounded">Text</span>
+<div class="flex items-center text-outline">
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_upward</span></button>
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_downward</span></button>
+<button class="hover:text-on-surface px-0.5 ml-1" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+<!-- Column 2 -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1.5 rounded hover:bg-surface-container transition-colors">
+<input class="w-16 px-1.5 py-0.5 bg-surface text-body-sm font-body-sm text-on-surface rounded outline-none" type="text" value="Signups"/>
+<span class="font-code-sm text-code-sm text-tertiary px-1 truncate flex-1">signups</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface px-1.5 py-0.5 rounded">Number</span>
+<div class="flex items-center text-outline">
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_upward</span></button>
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_downward</span></button>
+<button class="hover:text-on-surface px-0.5 ml-1" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1.5 rounded hover:bg-surface-container transition-colors">
+<input class="w-16 px-1.5 py-0.5 bg-surface text-body-sm font-body-sm text-on-surface rounded outline-none" type="text" value="Month 1"/>
+<span class="font-code-sm text-code-sm text-secondary px-1 truncate flex-1">m1_pct</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface px-1.5 py-0.5 rounded">Percent</span>
+<div class="flex items-center text-outline">
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_upward</span></button>
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_downward</span></button>
+<button class="hover:text-on-surface px-0.5 ml-1" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+<!-- Column 4: ACTIVE ITEM -->
+<div class="flex flex-col gap-1 p-1.5 rounded bg-surface-container shadow-sm">
+<div class="flex items-center gap-1">
+<input class="w-16 px-1.5 py-0.5 bg-surface-container-lowest text-body-sm font-body-sm text-on-surface font-semibold rounded outline-none" type="text" value="Month 2"/>
+<span class="font-code-sm text-code-sm text-primary font-bold px-1 truncate flex-1">m2_pct</span>
+<span class="text-label-sm font-label-sm text-on-primary-container bg-primary-container px-1.5 py-0.5 rounded">Percent</span>
+<div class="flex items-center text-on-surface">
+<button class="hover:text-primary px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_upward</span></button>
+<button class="hover:text-primary px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_downward</span></button>
+<button class="hover:text-error px-0.5 ml-1" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-body-sm text-primary pt-0.5">
+<span class="material-symbols-outlined text-[13px]">arrow_back</span>
+<span>Active slot • Click a field on the left</span>
+</div>
+</div>
+<!-- Column 5 -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1.5 rounded hover:bg-surface-container transition-colors">
+<input class="w-16 px-1.5 py-0.5 bg-surface text-body-sm font-body-sm text-on-surface rounded outline-none" type="text" value="Month 3"/>
+<span class="font-code-sm text-code-sm text-secondary px-1 truncate flex-1">m3_pct</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface px-1.5 py-0.5 rounded">Percent</span>
+<div class="flex items-center text-outline">
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_upward</span></button>
+<button class="hover:text-on-surface px-0.5" type="button"><span class="material-symbols-outlined text-[14px]">arrow_downward</span></button>
+<button class="hover:text-on-surface px-0.5 ml-1" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+<!-- Add column trigger -->
+<button class="flex items-center gap-1 py-1 text-primary hover:text-primary-container font-label-md text-label-md font-semibold self-start mt-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add column</span>
+</button>
+</div>
+</div>
+<!-- DISPLAY OPTIONS -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wider uppercase">Display Options</span>
+<!-- Toggle Tint -->
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Tint cells by value</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<span class="font-label-sm text-[11px] text-outline">Applies to percent columns</span>
+</div>
+<!-- Rows Stepper -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-body-sm text-body-sm text-on-surface">Rows shown</span>
+<div class="flex items-center bg-surface-container-low rounded">
+<button class="w-6 h-6 flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">-</button>
+<span class="px-2 font-code-sm text-code-sm font-semibold text-on-surface">6</span>
+<button class="w-6 h-6 flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- LAYOUT (Canvas grid) -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wider uppercase">Layout</span>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low p-2 rounded flex flex-col gap-0.5">
+<span class="font-label-sm text-[11px] text-outline">Width (cols)</span>
+<span class="font-code-md text-code-md font-bold text-on-surface">8</span>
+</div>
+<div class="bg-surface-container-low p-2 rounded flex flex-col gap-0.5">
+<span class="font-label-sm text-[11px] text-outline">Height (rows)</span>
+<span class="font-code-md text-code-md font-bold text-on-surface">2</span>
+</div>
+</div>
+</div>
+<!-- Inspector Footer -->
+<div class="pt-space-md text-on-surface-variant font-label-sm text-[11px] flex items-center justify-between">
+<span>Table Widget Editor v1.0</span>
+<a class="text-primary hover:underline" href="#">Documentation</a>
+</div>
+</aside>
+</div>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-9 w-full px-gutter-lg flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant"><div class="flex items-center gap-space-lg"><span class="font-code-sm text-code-sm">v2.4.0-engine</span><span class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Ready</span></div><div class="flex items-center gap-space-lg"><span>Widget Editor Core</span><span>UTF-8</span></div></div></footer></body></html>

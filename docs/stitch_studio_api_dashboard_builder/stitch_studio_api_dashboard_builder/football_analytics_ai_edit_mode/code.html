@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#00504a","on-primary-container":"#a3faef","surface":"#f8f9fa","error":"#ba1a1a","tertiary-fixed":"#dce2f7","on-tertiary-fixed":"#141b2b","secondary-fixed-dim":"#6bd8cb","background":"#f8f9fa","inverse-on-surface":"#f0f1f2","error-container":"#ffdad6","surface-variant":"#e1e3e4","on-primary-fixed":"#00201d","tertiary":"#4a5162","primary-fixed-dim":"#80d5cb","outline":"#6e7977","surface-dim":"#d9dadb","secondary-container":"#86f2e4","inverse-primary":"#80d5cb","surface-container-low":"#f3f4f5","primary-container":"#0f766e","on-error-container":"#93000a","surface-bright":"#f8f9fa","tertiary-container":"#62697b","primary-fixed":"#9cf2e8","on-primary":"#ffffff","on-secondary-container":"#006f66","secondary":"#006a61","on-surface":"#191c1d","surface-tint":"#006a63","on-secondary":"#ffffff","on-secondary-fixed-variant":"#005049","surface-container-high":"#e7e8e9","outline-variant":"#bdc9c6","tertiary-fixed-dim":"#c0c6db","on-tertiary":"#ffffff","on-surface-variant":"#3e4947","on-background":"#191c1d","on-secondary-fixed":"#00201d","surface-container":"#edeeef","secondary-fixed":"#89f5e7","on-tertiary-container":"#e3e9ff","surface-container-highest":"#e1e3e4","inverse-surface":"#2e3132","on-error":"#ffffff","on-tertiary-fixed-variant":"#404758","surface-container-lowest":"#ffffff","primary":"#005c55"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.375rem","space-base":"0.75rem",margin:"1rem","space-2xl":"2rem","margin-lg":"1.5rem",gutter:"0.75rem","space-lg":"1rem","space-md":"0.5rem","space-xl":"1.5rem","space-2xs":"0.125rem","space-xs":"0.25rem","gutter-lg":"1rem"},fontFamily:{"code-md":["JetBrains Mono"],"body-sm":["Inter"],"metric-display":["Inter"],"headline-sm":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"code-lg":["JetBrains Mono"],"label-sm":["Inter"],"headline-lg":["Inter"],"code-sm":["JetBrains Mono"]},fontSize:{"code-md":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"body-sm":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"metric-display":["1.75rem",{lineHeight:"2.25rem",letterSpacing:"-0.025em",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"500"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["0.9375rem",{lineHeight:"1.5rem",letterSpacing:"-0.005em",fontWeight:"400"}],"body-md":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"0",fontWeight:"400"}],"code-lg":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"-0.01em",fontWeight:"500"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.04em",fontWeight:"600"}],"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"code-sm":["0.75rem",{lineHeight:"1.125rem",letterSpacing:"0",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center text-on-primary font-headline-sm text-xs font-bold">S</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">Stats</span><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium tracking-wide uppercase">Studio Ops</span></div><button aria-label="Collapse sidebar" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="p-space-sm"><div class="px-space-xs py-space-2xs mb-space-xs"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Workspace</span></div><nav class="space-y-space-2xs" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold"><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sources" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span>Sources</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sync-history" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Sync history</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav></div></div><div class="flex flex-col border-t border-outline-variant/20 p-space-base bg-surface-container-lowest"><div class="flex items-center gap-space-xs mb-space-base"><span class="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/20"></span><span class="font-code-sm text-code-sm text-outline truncate">All daemons active</span></div><div class="flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-label-md text-label-md font-semibold overflow-hidden shrink-0 border border-outline-variant/30">ER</div><div class="min-w-0 flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-semibold truncate leading-tight">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline truncate leading-tight">Lead Engineer</span></div></div><button aria-label="Account menu" class="text-outline hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/20 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-base"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-on-surface cursor-pointer font-medium">Acme Studio</span><span class="text-outline-variant">/</span><span class="text-on-surface font-semibold">Production</span><span class="font-label-sm text-label-sm ml-space-xs px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium">v2.4.1</span></div><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><div class="flex items-center gap-space-xs text-outline font-code-sm text-code-sm"><span class="material-symbols-outlined text-[14px]">schedule</span><span>Scheduled: daily at 04:00 UTC • Next in 14h</span></div></div><div class="flex items-center gap-space-base"><button class="flex items-center gap-space-sm px-space-base py-space-xs bg-surface-container-low hover:bg-surface-container border border-outline-variant/30 rounded text-outline hover:text-on-surface transition-all font-body-sm text-body-sm" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-md text-label-md">Quick find</span><kbd class="font-code-sm text-code-sm bg-surface-container-highest px-space-xs rounded text-on-surface-variant border border-outline-variant/40">⌘K</kbd></button><button class="flex items-center gap-space-xs px-space-base py-space-xs rounded bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-body-sm text-body-sm font-medium" type="button"><span class="material-symbols-outlined text-[16px]">sync</span><span>Sync all</span></button><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida/ALJJyrCgJC84k2oehWBShWU1UwTEEIzVSbOgm6WLBPDAC3g14ZdbWDjxSC9mDqopt_Wiq6btyNdtk6iOzYtrHE8ZT2G_EHiVvGosxtEneN_0R29rLbz-t3fWGoGeFHDLajAILEZ8zJrUIY_N0MZ9-B39jEdt09j8dMHkGwYZ40e1bUKflV5EVOS4DG_DZzf--PY87DUSxHmJ7pGViROgX_SCJgQq3Bww1qCC56XOqKxFwpZf"/></div></header><main class="w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Secondary Sub-Header / Edit Mode Context Banner -->
+<div class="w-full bg-surface-container-lowest border-b border-outline-variant/30 px-space-xl py-space-sm flex items-center justify-between sticky top-14 z-30 shadow-sm">
+<!-- Left: Navigation breadcrumb, title & editing state indicators -->
+<div class="flex items-center gap-space-base min-w-0">
+<a class="w-7 h-7 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#" title="Back to dashboards">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</a>
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm min-w-0">
+<span class="text-outline hover:text-on-surface cursor-pointer">Dashboards</span>
+<span class="text-outline-variant">/</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate tracking-tight">Football Analytics AI</span>
+</div>
+<!-- Editing Tag & Data Source Badge -->
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="inline-flex items-center gap-1 font-code-sm text-code-sm px-2 py-0.5 rounded bg-primary-fixed/40 text-on-primary-fixed-variant border border-primary-fixed-dim/60 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Editing
+        </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-[#16A34A]"></span>
+          Connected • 2 sources
+        </span>
+</div>
+</div>
+<!-- Right: Edit Mode Top Actions -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-space-xs px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-low text-on-surface border border-outline-variant/50 transition-all font-body-sm text-body-sm font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">add</span>
+<span>Add widget</span>
+</button>
+<button class="px-3 py-1.5 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm font-medium" type="button">
+        Discard
+      </button>
+<button class="flex items-center gap-space-xs px-4 py-1.5 rounded bg-primary-container hover:bg-[#0D9488] active:bg-[#115E59] text-on-primary transition-all font-body-sm text-body-sm font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Save</span>
+</button>
+</div>
+</div>
+<!-- Page Tabs Bar with Inline Edit affordance -->
+<div class="w-full bg-surface-container-lowest/80 border-b border-outline-variant/30 px-space-xl flex items-center justify-between">
+<div class="flex items-center gap-1 -mb-px">
+<!-- Active Editable Tab -->
+<div class="relative group flex items-center gap-1.5 px-3 py-2 border-b-2 border-primary text-primary font-body-sm text-body-sm font-semibold bg-surface-container-low/40">
+<span class="material-symbols-outlined text-[15px] text-primary">drag_indicator</span>
+<input class="bg-transparent border border-outline-variant/40 rounded px-1.5 py-0.5 text-on-surface font-semibold text-body-sm w-24 focus:outline-none focus:border-primary focus:bg-surface-container-lowest" type="text" value="Overview"/>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-60 group-hover:opacity-100 cursor-pointer">edit</span>
+</div>
+<!-- Inactive Tabs -->
+<button class="flex items-center gap-1 px-3.5 py-2 border-b-2 border-transparent text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors font-body-sm text-body-sm" type="button">
+<span>Users</span>
+<span class="font-code-sm text-code-sm text-outline-variant">3</span>
+</button>
+<button class="flex items-center gap-1 px-3.5 py-2 border-b-2 border-transparent text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors font-body-sm text-body-sm" type="button">
+<span>Revenue</span>
+<span class="font-code-sm text-code-sm text-outline-variant">2</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 ml-1 text-outline hover:text-primary hover:bg-surface-container-high rounded text-label-sm font-medium transition-colors" title="Create new tab" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New page</span>
+</button>
+</div>
+<!-- Right layout metadata status -->
+<div class="flex items-center gap-space-base font-code-sm text-code-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span>Canvas: 12 cols • Row auto-pack</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span>Draft auto-saved 2m ago</span>
+</div>
+</div>
+<!-- Main Canvas + Inspector Split View -->
+<div class="flex w-full min-h-[calc(100vh-112px)] relative">
+<!-- Canvas Region with faint 12-column grid guide overlay -->
+<div class="flex-1 p-space-xl overflow-x-hidden relative bg-surface">
+<!-- Faint 12-Column Blueprint Guide Overlay (Visual structural cue) -->
+<div aria-hidden="true" class="absolute inset-0 pointer-events-none px-space-xl py-space-xl grid grid-cols-12 gap-3 opacity-30 select-none">
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+<div class="h-full border-x border-dashed border-outline-variant/40 bg-surface-container-high/10"></div>
+</div>
+<!-- 12-Column Widgets Grid -->
+<div class="relative z-10 grid grid-cols-12 gap-3">
+<!-- ROW 1: 4 Metric Cards (each w:3) -->
+<!-- Card 1: Accounts (w:3) -->
+<div class="col-span-3 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all p-3 relative group">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Accounts</span>
+<!-- Mini Tooling on Hover -->
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded" title="Edit"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded" title="Duplicate"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded" title="Delete"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="pt-2 flex items-baseline justify-between">
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">4,821</span>
+<span class="font-code-sm text-code-sm text-[#16A34A] flex items-center font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+12.4%
+            </span>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container-low pt-1">
+<span>pos: c1, r1</span>
+<span>span: 3×1</span>
+</div>
+</div>
+<!-- Card 2: Signups (w:3) -->
+<div class="col-span-3 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all p-3 relative group">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Signups (7d)</span>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="pt-2 flex items-baseline justify-between">
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">1,248</span>
+<span class="font-code-sm text-code-sm text-[#16A34A] flex items-center font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+8.1%
+            </span>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container-low pt-1">
+<span>pos: c4, r1</span>
+<span>span: 3×1</span>
+</div>
+</div>
+<!-- Card 3: MRR (w:3) -->
+<div class="col-span-3 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all p-3 relative group">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">MRR</span>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="pt-2 flex items-baseline justify-between">
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">$42,910</span>
+<span class="font-code-sm text-code-sm text-[#16A34A] flex items-center font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+18.7%
+            </span>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container-low pt-1">
+<span>pos: c7, r1</span>
+<span>span: 3×1</span>
+</div>
+</div>
+<!-- Card 4: Revenue (w:3) -->
+<div class="col-span-3 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all p-3 relative group">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider">Net ARR</span>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="pt-2 flex items-baseline justify-between">
+<span class="font-metric-display text-metric-display text-on-surface tracking-tight">$514,920</span>
+<span class="font-code-sm text-code-sm text-outline flex items-center font-medium">
+<span class="material-symbols-outlined text-[14px]">horizontal_rule</span>0.2%
+            </span>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container-low pt-1">
+<span>pos: c10, r1</span>
+<span>span: 3×1</span>
+</div>
+</div>
+<!-- ROW 2: Signups per day (w:8, SELECTED WITH ACCENT OUTLINE & FLOATING TOOLBAR) & User Type (w:4) -->
+<!-- SELECTED WIDGET: Signups per day (w:8) -->
+<div class="col-span-8 bg-surface-container-lowest rounded ring-2 ring-primary border border-primary relative shadow-md">
+<!-- Selected Badge / Coordinate Indicator Ribbon -->
+<div class="absolute -top-3 left-3 bg-primary text-on-primary font-code-sm text-code-sm px-2 py-0.5 rounded flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+<span>Signups per day • col 1, row 2, w 8, h 2</span>
+</div>
+<!-- Active Selection Resize Indicator Handles (Corner Dots) -->
+<div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-primary border-2 border-surface-container-lowest rounded-sm"></div>
+<div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-primary border-2 border-surface-container-lowest rounded-sm"></div>
+<div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-primary border-2 border-surface-container-lowest rounded-sm"></div>
+<div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-primary border-2 border-surface-container-lowest rounded-sm cursor-nwse-resize"></div>
+<!-- Widget Header with DOCKED FLOATING TOOLBAR -->
+<div class="h-10 px-space-base flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">bar_chart</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Signups per day</span>
+<span class="font-code-sm text-code-sm text-outline px-1.5 py-0.2 bg-surface-container rounded">daily_signups</span>
+</div>
+<!-- DOCKED 3-BUTTON FLOATING TOOLBAR -->
+<div class="flex items-center gap-0.5 bg-surface-container-lowest border border-outline-variant/60 rounded p-0.5 shadow-sm">
+<button class="flex items-center justify-center w-6 h-6 rounded text-primary bg-primary-fixed/30 hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors" title="Edit Widget Query" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="flex items-center justify-center w-6 h-6 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Duplicate Widget" type="button">
+<span class="material-symbols-outlined text-[15px]">content_copy</span>
+</button>
+<div class="w-px h-3.5 bg-outline-variant/40 mx-0.5"></div>
+<button class="flex items-center justify-center w-6 h-6 rounded text-outline hover:text-error hover:bg-error-container transition-colors" title="Delete Widget" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Chart Body Preview -->
+<div class="p-space-base">
+<div class="flex items-center justify-between text-outline font-code-sm text-code-sm mb-3">
+<span>Timeframe: Last 14 days</span>
+<span>Avg: 182 / day</span>
+</div>
+<!-- Inline SVG Bar Chart Simulation -->
+<div class="h-44 w-full flex items-end justify-between gap-2 pt-4 px-2 bg-surface/50 rounded border border-surface-container">
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/20 group-hover/bar:bg-primary rounded-t transition-all" style="height: 60px;"></div>
+<span class="font-code-sm text-[10px] text-outline">01</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/20 group-hover/bar:bg-primary rounded-t transition-all" style="height: 85px;"></div>
+<span class="font-code-sm text-[10px] text-outline">02</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/20 group-hover/bar:bg-primary rounded-t transition-all" style="height: 110px;"></div>
+<span class="font-code-sm text-[10px] text-outline">03</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/20 group-hover/bar:bg-primary rounded-t transition-all" style="height: 70px;"></div>
+<span class="font-code-sm text-[10px] text-outline">04</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/30 group-hover/bar:bg-primary rounded-t transition-all" style="height: 130px;"></div>
+<span class="font-code-sm text-[10px] text-outline">05</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/20 group-hover/bar:bg-primary rounded-t transition-all" style="height: 95px;"></div>
+<span class="font-code-sm text-[10px] text-outline">06</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary/40 group-hover/bar:bg-primary rounded-t transition-all" style="height: 145px;"></div>
+<span class="font-code-sm text-[10px] text-outline">07</span>
+</div>
+<div class="w-full flex flex-col items-center gap-1 group/bar">
+<div class="w-full bg-primary group-hover/bar:bg-primary rounded-t transition-all" style="height: 160px;"></div>
+<span class="font-code-sm text-[10px] text-primary font-bold">Today</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: User Type (w:4) -->
+<div class="col-span-4 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all flex flex-col relative group">
+<div class="h-10 px-space-base flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">pie_chart</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">User type</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="p-space-base flex-1 flex flex-col justify-between">
+<div class="space-y-3 pt-2">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface">Club Analysts</span>
+<span class="font-code-sm text-code-sm font-semibold">64%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface">Head Scouts</span>
+<span class="font-code-sm text-code-sm font-semibold">24%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full" style="width: 24%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface">Independent Agents</span>
+<span class="font-code-sm text-code-sm font-semibold">12%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full" style="width: 12%"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container pt-2">
+<span>pos: c9, r2</span>
+<span>span: 4×2</span>
+</div>
+</div>
+</div>
+<!-- ROW 3: Conversion (w:4) & Retention by cohort (w:8) -->
+<!-- Card: Conversion (w:4) -->
+<div class="col-span-4 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all relative group">
+<div class="h-10 px-space-base flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">filter_alt</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Funnel conversion</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="p-space-base space-y-2">
+<div class="flex items-center justify-between font-code-sm text-code-sm text-outline-variant">
+<span>Stage</span>
+<span>Rate</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface py-1 border-b border-surface-container-low">
+<span>Trial initiated</span>
+<span class="font-code-md text-code-md font-semibold">100%</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface py-1 border-b border-surface-container-low">
+<span>Telemetry connected</span>
+<span class="font-code-md text-code-md font-semibold">78.4%</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface py-1">
+<span>Paid license</span>
+<span class="font-code-md text-code-md font-semibold text-primary">31.2%</span>
+</div>
+<div class="mt-2 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container pt-1">
+<span>pos: c1, r3</span>
+<span>span: 4×2</span>
+</div>
+</div>
+</div>
+<!-- Card: Retention by Cohort (w:8) -->
+<div class="col-span-8 bg-surface-container-lowest border border-dashed border-outline-variant/80 rounded hover:border-outline transition-all relative group">
+<div class="h-10 px-space-base flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-outline">grid_on</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Retention by cohort</span>
+<span class="font-code-sm text-code-sm text-outline">N=1,420</span>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-0.5 bg-surface-container rounded px-1 py-0.5">
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">edit</span></button>
+<button class="text-outline hover:text-on-surface p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">content_copy</span></button>
+<button class="text-outline hover:text-error p-0.5 rounded"><span class="material-symbols-outlined text-[14px]">delete</span></button>
+</div>
+</div>
+<div class="p-space-base">
+<div class="grid grid-cols-6 gap-2 text-center font-code-sm text-code-sm mb-2 text-outline">
+<div class="text-left font-sans">Cohort</div>
+<div>W0</div>
+<div>W1</div>
+<div>W2</div>
+<div>W3</div>
+<div>W4</div>
+</div>
+<div class="space-y-1.5 font-code-sm text-code-sm">
+<div class="grid grid-cols-6 gap-2 items-center">
+<span class="text-on-surface text-left font-sans font-medium text-body-sm">Oct 2024</span>
+<span class="bg-primary/90 text-on-primary py-1 rounded">100%</span>
+<span class="bg-primary/80 text-on-primary py-1 rounded">82%</span>
+<span class="bg-primary/70 text-on-primary py-1 rounded">71%</span>
+<span class="bg-primary/60 text-on-primary py-1 rounded">68%</span>
+<span class="bg-primary/50 text-on-primary py-1 rounded">64%</span>
+</div>
+<div class="grid grid-cols-6 gap-2 items-center">
+<span class="text-on-surface text-left font-sans font-medium text-body-sm">Nov 2024</span>
+<span class="bg-primary/90 text-on-primary py-1 rounded">100%</span>
+<span class="bg-primary/80 text-on-primary py-1 rounded">86%</span>
+<span class="bg-primary/70 text-on-primary py-1 rounded">79%</span>
+<span class="bg-primary/60 text-on-primary py-1 rounded">74%</span>
+<span class="bg-surface-container text-outline py-1 rounded">—</span>
+</div>
+</div>
+<div class="mt-3 flex items-center justify-between text-outline font-code-sm text-code-sm border-t border-surface-container pt-1">
+<span>pos: c5, r3</span>
+<span>span: 8×2</span>
+</div>
+</div>
+</div>
+<!-- FULL-WIDTH DROP ZONE / APPEND WIDGET PLACEHOLDER -->
+<div class="col-span-12 border-2 border-dashed border-outline-variant/70 hover:border-primary hover:bg-surface-container-low/40 rounded transition-all py-8 flex flex-col items-center justify-center cursor-pointer group">
+<div class="w-9 h-9 rounded-full bg-surface-container-high group-hover:bg-primary group-hover:text-on-primary text-outline flex items-center justify-center transition-colors mb-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-semibold group-hover:text-primary transition-colors">Add widget</span>
+<span class="font-code-sm text-code-sm text-outline mt-0.5">Click + Add widget above or here to append a card to the 12-col grid</span>
+</div>
+</div>
+</div>
+<!-- RIGHT INSPECTOR PANEL: Fixed 300px width -->
+<aside class="w-[300px] shrink-0 bg-surface-container-lowest border-l border-outline-variant/30 flex flex-col h-[calc(100vh-112px)] sticky top-[112px] overflow-y-auto">
+<!-- Panel Header -->
+<div class="p-4 border-b border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">view_quilt</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Layout</span>
+</div>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium border border-outline-variant/30">
+          Bar chart
+        </span>
+</div>
+<!-- Selected Context Info -->
+<div class="px-4 py-3 bg-surface-container-low/50 border-b border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Signups per day</span>
+<span class="material-symbols-outlined text-[14px] text-primary">lock</span>
+</div>
+<p class="font-label-sm text-label-sm text-outline mt-1 leading-normal">
+          Position and dimensions are set via coordinates. Drag and drop is disabled.
+        </p>
+</div>
+<!-- Coordinates & Dimensions 2x2 Numeric Inputs -->
+<div class="p-4 border-b border-outline-variant/20 space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider font-semibold">Grid Coordinates</span>
+<span class="font-code-sm text-code-sm text-primary">x:1, y:2</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Column input -->
+<div>
+<label class="block font-label-sm text-label-sm text-outline mb-1">Column (1-12)</label>
+<div class="flex items-center border border-outline-variant/60 rounded focus-within:border-primary focus-within:ring-1 focus-within:ring-primary bg-surface-container-lowest overflow-hidden">
+<input class="w-full px-2.5 py-1.5 font-code-md text-code-md text-on-surface focus:outline-none" max="12" min="1" type="number" value="1"/>
+<div class="flex flex-col border-l border-outline-variant/30 bg-surface-container-low">
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▲</button>
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▼</button>
+</div>
+</div>
+</div>
+<!-- Row input -->
+<div>
+<label class="block font-label-sm text-label-sm text-outline mb-1">Row</label>
+<div class="flex items-center border border-outline-variant/60 rounded focus-within:border-primary focus-within:ring-1 focus-within:ring-primary bg-surface-container-lowest overflow-hidden">
+<input class="w-full px-2.5 py-1.5 font-code-md text-code-md text-on-surface focus:outline-none" min="1" type="number" value="2"/>
+<div class="flex flex-col border-l border-outline-variant/30 bg-surface-container-low">
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▲</button>
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▼</button>
+</div>
+</div>
+</div>
+<!-- Width input -->
+<div>
+<label class="block font-label-sm text-label-sm text-outline mb-1">Width (Cols)</label>
+<div class="flex items-center border border-outline-variant/60 rounded focus-within:border-primary focus-within:ring-1 focus-within:ring-primary bg-surface-container-lowest overflow-hidden">
+<input class="w-full px-2.5 py-1.5 font-code-md text-code-md text-on-surface font-semibold focus:outline-none" max="12" min="1" type="number" value="8"/>
+<div class="flex flex-col border-l border-outline-variant/30 bg-surface-container-low">
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▲</button>
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▼</button>
+</div>
+</div>
+</div>
+<!-- Height input -->
+<div>
+<label class="block font-label-sm text-label-sm text-outline mb-1">Height (Rows)</label>
+<div class="flex items-center border border-outline-variant/60 rounded focus-within:border-primary focus-within:ring-1 focus-within:ring-primary bg-surface-container-lowest overflow-hidden">
+<input class="w-full px-2.5 py-1.5 font-code-md text-code-md text-on-surface focus:outline-none" max="4" min="1" type="number" value="2"/>
+<div class="flex flex-col border-l border-outline-variant/30 bg-surface-container-low">
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▲</button>
+<button class="px-1 text-outline hover:text-on-surface leading-none text-[10px] py-0.5" type="button">▼</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Width Preset Segmented Control -->
+<div class="pt-2">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">Width preset</span>
+<span class="font-code-sm text-code-sm text-outline">66.6%</span>
+</div>
+<div class="grid grid-cols-5 gap-1 bg-surface-container p-1 rounded">
+<button class="py-1 font-code-sm text-code-sm rounded text-outline hover:text-on-surface text-center" type="button">3</button>
+<button class="py-1 font-code-sm text-code-sm rounded text-outline hover:text-on-surface text-center" type="button">4</button>
+<button class="py-1 font-code-sm text-code-sm rounded text-outline hover:text-on-surface text-center" type="button">6</button>
+<!-- Active 8 preset -->
+<button class="py-1 font-code-sm text-code-sm rounded bg-primary text-on-primary font-semibold text-center shadow-xs" type="button">8</button>
+<button class="py-1 font-code-sm text-code-sm rounded text-outline hover:text-on-surface text-center" type="button">12</button>
+</div>
+</div>
+</div>
+<!-- Data Binding & Properties Preview -->
+<div class="p-4 border-b border-outline-variant/20 space-y-3">
+<span class="font-label-md text-label-md text-outline uppercase tracking-wider font-semibold">Data Binding</span>
+<div class="bg-surface-container-low p-2.5 rounded border border-outline-variant/30 space-y-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">Source Endpoint</span>
+<span class="font-label-sm text-label-sm text-primary font-mono font-medium">PostgreSQL</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface bg-surface-container-lowest px-2 py-1 rounded border border-outline-variant/30 truncate">
+            v2 users.daily_signups
+          </div>
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-1">
+<span>Cache: 300s TTL</span>
+<span class="text-primary hover:underline cursor-pointer">Edit query</span>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Auto-compact rows</span>
+<input checked="" class="w-3.5 h-3.5 rounded border-outline-variant accent-primary cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Lock aspect ratio</span>
+<input class="w-3.5 h-3.5 rounded border-outline-variant accent-primary cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<!-- Widget Management Actions -->
+<div class="p-4 mt-auto space-y-2">
+<button class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface border border-outline-variant/40 font-body-sm text-body-sm font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">content_copy</span>
+<span>Duplicate widget</span>
+</button>
+<button class="w-full flex items-center justify-center gap-1.5 py-1.5 rounded text-error hover:bg-error-container/40 font-body-sm text-body-sm font-medium transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Remove from dashboard</span>
+</button>
+</div>
+</aside>
+</div>
+</div></main></div></body></html>

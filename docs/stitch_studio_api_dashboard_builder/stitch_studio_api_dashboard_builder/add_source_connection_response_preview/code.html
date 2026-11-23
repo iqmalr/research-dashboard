@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-fixed-variant":"#00504a","on-primary-container":"#a3faef","surface":"#f8f9fa","error":"#ba1a1a","tertiary-fixed":"#dce2f7","on-tertiary-fixed":"#141b2b","secondary-fixed-dim":"#6bd8cb","background":"#f8f9fa","inverse-on-surface":"#f0f1f2","error-container":"#ffdad6","surface-variant":"#e1e3e4","on-primary-fixed":"#00201d","tertiary":"#4a5162","primary-fixed-dim":"#80d5cb","outline":"#6e7977","surface-dim":"#d9dadb","secondary-container":"#86f2e4","inverse-primary":"#80d5cb","surface-container-low":"#f3f4f5","primary-container":"#0f766e","on-error-container":"#93000a","surface-bright":"#f8f9fa","tertiary-container":"#62697b","primary-fixed":"#9cf2e8","on-primary":"#ffffff","on-secondary-container":"#006f66","secondary":"#006a61","on-surface":"#191c1d","surface-tint":"#006a63","on-secondary":"#ffffff","on-secondary-fixed-variant":"#005049","surface-container-high":"#e7e8e9","outline-variant":"#bdc9c6","tertiary-fixed-dim":"#c0c6db","on-tertiary":"#ffffff","on-surface-variant":"#3e4947","on-background":"#191c1d","on-secondary-fixed":"#00201d","surface-container":"#edeeef","secondary-fixed":"#89f5e7","on-tertiary-container":"#e3e9ff","surface-container-highest":"#e1e3e4","inverse-surface":"#2e3132","on-error":"#ffffff","on-tertiary-fixed-variant":"#404758","surface-container-lowest":"#ffffff","primary":"#005c55"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.375rem","space-base":"0.75rem",margin:"1rem","space-2xl":"2rem","margin-lg":"1.5rem",gutter:"0.75rem","space-lg":"1rem","space-md":"0.5rem","space-xl":"1.5rem","space-2xs":"0.125rem","space-xs":"0.25rem","gutter-lg":"1rem"},fontFamily:{"code-md":["JetBrains Mono"],"body-sm":["Inter"],"metric-display":["Inter"],"headline-sm":["Inter"],"label-md":["Inter"],"headline-md":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"code-lg":["JetBrains Mono"],"label-sm":["Inter"],"headline-lg":["Inter"],"code-sm":["JetBrains Mono"]},fontSize:{"code-md":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"body-sm":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0",fontWeight:"400"}],"metric-display":["1.75rem",{lineHeight:"2.25rem",letterSpacing:"-0.025em",fontWeight:"600"}],"headline-sm":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.01em",fontWeight:"600"}],"label-md":["0.75rem",{lineHeight:"1rem",letterSpacing:"0.02em",fontWeight:"500"}],"headline-md":["1.25rem",{lineHeight:"1.75rem",letterSpacing:"-0.015em",fontWeight:"600"}],"body-lg":["0.9375rem",{lineHeight:"1.5rem",letterSpacing:"-0.005em",fontWeight:"400"}],"body-md":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"0",fontWeight:"400"}],"code-lg":["0.875rem",{lineHeight:"1.375rem",letterSpacing:"-0.01em",fontWeight:"500"}],"label-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.04em",fontWeight:"600"}],"headline-lg":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}],"code-sm":["0.75rem",{lineHeight:"1.125rem",letterSpacing:"0",fontWeight:"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-base flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-primary-container flex items-center justify-center text-on-primary font-headline-sm text-xs font-bold">S</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">Stats</span><span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium tracking-wide uppercase">Studio Ops</span></div><button aria-label="Collapse sidebar" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="p-space-sm"><div class="px-space-xs py-space-2xs mb-space-xs"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Workspace</span></div><nav class="space-y-space-2xs" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold"><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sources" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span>Sources</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="sync-history" href="#"><span class="material-symbols-outlined text-[18px]">sync_alt</span><span>Sync history</span></a><a class="flex items-center gap-space-sm px-space-base py-space-xs rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[18px]">settings</span><span>Settings</span></a></nav></div></div><div class="flex flex-col border-t border-outline-variant/20 p-space-base bg-surface-container-lowest"><div class="flex items-center gap-space-xs mb-space-base"><span class="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/20"></span><span class="font-code-sm text-code-sm text-outline truncate">All daemons active</span></div><div class="flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-sm min-w-0"><div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant font-label-md text-label-md font-semibold overflow-hidden shrink-0 border border-outline-variant/30">ER</div><div class="min-w-0 flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-semibold truncate leading-tight">Elena Rostova</span><span class="font-label-sm text-label-sm text-outline truncate leading-tight">Lead Engineer</span></div></div><button aria-label="Account menu" class="text-outline hover:text-on-surface hover:bg-surface-container-high p-space-2xs rounded transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">more_vert</span></button></div></div></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/20 z-40 px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-base"><div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant"><span class="hover:text-on-surface cursor-pointer font-medium">Acme Studio</span><span class="text-outline-variant">/</span><span class="text-on-surface font-semibold">Production</span><span class="font-label-sm text-label-sm ml-space-xs px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-medium">v2.4.1</span></div><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><div class="flex items-center gap-space-xs text-outline font-code-sm text-code-sm"><span class="material-symbols-outlined text-[14px]">schedule</span><span>Scheduled: daily at 04:00 UTC • Next in 14h</span></div></div><div class="flex items-center gap-space-base"><button class="flex items-center gap-space-sm px-space-base py-space-xs bg-surface-container-low hover:bg-surface-container border border-outline-variant/30 rounded text-outline hover:text-on-surface transition-all font-body-sm text-body-sm" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-md text-label-md">Quick find</span><kbd class="font-code-sm text-code-sm bg-surface-container-highest px-space-xs rounded text-on-surface-variant border border-outline-variant/40">⌘K</kbd></button><button class="flex items-center gap-space-xs px-space-base py-space-xs rounded bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface hover:text-primary transition-all font-body-sm text-body-sm font-medium" type="button"><span class="material-symbols-outlined text-[16px]">sync</span><span>Sync all</span></button><div class="h-4 w-px bg-outline-variant/30 mx-space-xs"></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida/ALJJyrCgJC84k2oehWBShWU1UwTEEIzVSbOgm6WLBPDAC3g14ZdbWDjxSC9mDqopt_Wiq6btyNdtk6iOzYtrHE8ZT2G_EHiVvGosxtEneN_0R29rLbz-t3fWGoGeFHDLajAILEZ8zJrUIY_N0MZ9-B39jEdt09j8dMHkGwYZ40e1bUKflV5EVOS4DG_DZzf--PY87DUSxHmJ7pGViROgX_SCJgQq3Bww1qCC56XOqKxFwpZf"/></div></header><main class="w-full pt-14 bg-surface min-h-screen"><div class="flex flex-col w-full relative min-h-[calc(100vh-3.5rem)]">
+<!-- DIMMED BACKGROUND LAYER: Authentic Sources Screen (Based on SCREEN_2) -->
+<div class="w-full p-space-xl opacity-35 pointer-events-none select-none filter blur-[0.5px]">
+<!-- Sources Top Bar -->
+<div class="flex items-center justify-between pb-space-lg">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline">
+<span>DATA PIPELINES</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">ACTIVE INGESTION NODES</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Connected Sources</h1>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="h-8 px-space-base bg-surface-container-lowest rounded flex items-center gap-space-xs shadow-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+<span>Filter (8 active)</span>
+</div>
+<div class="h-8 px-space-base bg-primary-container text-on-primary rounded flex items-center gap-space-xs font-body-sm text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New Source</span>
+</div>
+</div>
+</div>
+<!-- Metrics Strip -->
+<div class="grid grid-cols-4 gap-gutter mb-space-xl">
+<div class="bg-surface-container-lowest p-space-base rounded shadow-sm flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Total Throughput</span>
+<span class="font-metric-display text-metric-display text-on-surface">184.2 <span class="font-code-md text-code-md text-outline">req/s</span></span>
+<span class="font-code-sm text-code-sm text-primary">+8.4% from peak</span>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded shadow-sm flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Avg Latency p95</span>
+<span class="font-metric-display text-metric-display text-on-surface">312 <span class="font-code-md text-code-md text-outline">ms</span></span>
+<span class="font-code-sm text-code-sm text-outline">Nominal buffer</span>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded shadow-sm flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Active Endpoints</span>
+<span class="font-metric-display text-metric-display text-on-surface">14<span class="font-headline-sm text-headline-sm text-outline font-normal">/16</span></span>
+<span class="font-code-sm text-code-sm text-primary">All healthy</span>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded shadow-sm flex flex-col gap-space-2xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Failed Syncs (24h)</span>
+<span class="font-metric-display text-metric-display text-on-surface">0</span>
+<span class="font-code-sm text-code-sm text-outline">Zero drop rate</span>
+</div>
+</div>
+<!-- Data Table View -->
+<div class="bg-surface-container-lowest rounded shadow-sm overflow-hidden">
+<div class="bg-surface-container-low px-space-base py-space-sm flex items-center justify-between text-outline font-label-sm text-label-sm">
+<div class="w-1/4">ENDPOINT &amp; IDENTIFIER</div>
+<div class="w-1/6">METHOD</div>
+<div class="w-1/6">SCHEDULE</div>
+<div class="w-1/6">LAST STATUS</div>
+<div class="w-1/6 text-right">PAYLOAD SIZE</div>
+</div>
+<div class="px-space-base py-space-sm flex items-center justify-between bg-surface-container-lowest font-body-sm text-body-sm">
+<div class="w-1/4 flex items-center gap-space-xs font-code-md text-code-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<span>production-auth-tokens</span>
+</div>
+<div class="w-1/6 font-code-sm text-code-sm text-outline">GET /v1/tokens</div>
+<div class="w-1/6 text-on-surface-variant font-code-sm text-code-sm">Every 5m</div>
+<div class="w-1/6">
+<span class="inline-flex items-center px-space-xs py-space-2xs rounded bg-surface-container text-primary font-code-sm text-code-sm font-medium">200 OK</span>
+</div>
+<div class="w-1/6 text-right font-code-md text-code-md text-outline">4.2 KB</div>
+</div>
+<div class="px-space-base py-space-sm flex items-center justify-between bg-surface-container-low/40 font-body-sm text-body-sm">
+<div class="w-1/4 flex items-center gap-space-xs font-code-md text-code-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<span>stripe-billing-stream</span>
+</div>
+<div class="w-1/6 font-code-sm text-code-sm text-outline">POST /v2/sync</div>
+<div class="w-1/6 text-on-surface-variant font-code-sm text-code-sm">Every 1h</div>
+<div class="w-1/6">
+<span class="inline-flex items-center px-space-xs py-space-2xs rounded bg-surface-container text-primary font-code-sm text-code-sm font-medium">200 OK</span>
+</div>
+<div class="w-1/6 text-right font-code-md text-code-md text-outline">89.1 KB</div>
+</div>
+</div>
+</div>
+<!-- MODAL BACKDROP OVERLAY -->
+<div class="fixed inset-0 bg-[#111827]/30 backdrop-blur-[2px] z-50 flex items-center justify-center p-space-xl" id="modal-scrim">
+<!-- CENTRAL MODAL DIALOG CONTAINER -->
+<div class="w-full max-w-5xl bg-surface-container-lowest rounded-lg shadow-xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+<!-- MODAL HEADER -->
+<div class="px-space-xl py-space-base bg-surface-container-lowest flex items-center justify-between">
+<div class="flex items-center gap-space-base">
+<div class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Add source</h2>
+<p class="font-label-sm text-label-sm text-outline tracking-normal">Register and validate REST endpoint payload configuration</p>
+</div>
+</div>
+<button aria-label="Close modal" class="w-8 h-8 rounded hover:bg-surface-container flex items-center justify-center text-outline hover:text-on-surface transition-colors" id="close-modal-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- STEPPER NAVIGATION BAR -->
+<div class="bg-surface-container-low px-space-xl py-space-sm flex items-center">
+<div class="flex items-center gap-space-sm">
+<!-- Step 1: Completed / Validated -->
+<div class="flex items-center gap-space-xs">
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary font-code-sm text-code-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]">check</span>
+</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">1. Connection</span>
+<span class="font-code-sm text-code-sm px-space-xs py-space-2xs rounded bg-surface-container text-primary font-medium">Verified</span>
+</div>
+<!-- Divider Track -->
+<div class="w-12 h-px bg-surface-container-highest mx-space-xs"></div>
+<!-- Step 2: Active / Current -->
+<div class="flex items-center gap-space-xs">
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary font-code-sm text-code-sm font-semibold flex items-center justify-center">2</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">2. Response preview</span>
+<span class="font-label-sm text-label-sm px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant font-semibold uppercase tracking-wider">Awaiting Confirmation</span>
+</div>
+</div>
+<div class="ml-auto flex items-center gap-space-xs text-outline font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[15px]">security</span>
+<span>TLS 1.3 Strict Verified</span>
+</div>
+</div>
+<!-- SPLIT VIEW CONTENT PANELS -->
+<div class="grid grid-cols-12 min-h-[440px]">
+<!-- LEFT PANEL: Step 1 Connection Config (Side-by-side verification state) -->
+<div class="col-span-5 p-space-xl bg-surface-container-lowest flex flex-col justify-between">
+<div class="flex flex-col gap-space-base">
+<div class="flex items-center justify-between pb-space-xs">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Parameters</span>
+<button class="font-label-sm text-label-sm text-primary hover:text-on-secondary-container font-semibold transition-colors">Edit values</button>
+</div>
+<!-- Field 1: Name -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium" for="source-name">Name</label>
+<input class="w-full bg-surface-container-low text-on-surface font-body-md text-body-md px-space-base py-space-xs rounded focus:outline-none cursor-default" id="source-name" readonly="" type="text" value="v3 payments"/>
+</div>
+<!-- Field 2: Endpoint URL -->
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium" for="endpoint-url">Endpoint URL</label>
+<span class="font-code-sm text-code-sm text-outline">HTTP GET</span>
+</div>
+<div class="flex items-center bg-surface-container-low px-space-base py-space-xs rounded">
+<span class="font-code-sm text-code-sm text-outline mr-space-xs shrink-0 select-none">https://</span>
+<input class="w-full bg-transparent text-on-surface font-code-md text-code-md focus:outline-none cursor-default truncate" id="endpoint-url" readonly="" type="text" value="api.fastfoot.io/v3/stats/payments"/>
+</div>
+<p class="font-label-sm text-label-sm text-outline leading-tight mt-space-2xs">
+                Only https endpoints are allowed. The request is sent from the server.
+              </p>
+</div>
+<!-- Field 3: API Key with Show/Hide toggle -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium" for="api-key-input">API key</label>
+<div class="flex items-center bg-surface-container-low px-space-base py-space-xs rounded justify-between">
+<input class="w-full bg-transparent text-on-surface font-code-md text-code-md tracking-wider focus:outline-none cursor-default" id="api-key-input" readonly="" type="password" value="sk_live_94a7e2b109cc4c7fb881a4b"/>
+<button aria-label="Toggle API key visibility" class="text-outline hover:text-on-surface p-space-2xs rounded transition-colors ml-space-xs" id="toggle-mask-btn" type="button">
+<span class="material-symbols-outlined text-[16px]" id="eye-icon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Polling cadence summary card -->
+<div class="p-space-base bg-surface-container-low rounded flex items-center justify-between mt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-outline">sync</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sync Schedule</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">Every 15 minutes</span>
+</div>
+</div>
+<!-- Left Footnote validation state -->
+<div class="mt-space-base pt-space-base bg-surface-container-low/50 p-space-base rounded flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Connection handshake validated</span>
+</div>
+<button class="font-code-sm text-code-sm text-primary hover:underline font-medium">Re-test</button>
+</div>
+</div>
+<!-- RIGHT PANEL: Step 2 Response Preview (Interactive Schema Inspection) -->
+<div class="col-span-7 bg-surface-container-low/30 p-space-xl flex flex-col justify-between">
+<div class="flex flex-col gap-space-base">
+<!-- Success status banner strip -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-base rounded shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-6 h-6 rounded bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[15px]">done_all</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-code-md text-code-md font-semibold text-primary">200 OK</span>
+<span class="text-outline font-code-sm text-code-sm">•</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">412 ms</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Payload transfer: 18.4 KB compressed</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm">
+<span class="px-space-xs py-space-2xs rounded bg-surface-container text-outline">application/json</span>
+<button class="p-space-2xs rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" id="copy-json-btn" title="Copy raw payload">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Section guidance text -->
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Confirm endpoint payload structure before saving</span>
+<div class="flex items-center gap-space-xs">
+<button class="font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors" id="btn-collapse-all">Collapse all</button>
+<span class="text-outline-variant">•</span>
+<button class="font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors" id="btn-expand-all">Expand all</button>
+</div>
+</div>
+<!-- JSON SCHEMA TREE VIEWER -->
+<div class="bg-surface-container-lowest rounded p-space-base shadow-sm font-code-sm text-code-sm max-h-[260px] overflow-y-auto space-y-space-xs select-text">
+<!-- Root opening -->
+<div class="text-outline select-none">{</div>
+<!-- Node: meta -->
+<div class="pl-space-base flex flex-col gap-space-2xs" data-tree-node="meta">
+<div class="flex items-center gap-space-xs group cursor-pointer" onclick="toggleNode('meta')">
+<span class="material-symbols-outlined text-[14px] text-outline group-hover:text-on-surface transition-transform duration-100 rotate-90" id="caret-meta">arrow_right</span>
+<span class="text-on-surface font-semibold">"meta"</span><span class="text-outline">:</span>
+<span class="font-label-sm text-label-sm px-space-2xs rounded bg-surface-container text-outline group-hover:bg-surface-container-high transition-colors">{} object</span>
+</div>
+<div class="pl-space-base space-y-space-2xs" id="children-meta">
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"version"</span><span class="text-outline">:</span>
+<span class="text-primary font-medium">"3.1"</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider">str</span>
+</div>
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"cluster"</span><span class="text-outline">:</span>
+<span class="text-primary font-medium">"us-east-4"</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider">str</span>
+</div>
+</div>
+</div>
+<!-- Node: totals -->
+<div class="pl-space-base flex flex-col gap-space-2xs" data-tree-node="totals">
+<div class="flex items-center gap-space-xs group cursor-pointer" onclick="toggleNode('totals')">
+<span class="material-symbols-outlined text-[14px] text-outline group-hover:text-on-surface transition-transform duration-100 rotate-90" id="caret-totals">arrow_right</span>
+<span class="text-on-surface font-semibold">"totals"</span><span class="text-outline">:</span>
+<span class="font-label-sm text-label-sm px-space-2xs rounded bg-surface-container text-outline group-hover:bg-surface-container-high transition-colors">{} object</span>
+</div>
+<div class="pl-space-base space-y-space-2xs" id="children-totals">
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"transactions"</span><span class="text-outline">:</span>
+<span class="text-on-secondary-container font-semibold">4821</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider"># int</span>
+</div>
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"gross_volume_usd"</span><span class="text-outline">:</span>
+<span class="text-on-secondary-container font-semibold">142910</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider"># num</span>
+</div>
+</div>
+</div>
+<!-- Node: period -->
+<div class="pl-space-base flex flex-col gap-space-2xs" data-tree-node="period">
+<div class="flex items-center gap-space-xs group cursor-pointer" onclick="toggleNode('period')">
+<span class="material-symbols-outlined text-[14px] text-outline group-hover:text-on-surface transition-transform duration-100 rotate-90" id="caret-period">arrow_right</span>
+<span class="text-on-surface font-semibold">"period"</span><span class="text-outline">:</span>
+<span class="font-label-sm text-label-sm px-space-2xs rounded bg-surface-container text-outline group-hover:bg-surface-container-high transition-colors">{} object</span>
+</div>
+<div class="pl-space-base space-y-space-2xs" id="children-period">
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"window"</span><span class="text-outline">:</span>
+<span class="text-primary font-medium">"30d"</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider">str</span>
+</div>
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"chargebacks"</span><span class="text-outline">:</span>
+<span class="text-on-secondary-container font-semibold">3</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider"># int</span>
+</div>
+</div>
+</div>
+<!-- Node: series -->
+<div class="pl-space-base flex flex-col gap-space-2xs" data-tree-node="series">
+<div class="flex items-center gap-space-xs group cursor-pointer" onclick="toggleNode('series')">
+<span class="material-symbols-outlined text-[14px] text-outline group-hover:text-on-surface transition-transform duration-100 rotate-90" id="caret-series">arrow_right</span>
+<span class="text-on-surface font-semibold">"series"</span><span class="text-outline">:</span>
+<span class="font-label-sm text-label-sm px-space-2xs rounded bg-surface-container text-outline group-hover:bg-surface-container-high transition-colors">{} object</span>
+</div>
+<div class="pl-space-base space-y-space-2xs" id="children-series">
+<div class="flex items-center gap-space-xs pl-space-sm">
+<span class="text-on-surface-variant">"daily_volume"</span><span class="text-outline">:</span>
+<span class="font-label-sm text-label-sm px-space-xs rounded bg-secondary-container text-on-secondary-container font-medium">[ 30 items ]</span>
+<span class="font-label-sm text-label-sm text-outline ml-auto uppercase text-[9px] tracking-wider">[] arr</span>
+</div>
+</div>
+</div>
+<!-- Root closing -->
+<div class="text-outline select-none">}</div>
+</div>
+<!-- Auto-field Mapping Hint -->
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-primary">auto_awesome</span>
+<span>4 key-value roots automatically classified for ingestion index.</span>
+</div>
+</div>
+<!-- FOOTER ACTIONS -->
+<div class="flex items-center justify-between pt-space-base mt-space-base bg-surface-container-low/20">
+<button class="h-8 px-space-base bg-surface-container-lowest hover:bg-surface-container text-on-surface font-body-sm text-body-sm font-medium rounded shadow-sm transition-colors flex items-center gap-space-xs" id="back-step-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Back</span>
+</button>
+<div class="flex items-center gap-space-sm">
+<button class="h-8 px-space-base text-outline hover:text-on-surface font-body-sm text-body-sm transition-colors" id="cancel-btn" type="button">
+                Cancel
+              </button>
+<button class="h-8 px-space-xl bg-primary-container hover:bg-primary text-on-primary font-body-sm text-body-sm font-semibold rounded shadow-sm transition-all flex items-center gap-space-xs cursor-pointer active:translate-y-px" id="save-source-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Save source</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Toggle password masking
+  const toggleBtn = document.getElementById('toggle-mask-btn');
+  const keyInput = document.getElementById('api-key-input');
+  const eyeIcon = document.getElementById('eye-icon');
+  
+  if (toggleBtn && keyInput && eyeIcon) {
+    toggleBtn.addEventListener('click', () => {
+      if (keyInput.type === 'password') {
+        keyInput.type = 'text';
+        eyeIcon.textContent = 'visibility_off';
+      } else {
+        keyInput.type = 'password';
+        eyeIcon.textContent = 'visibility';
+      }
+    });
+  }
+
+  // Collapsible JSON node handler
+  window.toggleNode = function(nodeId) {
+    const children = document.getElementById('children-' + nodeId);
+    const caret = document.getElementById('caret-' + nodeId);
+    if (!children || !caret) return;
+    
+    if (children.classList.contains('hidden')) {
+      children.classList.remove('hidden');
+      caret.classList.add('rotate-90');
+    } else {
+      children.classList.add('hidden');
+      caret.classList.remove('rotate-90');
+    }
+  };
+
+  const collapseAllBtn = document.getElementById('btn-collapse-all');
+  const expandAllBtn = document.getElementById('btn-expand-all');
+  const nodes = ['meta', 'totals', 'period', 'series'];
+
+  if (collapseAllBtn) {
+    collapseAllBtn.addEventListener('click', () => {
+      nodes.forEach(id => {
+        const c = document.getElementById('children-' + id);
+        const caret = document.getElementById('caret-' + id);
+        if (c && caret) {
+          c.classList.add('hidden');
+          caret.classList.remove('rotate-90');
+        }
+      });
+    });
+  }
+
+  if (expandAllBtn) {
+    expandAllBtn.addEventListener('click', () => {
+      nodes.forEach(id => {
+        const c = document.getElementById('children-' + id);
+        const caret = document.getElementById('caret-' + id);
+        if (c && caret) {
+          c.classList.remove('hidden');
+          caret.classList.add('rotate-90');
+        }
+      });
+    });
+  }
+
+  // Copy raw payload button micro-action
+  const copyBtn = document.getElementById('copy-json-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const payload = {
+        meta: { version: "3.1", cluster: "us-east-4" },
+        totals: { transactions: 4821, gross_volume_usd: 142910 },
+        period: { window: "30d", chargebacks: 3 },
+        series: { daily_volume: "[30 items]" }
+      };
+      navigator.clipboard.writeText(JSON.stringify(payload, null, 2)).then(() => {
+        const original = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] text-primary">done</span>';
+        setTimeout(() => { copyBtn.innerHTML = original; }, 1500);
+      });
+    });
+  }
+
+  // Modal dismiss buttons
+  const closeModal = () => {
+    const scrim = document.getElementById('modal-scrim');
+    if (scrim) {
+      scrim.classList.add('opacity-0', 'transition-opacity', 'duration-150');
+      setTimeout(() => {
+        scrim.remove();
+      }, 150);
+    }
+  };
+
+  const closeBtn = document.getElementById('close-modal-btn');
+  const cancelBtn = document.getElementById('cancel-btn');
+  const saveBtn = document.getElementById('save-source-btn');
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+  if (saveBtn) {
+    saveBtn.addEventListener('click', () => {
+      saveBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span><span>Saving...</span>';
+      setTimeout(() => {
+        closeModal();
+      }, 600);
+    });
+  }
+</script></main></div></body></html>
