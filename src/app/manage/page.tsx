@@ -2,8 +2,8 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { loadStore } from "@/lib/store";
 import { relTime } from "@/lib/time";
-import { DeleteDashboardButton, NewDashboardButton } from "../_components/new-dashboard-button";
-import { SyncButton } from "../_components/sync-button";
+import { DeleteDashboardButton, NewDashboardButton } from "@/components/new-dashboard-button";
+import { SyncButton } from "@/components/sync-button";
 
 export default function ManagePage() {
   return (

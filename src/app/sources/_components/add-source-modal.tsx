@@ -1,6 +1,6 @@
 "use client";
 import { useState, useTransition } from "react";
-import { FieldTree } from "@/app/_components/field-tree";
+import { FieldTree } from "@/components/field-tree";
 import { useRouter } from "next/navigation";
 import { saveSourceAction, testSourceAction } from "@/lib/actions";
 import { connectorDef, type ConnectorField } from "@/lib/connectors/catalog";

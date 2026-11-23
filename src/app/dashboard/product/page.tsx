@@ -1,5 +1,5 @@
-import { StatCard } from "../../_components/stat-card";
-import { WidgetCard } from "../../_components/widget-card";
+import { StatCard } from "@/components/stat-card";
+import { WidgetCard } from "@/components/widget-card";
 
 const kpis = [
   { title: "Active Features",    value: 8,     description: "Live feature flags enabled",     source: "features.flags" },

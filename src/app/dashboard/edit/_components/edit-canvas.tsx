@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { WidgetView } from "@/app/_components/widgets/widget-view";
+import { WidgetView } from "@/components/widgets/widget-view";
 import { addPageAction, deletePageAction, deleteWidgetAction, duplicateWidgetAction, renamePageAction } from "@/lib/actions";
 import { TEMPLATE_PAGES } from "@/lib/templates";
 import type { DashboardPage, Period, SourceInfo } from "@/lib/types";

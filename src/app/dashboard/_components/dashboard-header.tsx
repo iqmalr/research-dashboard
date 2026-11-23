@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SyncButton } from "@/app/_components/sync-button";
+import { SyncButton } from "@/components/sync-button";
 import { PERIODS, type Period } from "@/lib/types";
 
 interface DashboardHeaderProps {

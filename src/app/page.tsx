@@ -4,10 +4,10 @@ import { loadStore } from "@/lib/store";
 import { relTime, shortDateTime, STALE_AFTER_MS } from "@/lib/time";
 import { parsePeriod, PERIODS, type Period } from "@/lib/types";
 import { GRID_ROW, gridStyle, snapsForRange, viewProps } from "@/lib/view";
-import { WidgetView } from "./_components/widgets/widget-view";
+import { WidgetView } from "@/components/widgets/widget-view";
 import { SourceBadge } from "./dashboard/_components/dashboard-header";
 import { ProblemBanner, type SourceProblem } from "./dashboard/_components/problem-banner";
-import { SyncButton } from "./_components/sync-button";
+import { SyncButton } from "@/components/sync-button";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 

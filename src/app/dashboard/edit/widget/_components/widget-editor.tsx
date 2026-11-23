@@ -3,8 +3,8 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FieldTree } from "@/app/_components/field-tree";
-import { WidgetView } from "@/app/_components/widgets/widget-view";
+import { FieldTree } from "@/components/field-tree";
+import { WidgetView } from "@/components/widgets/widget-view";
 import { saveWidgetAction } from "@/lib/actions";
 import { GRID_COLS, MAX_H } from "@/lib/grid";
 import { PERIODS, SLOTS, UNITS, WIDGET_META, WIDGET_TYPES, type Format, type Period, type SlotKind, type SourceInfo, type TableColumn, type Unit, type Widget, type WidgetType } from "@/lib/types";

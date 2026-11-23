@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { SyncButton } from "@/app/_components/sync-button";
+import { SyncButton } from "@/components/sync-button";
 
 export interface SourceProblem {
   id: string;

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { Suspense } from "react";
-import { Sidebar } from "./_components/sidebar";
-import { GlobalHeader } from "./_components/global-header";
+import { Sidebar } from "@/components/sidebar";
+import { GlobalHeader } from "@/components/global-header";
 import { loadStore } from "@/lib/store";
-import type { DashboardNav } from "./_components/sidebar";
+import type { DashboardNav } from "@/components/sidebar";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });

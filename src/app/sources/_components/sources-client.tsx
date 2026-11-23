@@ -2,7 +2,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { SyncButton } from "@/app/_components/sync-button";
+import { SyncButton } from "@/components/sync-button";
 import { deleteSourceAction } from "@/lib/actions";
 import { CONNECTOR_GROUPS, CONNECTORS, DEMO_HINT, kindLabel, type ConnectorDef } from "@/lib/connectors/catalog";
 import { PERIODS, type SourceInfo, type SourceKind } from "@/lib/types";

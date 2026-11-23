@@ -1,6 +1,6 @@
-import { StatCard } from "../../_components/stat-card";
-import { WidgetCard } from "../../_components/widget-card";
-import { BarChart } from "../../_components/bar-chart";
+import { StatCard } from "@/components/stat-card";
+import { WidgetCard } from "@/components/widget-card";
+import { BarChart } from "@/components/bar-chart";
 
 const kpis = [
   { title: "Total Users",     value: 1248, delta: 8.4,  description: "All-time registered accounts", source: "v2 users" },

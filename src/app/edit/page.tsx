@@ -4,7 +4,7 @@ import { loadStore } from "@/lib/store";
 import { relTime, shortDateTime, STALE_AFTER_MS } from "@/lib/time";
 import { parsePeriod } from "@/lib/types";
 import { GRID_ROW, gridStyle, snapsForRange, viewProps } from "@/lib/view";
-import { WidgetView } from "@/app/_components/widgets/widget-view";
+import { WidgetView } from "@/components/widgets/widget-view";
 import { DashboardHeader, dashboardHref } from "@/app/dashboard/_components/dashboard-header";
 import { ProblemBanner, type SourceProblem } from "@/app/dashboard/_components/problem-banner";
 
