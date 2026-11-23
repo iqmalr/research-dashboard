@@ -86,7 +86,7 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
 
         <div className="flex items-center gap-3 ml-auto">
           {/* Period selector */}
-          <div className="inline-flex items-center bg-surface-container-low p-0.5 rounded-[6px] border border-outline-variant/30 text-[0.75rem] font-medium">
+          <div className="inline-flex items-center bg-surface-container-low p-0.5 rounded-md border border-outline-variant/30 text-[0.75rem] font-medium">
             {PERIODS.map((p) => (
               <Link
                 key={p}
@@ -109,17 +109,17 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
             label="Refresh"
             icon="refresh"
             iconClassName="text-[15px] text-outline"
-            className="h-8 px-3 rounded-[6px] bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface transition-all flex items-center gap-1.5 text-[0.875rem] font-medium"
+            className="h-8 px-3 rounded-md bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface transition-all flex items-center gap-1.5 text-[0.875rem] font-medium"
           />
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6 space-y-4 max-w-[1400px]">
+      <div className="p-6 space-y-4 max-w-350">
         <ProblemBanner problems={problems} />
 
         {sources.length === 0 && (
-          <div className="flex items-center gap-3 p-3 rounded-[6px] bg-amber-50 border border-amber-200 text-[0.8125rem] text-amber-800">
+          <div className="flex items-center gap-3 p-3 rounded-md bg-amber-50 border border-amber-200 text-[0.8125rem] text-amber-800">
             <span className="material-symbols-outlined text-[18px] text-amber-600">database</span>
             <span className="flex-1">
               This dashboard has no source yet. Register an endpoint first, then add widgets.
@@ -134,7 +134,7 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
         )}
 
         {page.widgets.length === 0 ? (
-          <div className="border-2 border-dashed border-outline-variant/40 rounded-[8px] py-16 flex flex-col items-center gap-2 text-outline">
+          <div className="border-2 border-dashed border-outline-variant/40 rounded-lg py-16 flex flex-col items-center gap-2 text-outline">
             <span className="material-symbols-outlined text-[28px]">dashboard_customize</span>
             <div className="text-[0.875rem] font-medium text-on-surface-variant">This page has no widgets yet</div>
             <Link
@@ -147,7 +147,7 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
         ) : (
           <div className="grid grid-cols-12 gap-4" style={{ gridAutoRows: GRID_ROW }}>
             {page.widgets.map((w) => (
-              <div key={w.id} className="min-w-0 [&>*]:h-full" style={gridStyle(w.grid)}>
+              <div key={w.id} className="min-w-0 *:h-full" style={gridStyle(w.grid)}>
                 <WidgetView widget={w} {...viewProps(w, sources, snaps)} />
               </div>
             ))}
