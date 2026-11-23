@@ -91,6 +91,19 @@ Untuk mencoba sumber jenis JSON endpoint, pakai backend `research-dashboard-expr
 
 Endpoint mock menerima `?simulate=` di URL sumber untuk mencoba tampilan error: `401`, `500`, `rate_limit`, `slow` (delay 8 detik), `timeout`.
 
+**Mock Stripe API**, format identik dengan [Stripe API](https://stripe.com/docs/api), perlu `Authorization: Bearer <MOCK_API_KEY>` dan `ALLOW_MOCK_SOURCES=true` di backend. Tidak menerima `?range=` — gunakan `created[gte]` / `created[lte]` (Unix timestamp) seperti Stripe aslinya:
+
+| URL | Isi |
+|---|---|
+| `<base>/api/mock/stripe/v1/balance` | Saldo available & pending |
+| `<base>/api/mock/stripe/v1/balance_transactions` | Riwayat transaksi (charge, payment, refund) |
+| `<base>/api/mock/stripe/v1/charges` | Daftar charge |
+| `<base>/api/mock/stripe/v1/customers` | Daftar customer |
+| `<base>/api/mock/stripe/v1/subscriptions` | Daftar subscription (filter: `?status=active\|trialing\|canceled`) |
+| `<base>/api/mock/stripe/v1/invoices` | Daftar invoice |
+
+Data ini berguna untuk membangun widget dashboard berbasis data Stripe sebelum konektor Stripe sungguhan tersambung.
+
 Jangan tulis `?range=` di URL sumber. Dashboard menambahkannya sendiri per periode. Health check backend: `GET <base>/api/v1/health`.
 
 ## Penyimpanan
