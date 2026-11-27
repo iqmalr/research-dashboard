@@ -1,47 +1,92 @@
 @import "tailwindcss";
 
 :root {
-  /* ── Stitch MD3 tokens ── */
-  --primary: #005c55;
-  --primary-container: #0f766e;
-  --on-primary: #ffffff;
-  --on-primary-container: #a3faef;
-  --secondary: #006a61;
-  --secondary-container: #86f2e4;
-  --on-secondary: #ffffff;
-  --on-secondary-container: #006f66;
-  --surface: #f8f9fa;
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #f3f4f5;
-  --surface-container: #edeeef;
-  --surface-container-high: #e7e8e9;
-  --surface-container-highest: #e1e3e4;
-  --on-surface: #191c1d;
-  --on-surface-variant: #3e4947;
-  --outline: #6e7977;
-  --outline-variant: #bdc9c6;
-  --error: #ba1a1a;
-  --error-container: #ffdad6;
+  /* ── Palette from footballanalytic-stat ── */
+  --ground: #eef0f3;
+  --surface-1: #ffffff;
+  --surface-2: #f6f7f9;
+  --ink: #15171b;
+  --ink-2: #41454d;
+  --muted: #7a7f88;
+  --line: #e8eaee;
+  --line-strong: #c5cad3;
+  --accent-base: #2563eb;
+  --accent-soft: #dde8fd;
+  --accent-ink: #ffffff;
+  --hatch: #eceef2;
+  --good: #16803c;
+  --good-soft: #dff4e6;
+  --info: #6b4fd3;
+  --info-soft: #ebe5fd;
+  --bad: #c9303a;
+  --bad-soft: #fde3e4;
+  --warn-base: #9a6200;
+  --warn-soft: #fdf0d5;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-other: #9aa0a9;
+  --shadow: 0 1px 2px rgba(20, 23, 28, .04), 0 4px 12px rgba(20, 23, 28, .04);
+  color-scheme: light;
 
-  /* ── Legacy aliases (backward compat) ── */
-  --canvas: #f8f9fa;
-  --surface-low: #f3f4f5;
-  --border: #bdc9c6;
-  --border-subtle: #e7e8e9;
-  --fg: #191c1d;
-  --fg-2: #3e4947;
-  --fg-muted: #6e7977;
-  --accent: #0f766e;
-  --accent-container: #86f2e4;
-  --on-accent-container: #006f66;
-  --ok: #16a34a;
-  --warn: #d97706;
-  --err: #dc2626;
+  /* ── MD3 names used by components, mapped to the palette above ── */
+  --primary: var(--accent-base);
+  --primary-container: var(--accent-base);
+  --on-primary: var(--accent-ink);
+  --on-primary-container: var(--accent-ink);
+  --secondary: var(--accent-base);
+  --secondary-container: var(--accent-soft);
+  --on-secondary: var(--accent-ink);
+  --on-secondary-container: var(--accent-base);
+  --surface: var(--ground);
+  --surface-container-lowest: var(--surface-1);
+  --surface-container-low: var(--surface-2);
+  --surface-container: var(--hatch);
+  --surface-container-high: var(--line);
+  --surface-container-highest: var(--line-strong);
+  --on-surface: var(--ink);
+  --on-surface-variant: var(--ink-2);
+  --outline: var(--muted);
+  --outline-variant: var(--line-strong);
+  --error: var(--bad);
+  --error-container: var(--bad-soft);
+
+  /* ── Legacy aliases ── */
+  --canvas: var(--ground);
+  --surface-low: var(--surface-2);
+  --border: var(--line-strong);
+  --border-subtle: var(--line);
+  --fg: var(--ink);
+  --fg-2: var(--ink-2);
+  --fg-muted: var(--muted);
+  --accent: var(--accent-base);
+  --accent-container: var(--accent-soft);
+  --on-accent-container: var(--accent-base);
+  --ok: var(--good);
+  --warn: var(--warn-base);
+  --err: var(--bad);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0d0e11; --surface-1: #16181d; --surface-2: #1c1f25; --ink: #eceef1; --ink-2: #c3c7ce; --muted: #8b909a;
+    --line: #262930; --line-strong: #3a3e47; --accent-base: #5b8def; --accent-soft: #172642; --accent-ink: #0a1220; --hatch: #22252c;
+    --good: #4cc27a; --good-soft: #14301f; --info: #a996f5; --info-soft: #251d45; --bad: #ff6b72; --bad-soft: #3a1a1c;
+    --warn-base: #f0b64a; --warn-soft: #33270f; --shadow: none; color-scheme: dark;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-other: #6b7079;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0d0e11; --surface-1: #16181d; --surface-2: #1c1f25; --ink: #eceef1; --ink-2: #c3c7ce; --muted: #8b909a;
+  --line: #262930; --line-strong: #3a3e47; --accent-base: #5b8def; --accent-soft: #172642; --accent-ink: #0a1220; --hatch: #22252c;
+  --good: #4cc27a; --good-soft: #14301f; --info: #a996f5; --info-soft: #251d45; --bad: #ff6b72; --bad-soft: #3a1a1c;
+  --warn-base: #f0b64a; --warn-soft: #33270f; --shadow: none; color-scheme: dark;
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-other: #6b7079;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  --font-sans: var(--font-geist);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* ── MD3 color utilities ── */
   --color-primary: var(--primary);
@@ -85,4 +130,22 @@ body {
   background: var(--surface);
   color: var(--on-surface);
   -webkit-font-smoothing: antialiased;
+}
+
+/* ── Shared primitives, mirrored from footballanalytic-stat (.btn, .card) ── */
+@layer components {
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 7px 14px; border-radius: 16px; border: 1px solid var(--line);
+    background: var(--surface-1); color: var(--ink); font-size: 13px; line-height: 1.5;
+    white-space: nowrap; cursor: pointer; transition: border-color .15s, opacity .15s;
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn:disabled { opacity: .45; cursor: default; }
+  .btn-primary { background: var(--ink); border-color: var(--ink); color: var(--surface-1); }
+  .btn-primary:hover { border-color: var(--ink); opacity: .85; }
+  .card {
+    background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; box-shadow: var(--shadow); min-width: 0;
+  }
 }

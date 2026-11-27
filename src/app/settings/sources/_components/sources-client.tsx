@@ -2,6 +2,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useConfirm } from "@/components/confirm-dialog";
 import { SyncButton } from "@/components/sync-button";
 import { deleteSourceAction } from "@/lib/actions";
 import { CONNECTOR_GROUPS, CONNECTORS, DEMO_HINT, kindLabel, type ConnectorDef } from "@/lib/connectors/catalog";
@@ -39,21 +40,23 @@ export function SourcesClient({ rows: allRows, dashboards, filter, openAdd, mock
   const [modal, setModal] = useState<null | SourceKind | SourceRow>(openAdd ? "endpoint" : null);
   const [, start] = useTransition();
   const router = useRouter();
+  const { confirm, dialog: confirmDialog } = useConfirm();
 
   function closeModal() {
     setModal(null);
     // drop ?add=1 so a reload does not reopen the form
-    if (openAdd) router.replace(filter ? `/sources?d=${encodeURIComponent(filter)}` : "/sources");
+    if (openAdd) router.replace(filter ? `/settings/sources?d=${encodeURIComponent(filter)}` : "/settings/sources");
   }
 
-  function remove(s: SourceRow) {
+  async function remove(s: SourceRow) {
     const note = s.widgets > 0 ? ` ${s.widgets} widget(s) use it and will show “Source removed”.` : "";
-    if (!window.confirm(`Delete source “${s.name}” and its snapshots?${note}`)) return;
+    if (!(await confirm({ title: `Delete source “${s.name}”?`, message: `Its snapshots will be deleted too.${note}` }))) return;
     start(async () => void (await deleteSourceAction(s.id)));
   }
 
   return (
     <div className="p-6 max-w-[1400px] mx-auto space-y-6">
+      {confirmDialog}
       {modal && (
         <AddSourceModal
           key={typeof modal === "string" ? modal : modal.id}
@@ -80,9 +83,9 @@ export function SourcesClient({ rows: allRows, dashboards, filter, openAdd, mock
           <SyncButton
             dashboardId={filter || undefined}
             label={filter ? "Sync these" : "Sync all"}
-            className="flex items-center gap-1.5 px-3 h-8 rounded-[6px] bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface text-[0.875rem] font-medium transition-colors"
+            className="btn"
           />
-          <button onClick={() => setModal("endpoint")} className="flex items-center gap-1.5 bg-primary-container hover:bg-primary text-on-primary px-3.5 py-1.5 h-8 rounded-[6px] text-[0.875rem] font-medium transition-colors">
+          <button onClick={() => setModal("endpoint")} className="btn btn-primary">
             <span className="material-symbols-outlined text-[16px]">add</span>
             <span>Add endpoint</span>
           </button>
@@ -95,7 +98,7 @@ export function SourcesClient({ rows: allRows, dashboards, filter, openAdd, mock
         {[{ id: "", name: "All" }, ...dashboards].map((d) => (
           <Link
             key={d.id}
-            href={d.id ? `/sources?d=${encodeURIComponent(d.id)}` : "/sources"}
+            href={d.id ? `/settings/sources?d=${encodeURIComponent(d.id)}` : "/settings/sources"}
             className={["px-2.5 py-1 rounded-[6px] border font-medium transition-colors", filter === d.id ? "bg-primary-container text-on-primary border-primary-container" : "bg-surface-container-lowest text-on-surface-variant border-outline-variant/40 hover:text-on-surface"].join(" ")}
           >
             {d.name}
@@ -103,7 +106,7 @@ export function SourcesClient({ rows: allRows, dashboards, filter, openAdd, mock
         ))}
       </div>
 
-      <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] overflow-hidden">
+      <div className="card p-0 overflow-hidden">
         <table className="w-full text-[0.8125rem]">
           <thead>
             <tr className="border-b border-surface-container">
@@ -180,7 +183,7 @@ export function SourcesClient({ rows: allRows, dashboards, filter, openAdd, mock
       </div>
 
       {/* Third-party services: the same sources, set up from a catalogue instead of a URL */}
-      <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-5">
+      <div className="card">
         <div className="flex items-baseline justify-between gap-4 flex-wrap">
           <h2 className="text-[1rem] font-semibold text-on-surface">Connect a service</h2>
           <span className="text-[0.75rem] text-outline">Read-only credentials, encrypted and kept per dashboard</span>
@@ -247,7 +250,7 @@ function ConnectorRow({ def, connected, scoped, onConnect, onEdit }: ConnectorRo
       {!def.planned && (
         <div className="flex items-center gap-2 shrink-0">
           {first && (
-            <button onClick={() => onEdit(first)} className="h-8 px-3 rounded-[6px] bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface text-[0.8125rem] font-medium transition-colors">
+            <button onClick={() => onEdit(first)} className="btn">
               {failing ? "Fix" : "Edit"}
             </button>
           )}

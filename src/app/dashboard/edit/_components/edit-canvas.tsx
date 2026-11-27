@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useConfirm } from "@/components/confirm-dialog";
 import { WidgetView } from "@/components/widgets/widget-view";
 import { addPageAction, deletePageAction, deleteWidgetAction, duplicateWidgetAction, renamePageAction } from "@/lib/actions";
 import { TEMPLATE_PAGES } from "@/lib/templates";
@@ -34,6 +35,7 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
   const [pageMenu, setPageMenu] = useState(false);
   const [name, setName] = useState(page.name);
   const [error, setError] = useState<string | null>(null);
+  const { confirm, dialog: confirmDialog } = useConfirm();
   const [pending, start] = useTransition();
 
   function commitName() {
@@ -50,8 +52,8 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
     });
   }
 
-  function removePage() {
-    if (!window.confirm(`Delete page “${page.name}” and its ${page.widgets.length} widget(s)?`)) return;
+  async function removePage() {
+    if (!(await confirm({ title: `Delete page “${page.name}”?`, message: `Its ${page.widgets.length} widget(s) will be deleted too.` }))) return;
     start(async () => {
       const r = await deletePageAction(dashboardId, page.id);
       if (!r.ok) return setError(r.error);
@@ -61,6 +63,7 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
 
   return (
     <div className="flex flex-col w-full min-h-[calc(100vh-3.5rem)]">
+      {confirmDialog}
       <AddWidgetModal open={addOpen} onClose={() => setAddOpen(false)} dashboardId={dashboardId} pageId={page.id} range={range} sources={sources} />
 
       {/* Edit mode command bar */}
@@ -86,14 +89,14 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
           <PeriodLinks range={range} hrefFor={(p) => editHref(page.id, p)} />
           <button
             onClick={() => setAddOpen(true)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container-lowest hover:bg-surface-container-low text-on-surface border border-outline-variant/50 transition-all text-[0.875rem] font-medium shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-surface-container-lowest hover:bg-surface-container-low text-on-surface border border-outline-variant/50 transition-all text-[0.875rem] font-medium shadow-sm"
           >
             <span className="material-symbols-outlined text-[16px] text-primary">add</span>
             Add widget
           </button>
           <Link
             href={dashboardHref(dashboardId, page.id, range)}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded bg-primary-container hover:bg-primary text-on-primary transition-all text-[0.875rem] font-medium shadow-sm"
+            className="btn btn-primary"
           >
             <span className="material-symbols-outlined text-[16px]">check</span>
             Done
@@ -140,7 +143,7 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
               New page
             </button>
             {pageMenu && (
-              <div className="absolute left-0 top-full mt-1 z-40 w-52 bg-surface-container-lowest border border-outline-variant/40 rounded-[6px] shadow-lg py-1 text-[0.8125rem]">
+              <div className="absolute left-0 top-full mt-1 z-40 w-52 bg-surface-container-lowest border border-outline-variant/40 rounded-md shadow-lg py-1 text-[0.8125rem]">
                 <button onClick={() => newPage()} className="w-full text-left px-3 py-1.5 hover:bg-surface-container-low text-on-surface font-medium">
                   Blank page
                 </button>
@@ -155,14 +158,10 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
             )}
           </div>
         </div>
-        <div className="hidden lg:flex items-center gap-3 font-mono text-[0.75rem] text-outline shrink-0">
-          <span className="w-2 h-2 rounded-full bg-secondary inline-block" />
-          Canvas: 12 cols · changes save immediately
-        </div>
       </div>
 
       {error && (
-        <div className="mx-6 mt-3 p-2.5 rounded-[6px] bg-error-container/50 border border-error/30 text-[0.8125rem] text-error flex justify-between">
+        <div className="mx-6 mt-3 p-2.5 rounded-md bg-error-container/50 border border-error/30 text-[0.8125rem] text-error flex justify-between">
           {error}
           <button onClick={() => setError(null)} className="material-symbols-outlined text-[16px]">
             close
@@ -173,15 +172,15 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
       {/* Main canvas */}
       <div className="flex-1 p-6 relative bg-surface">
         {/* 12-col blueprint overlay */}
-        <div aria-hidden className="absolute inset-0 pointer-events-none p-6 grid grid-cols-12 gap-4 opacity-20 select-none max-w-[1400px]">
+        <div aria-hidden className="absolute inset-0 pointer-events-none p-6 grid grid-cols-12 gap-4 opacity-20 select-none max-w-350">
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="h-full border-x border-dashed border-outline-variant/50 bg-surface-container-high/10" />
           ))}
         </div>
 
-        <div className="relative z-10 grid grid-cols-12 gap-4 max-w-[1400px]" style={{ gridAutoRows: GRID_ROW }}>
+        <div className="relative z-10 grid grid-cols-12 gap-4 max-w-350" style={{ gridAutoRows: GRID_ROW }}>
           {page.widgets.map((w) => (
-            <div key={w.id} className="relative group min-w-0 rounded-[8px] outline-dashed outline-1 outline-offset-2 outline-outline-variant hover:outline-primary transition-all [&>*:first-child]:h-full" style={gridStyle(w.grid)}>
+            <div key={w.id} className="relative group min-w-0 rounded-[18px] outline-dashed outline-1 outline-offset-2 outline-outline-variant hover:outline-primary transition-all [&>*:first-child]:h-full" style={gridStyle(w.grid)}>
               <WidgetView widget={w} {...viewProps(w, sources, snaps)} />
 
               {/* Hover tooling */}
@@ -194,7 +193,7 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
                 </button>
                 <button
                   title="Delete"
-                  onClick={() => window.confirm(`Delete widget “${w.title}”?`) && start(async () => void (await deleteWidgetAction(dashboardId, page.id, w.id)))}
+                  onClick={async () => (await confirm({ title: `Delete widget “${w.title}”?` })) && start(async () => void (await deleteWidgetAction(dashboardId, page.id, w.id)))}
                   className="text-outline hover:text-error p-0.5 rounded flex"
                 >
                   <span className="material-symbols-outlined text-[16px]">delete</span>
@@ -212,7 +211,7 @@ export function EditCanvas({ dashboardId, dashboardName, pages, page, range, sou
           <button
             onClick={() => setAddOpen(true)}
             style={{ gridColumn: "1 / span 3", gridRow: `${Math.max(0, ...page.widgets.map((w) => w.grid.y + w.grid.h)) + 1}` }}
-            className="border-2 border-dashed border-outline-variant/40 rounded-[8px] hover:border-primary hover:bg-surface-container-low/50 transition-all p-3 flex flex-col items-center justify-center gap-2 min-h-[100px] text-outline hover:text-primary group"
+            className="border-2 border-dashed border-outline-variant/40 rounded-[18px] hover:border-primary hover:bg-surface-container-low/50 transition-all p-3 flex flex-col items-center justify-center gap-2 min-h-25 text-outline hover:text-primary group"
           >
             <span className="material-symbols-outlined text-[28px] group-hover:scale-110 transition-transform">add_circle</span>
             <span className="text-[0.75rem] font-medium">Add widget</span>

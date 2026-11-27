@@ -63,14 +63,14 @@ async function EditView({ searchParams }: { searchParams: SearchParams }) {
           <div className="flex items-center gap-3 p-3 rounded-[6px] bg-amber-50 border border-amber-200 text-[0.8125rem] text-amber-800">
             <span className="material-symbols-outlined text-[18px] text-amber-600">database</span>
             <span className="flex-1">This dashboard has no source yet. Register an endpoint first, then add widgets.</span>
-            <Link href={`/sources?d=${encodeURIComponent(dashboard.id)}&add=1`} className="text-[0.75rem] font-semibold border border-amber-300 rounded px-2 py-0.5 hover:bg-amber-100 transition-colors">
+            <Link href={`/settings/sources?d=${encodeURIComponent(dashboard.id)}&add=1`} className="text-[0.75rem] font-semibold border border-amber-300 rounded px-2 py-0.5 hover:bg-amber-100 transition-colors">
               Add source
             </Link>
           </div>
         )}
 
         {page.widgets.length === 0 ? (
-          <div className="border-2 border-dashed border-outline-variant/40 rounded-[8px] py-16 flex flex-col items-center gap-2 text-outline">
+          <div className="border-2 border-dashed border-outline-variant/40 rounded-[18px] py-16 flex flex-col items-center gap-2 text-outline">
             <span className="material-symbols-outlined text-[28px]">dashboard_customize</span>
             <div className="text-[0.875rem] font-medium text-on-surface-variant">This page has no widgets yet</div>
             <Link href={dashboardHref(dashboard.id, page.id, range, "/dashboard/edit")} className="text-[0.8125rem] text-primary font-semibold hover:underline">

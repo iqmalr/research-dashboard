@@ -52,13 +52,13 @@ export default function ProductPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((k) => (
           <StatCard key={k.title} title={k.title} value={k.value} delta={k.delta}
-            description={k.description} source={k.source} />
+            description={k.description} />
         ))}
       </div>
 
       {/* Feature usage + Credits */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <WidgetCard title="Feature usage — events (30d)" source="analytics.events" className="lg:col-span-8">
+        <WidgetCard title="Feature usage — events (30d)" className="lg:col-span-8">
           <div className="space-y-2.5">
             {featureUsage.map(({ label, value }, i) => (
               <div key={label} className="flex items-center gap-3">
@@ -75,7 +75,7 @@ export default function ProductPage() {
           </div>
         </WidgetCard>
 
-        <WidgetCard title="Credits / feature" source="billing.credits" className="lg:col-span-4">
+        <WidgetCard title="Credits / feature" className="lg:col-span-4">
           <div className="space-y-3.5 pt-1">
             {creditsByFeature.map(({ label, count, pct }) => (
               <div key={label}>
@@ -107,7 +107,7 @@ export default function ProductPage() {
       </div>
 
       {/* Club adoption */}
-      <WidgetCard title="Club feature adoption" source="v2 users.clubs">
+      <WidgetCard title="Club feature adoption">
         <div className="space-y-2.5">
           {clubAdoption.map(({ feature, clubs, pct }) => (
             <div key={feature} className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function ProductPage() {
       </WidgetCard>
 
       {/* Reports table */}
-      <WidgetCard title="Reports generated — by type (30d)" source="reports.generated">
+      <WidgetCard title="Reports generated — by type (30d)">
         <table className="w-full text-[0.75rem]">
           <thead>
             <tr className="border-b border-surface-container">

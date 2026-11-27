@@ -53,13 +53,13 @@ async function ManageView() {
           <SyncButton
             label="Refresh all"
             icon="refresh"
-            className="flex items-center gap-1.5 bg-surface-container-lowest border border-outline-variant/40 rounded-[6px] px-2.5 h-8 text-on-surface-variant hover:text-on-surface transition-colors text-xs font-medium"
+            className="btn"
           />
           <NewDashboardButton />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-surface-container-low border border-outline-variant/30 rounded-[8px] p-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-surface-container-low border border-outline-variant/30 rounded-[18px] p-4">
         {ticker.map((s) => (
           <div key={s.label} className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-[6px] bg-surface-container-lowest border border-outline-variant/30 flex items-center justify-center text-primary-container">
@@ -87,7 +87,7 @@ async function ManageView() {
           const last = own.map((x) => x.lastSyncAt).filter((t): t is string => Boolean(t)).sort().at(-1);
           const href = `/?d=${encodeURIComponent(d.id)}`;
           return (
-            <div key={d.id} className="relative bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-4 flex flex-col gap-3 hover:border-outline-variant/60 hover:shadow-sm transition-all">
+            <div key={d.id} className="relative bg-surface-container-lowest border border-outline-variant/30 rounded-[18px] p-4 flex flex-col gap-3 hover:border-outline-variant/60 hover:shadow-sm transition-all">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 mb-1">

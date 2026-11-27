@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { useConfirm } from "@/components/confirm-dialog";
 import { createDashboardAction, deleteDashboardAction } from "@/lib/actions";
 
 const inputClass =
@@ -38,7 +39,7 @@ export function NewDashboardButton() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-1.5 bg-primary-container hover:bg-primary text-on-primary px-3.5 py-1.5 h-8 rounded-[6px] text-[0.875rem] font-medium transition-colors"
+        className="btn btn-primary"
       >
         <span className="material-symbols-outlined text-[16px]">add</span>
         <span>New dashboard</span>
@@ -52,7 +53,7 @@ export function NewDashboardButton() {
               e.preventDefault();
               create();
             }}
-            className="w-full max-w-[480px] bg-surface-container-lowest rounded-[8px] shadow-xl border border-outline-variant/30"
+            className="w-full max-w-[480px] bg-surface-container-lowest rounded-[18px] shadow-xl border border-outline-variant/30"
           >
             <div className="px-5 py-4 border-b border-surface-container">
               <h2 className="text-[1.0625rem] font-semibold text-on-surface">New dashboard</h2>
@@ -77,7 +78,7 @@ export function NewDashboardButton() {
               <button type="button" onClick={close} className="px-3 py-1.5 text-[0.875rem] text-on-surface-variant hover:text-on-surface">
                 Cancel
               </button>
-              <button type="submit" disabled={pending || !name.trim()} className="px-4 py-1.5 rounded-[6px] bg-primary-container hover:bg-primary text-on-primary text-[0.875rem] font-medium disabled:opacity-50">
+              <button type="submit" disabled={pending || !name.trim()} className="btn btn-primary">
                 {pending ? "Creating…" : "Create dashboard"}
               </button>
             </div>
@@ -90,20 +91,24 @@ export function NewDashboardButton() {
 
 export function DeleteDashboardButton({ id, name, sources }: { id: string; name: string; sources: number }) {
   const [pending, start] = useTransition();
+  const { confirm, dialog } = useConfirm();
   return (
+    <>
+    {dialog}
     <button
       title="Delete dashboard"
       disabled={pending}
-      onClick={() => {
-        if (!window.confirm(`Delete dashboard “${name}”, its pages and its ${sources} source(s)?`)) return;
+      onClick={async () => {
+        if (!(await confirm({ title: `Delete dashboard “${name}”?`, message: `Its pages and ${sources} source(s) will be deleted too.` }))) return;
         start(async () => {
           const r = await deleteDashboardAction(id);
-          if (!r.ok) window.alert(r.error);
+          if (!r.ok) await confirm({ title: "Could not delete dashboard", message: r.error, confirmLabel: "OK", danger: false });
         });
       }}
       className="text-outline hover:text-error p-1 rounded flex disabled:opacity-50"
     >
       <span className="material-symbols-outlined text-[16px]">delete</span>
     </button>
+    </>
   );
 }

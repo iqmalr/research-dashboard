@@ -67,11 +67,11 @@ export function CommandBar() {
           <div className="h-4 w-px bg-outline-variant/30 hidden sm:block" />
 
           <div className="flex items-center gap-1.5">
-            <button className="h-8 px-3 rounded-[6px] bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface transition-all flex items-center gap-1.5 text-[0.875rem] font-medium">
+            <button className="btn">
               <span className="material-symbols-outlined text-[15px] text-outline">refresh</span>
               <span>Refresh</span>
             </button>
-            <Link href="/dashboard/edit" className="h-8 px-3 rounded-[6px] bg-primary-container hover:bg-primary text-on-primary transition-all flex items-center gap-1.5 text-[0.875rem] font-semibold">
+            <Link href="/dashboard/edit" className="btn btn-primary">
               <span className="material-symbols-outlined text-[15px]">edit</span>
               <span>Edit</span>
             </Link>

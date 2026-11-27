@@ -43,17 +43,17 @@ export default function RevenuePage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((k) => (
           <StatCard key={k.title} title={k.title} value={k.value} delta={k.delta}
-            description={k.description} source={k.source} />
+            description={k.description} />
         ))}
       </div>
 
       {/* MRR trend + plan subscribers */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <WidgetCard title="MRR trend" meta="6 months" source="stripe.billing_v2" className="lg:col-span-8">
+        <WidgetCard title="MRR trend" meta="6 months" className="lg:col-span-8">
           <BarChart data={mrrMonthly} height={160} showAllLabels />
         </WidgetCard>
 
-        <WidgetCard title="Subscribers / plan" source="stripe.subscriptions" className="lg:col-span-4">
+        <WidgetCard title="Subscribers / plan" className="lg:col-span-4">
           <div className="space-y-3.5 pt-1">
             {planRows.map(({ label, count, pct }, i) => (
               <div key={label}>
@@ -75,7 +75,7 @@ export default function RevenuePage() {
 
       {/* New vs Churn + Operational */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <WidgetCard title="New vs Churned / month" source="stripe.subscriptions">
+        <WidgetCard title="New vs Churned / month">
           <div className="flex gap-4 mb-4">
             <div className="flex items-center gap-1.5">
               <div className="w-3 h-1.5 rounded-full bg-primary-container" />
@@ -101,7 +101,7 @@ export default function RevenuePage() {
           </div>
         </WidgetCard>
 
-        <WidgetCard title="Operational" source="stripe.billing_v2">
+        <WidgetCard title="Operational">
           <div className="space-y-3">
             {[
               { label: "Upcoming churn", value: "23 subscriptions", detail: "€5,980 · end of period" },
@@ -121,7 +121,7 @@ export default function RevenuePage() {
       </div>
 
       {/* Top products table */}
-      <WidgetCard title="Top products — 30 days" source="stripe.revenue">
+      <WidgetCard title="Top products — 30 days">
         <table className="w-full text-[0.75rem]">
           <thead>
             <tr className="border-b border-surface-container">

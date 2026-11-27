@@ -54,17 +54,17 @@ export default function UsersPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((k) => (
           <StatCard key={k.title} title={k.title} value={k.value} delta={k.delta}
-            description={k.description} source={k.source} suffix={k.suffix} />
+            description={k.description} suffix={k.suffix} />
         ))}
       </div>
 
       {/* Signups chart + User type breakdown */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <WidgetCard title="Signups / month" meta="12 months" source="v2 users.signups" className="lg:col-span-8">
+        <WidgetCard title="Signups / month" meta="12 months" className="lg:col-span-8">
           <BarChart data={signupsMonthly} height={160} showAllLabels />
         </WidgetCard>
 
-        <WidgetCard title="User type" source="v2 users.roles" className="lg:col-span-4">
+        <WidgetCard title="User type" className="lg:col-span-4">
           <div className="space-y-3.5 pt-1">
             {userTypes.map(({ label, count, pct }, i) => (
               <div key={label}>
@@ -86,7 +86,7 @@ export default function UsersPage() {
 
       {/* Role breakdown + Retention */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <WidgetCard title="Subscription role" source="v2 users.roles" className="lg:col-span-4">
+        <WidgetCard title="Subscription role" className="lg:col-span-4">
           <div className="space-y-3.5 pt-1">
             {roles.map(({ label, count, pct }, i) => (
               <div key={label}>
@@ -105,7 +105,7 @@ export default function UsersPage() {
           </div>
         </WidgetCard>
 
-        <WidgetCard title="Retention by cohort" source="v2 users.retention" className="lg:col-span-8">
+        <WidgetCard title="Retention by cohort" className="lg:col-span-8">
           <table className="w-full text-[0.75rem]">
             <thead>
               <tr className="border-b border-surface-container">

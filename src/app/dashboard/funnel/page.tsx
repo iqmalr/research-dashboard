@@ -50,12 +50,12 @@ export default function FunnelPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((k) => (
           <StatCard key={k.title} title={k.title} value={k.value} delta={k.delta}
-            description={k.description} source={k.source} />
+            description={k.description} />
         ))}
       </div>
 
       {/* Full funnel */}
-      <WidgetCard title="Acquisition funnel — web" source="fastfoot.funnel">
+      <WidgetCard title="Acquisition funnel — web">
         <div className="space-y-3">
           {fullFunnel.map(({ label, value }, i) => {
             const pct = (value / funnelMax) * 100;
@@ -97,7 +97,7 @@ export default function FunnelPage() {
 
       {/* Traffic sources + Top pages */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <WidgetCard title="Traffic sources" source="analytics.sessions">
+        <WidgetCard title="Traffic sources">
           <div className="space-y-3.5 pt-1">
             {trafficSources.map(({ label, count, pct }, i) => (
               <div key={label}>
@@ -117,7 +117,7 @@ export default function FunnelPage() {
           </div>
         </WidgetCard>
 
-        <WidgetCard title="Top pages" source="analytics.pageviews">
+        <WidgetCard title="Top pages">
           <table className="w-full text-[0.75rem]">
             <thead>
               <tr className="border-b border-surface-container">
@@ -140,7 +140,7 @@ export default function FunnelPage() {
       </div>
 
       {/* Compare clicks */}
-      <WidgetCard title="Compare clicks — last 7 days" source="analytics.events">
+      <WidgetCard title="Compare clicks — last 7 days">
         <BarChart data={compareClicks} height={120} showAllLabels />
       </WidgetCard>
     </div>

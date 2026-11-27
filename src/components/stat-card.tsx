@@ -5,7 +5,6 @@ interface StatCardProps {
   prefix?: string;
   suffix?: string;
   description?: string;
-  source?: string;
   stale?: boolean;
   staleLabel?: string;
 }
@@ -17,7 +16,6 @@ export function StatCard({
   prefix,
   suffix,
   description,
-  source,
   stale,
   staleLabel,
 }: StatCardProps) {
@@ -26,7 +24,7 @@ export function StatCard({
   const isPositive = delta !== undefined && delta >= 0;
 
   return (
-    <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-3 flex flex-col justify-between hover:border-outline-variant/60 transition-colors">
+    <div className="card flex flex-col justify-between hover:border-outline-variant/60 transition-colors">
       <div>
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[0.75rem] leading-4 tracking-[0.02em] font-semibold uppercase text-on-surface-variant">
@@ -42,7 +40,7 @@ export function StatCard({
         </div>
 
         <div className="flex items-baseline gap-2">
-          <span className={["text-[1.75rem] leading-9 tracking-[-0.025em] font-semibold text-on-surface [font-variant-numeric:tabular-nums]", stale ? "opacity-50" : ""].join(" ")}>
+          <span className={["text-[1.75rem] leading-9 tracking-tight font-semibold text-on-surface [font-variant-numeric:tabular-nums]", stale ? "opacity-50" : ""].join(" ")}>
             {prefix && (
               <span className="text-[1.25rem] text-on-surface-variant mr-0.5">{prefix}</span>
             )}
@@ -75,11 +73,6 @@ export function StatCard({
         <div className="mt-2 flex items-center gap-1 text-amber-700 text-[0.6875rem] font-medium">
           <span className="material-symbols-outlined text-[13px]">schedule</span>
           <span>{staleLabel ?? "Stale data"}</span>
-        </div>
-      )}
-      {source && (
-        <div className="mt-3 pt-1 border-t border-surface-container font-mono text-[0.75rem] text-outline truncate">
-          source: <span className="text-on-surface-variant">{source}</span>
         </div>
       )}
     </div>

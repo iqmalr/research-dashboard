@@ -41,7 +41,7 @@ export function ProblemBanner({ problems }: { problems: SourceProblem[] }) {
                   iconClassName="text-[13px]"
                   className="flex items-center gap-1 text-[0.75rem] text-error font-semibold border border-error/40 rounded px-2 py-0.5 hover:bg-error/10 transition-colors"
                 />
-                <Link href="/sources" className="text-[0.75rem] text-error font-semibold border border-error/40 rounded px-2 py-0.5 hover:bg-error/10 transition-colors">
+                <Link href="/settings/sources" className="text-[0.75rem] text-error font-semibold border border-error/40 rounded px-2 py-0.5 hover:bg-error/10 transition-colors">
                   Fix source
                 </Link>
                 <button onClick={dismiss} aria-label="Dismiss" className="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-error/10 transition-colors">

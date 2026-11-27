@@ -3,14 +3,13 @@ interface WidgetCardProps {
   children: React.ReactNode;
   className?: string;
   meta?: string;
-  source?: string;
 }
 
-export function WidgetCard({ title, children, className, meta, source }: WidgetCardProps) {
+export function WidgetCard({ title, children, className, meta }: WidgetCardProps) {
   return (
     <div
       className={[
-        "bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] p-3 flex flex-col",
+        "card flex flex-col",
         className,
       ]
         .filter(Boolean)
@@ -38,12 +37,6 @@ export function WidgetCard({ title, children, className, meta, source }: WidgetC
         </div>
         <div className="flex-1 min-h-0">{children}</div>
       </div>
-
-      {source && (
-        <div className="mt-3 pt-1 border-t border-surface-container font-mono text-[0.75rem] text-outline truncate">
-          source: <span className="text-on-surface-variant">{source}</span>
-        </div>
-      )}
     </div>
   );
 }

@@ -27,7 +27,7 @@ async function SyncHistoryView() {
         </p>
       </div>
 
-      <div className="bg-surface-container-lowest border border-outline-variant/30 rounded-[8px] overflow-hidden">
+      <div className="card p-0 overflow-hidden">
         <table className="w-full text-[0.8125rem]">
           <thead>
             <tr className="border-b border-surface-container">

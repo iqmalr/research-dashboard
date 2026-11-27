@@ -63,7 +63,7 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
 
   return (
     <div className="fixed inset-0 bg-black/30 backdrop-blur-[2px] z-50 flex items-center justify-center p-6">
-      <div className="w-full max-w-3xl max-h-[calc(100vh-3rem)] bg-surface-container-lowest rounded-lg shadow-xl flex flex-col overflow-hidden">
+      <div className="w-full max-w-3xl max-h-[calc(100vh-3rem)] bg-surface-container-lowest rounded-[18px] shadow-xl flex flex-col overflow-hidden">
         {/* Header */}
         <div className="px-6 py-3 flex items-center justify-between border-b border-outline-variant/20">
           <div className="flex items-center gap-3">
@@ -134,7 +134,7 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
                   </div>
                 </div>
 
-                <div className="bg-surface-container-low/60 border border-outline-variant/30 rounded-[8px] p-3 font-mono text-[0.75rem] space-y-1.5">
+                <div className="bg-surface-container-low/60 border border-outline-variant/30 rounded-[18px] p-3 font-mono text-[0.75rem] space-y-1.5">
                   <Row k="source" v={sourceName(tpl.source_id) ?? "(removed)"} />
                   {Object.entries(tpl.bindings).map(([slot, path]) => (
                     <Row key={slot} k={slot} v={path} />
@@ -152,7 +152,7 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
                 <button
                   onClick={addTemplate}
                   disabled={pending || !tplUsable}
-                  className="h-8 px-4 bg-primary-container hover:bg-primary text-on-primary rounded text-[0.875rem] font-semibold shadow-sm transition-all flex items-center gap-1.5 disabled:opacity-60"
+                  className="btn btn-primary"
                 >
                   <span className="material-symbols-outlined text-[16px]">add</span>
                   {pending ? "Adding…" : `Add ${tpl.title}`}
@@ -168,12 +168,12 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
                 value={blankTitle}
                 onChange={(e) => setBlankTitle(e.target.value)}
                 placeholder="e.g. Paying accounts"
-                className="w-full h-8 px-3 bg-surface-container-lowest border border-outline-variant/40 rounded text-[0.8125rem] text-on-surface focus:outline-none focus:ring-1 focus:ring-primary"
+                className="btn"
               />
             </div>
             <div>
               <label className="text-[0.75rem] font-medium text-on-surface-variant block mb-1">Widget type</label>
-              <div className="grid grid-cols-3 gap-2 p-1 rounded-[6px] bg-surface-container-low border border-outline-variant/30">
+              <div className="grid grid-cols-3 gap-2 p-1 rounded-md bg-surface-container-low border border-outline-variant/30">
                 {WIDGET_TYPES.map((t) => (
                   <button
                     key={t}
@@ -191,7 +191,7 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
               {sources.length === 0 ? (
                 <p className="text-[0.8125rem] text-error">
                   This dashboard has no sources.{" "}
-                  <a href={`/sources?d=${encodeURIComponent(dashboardId)}&add=1`} className="underline font-semibold">
+                  <a href={`/settings/sources?d=${encodeURIComponent(dashboardId)}&add=1`} className="underline font-semibold">
                     Add one first
                   </a>
                   .
@@ -200,7 +200,7 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
                 <select
                   value={blankSource}
                   onChange={(e) => setBlankSource(e.target.value)}
-                  className="w-full h-8 px-3 bg-surface-container-lowest border border-outline-variant/40 rounded font-mono text-[0.8125rem] text-on-surface focus:outline-none focus:ring-1 focus:ring-primary"
+                  className="btn"
                 >
                   {sources.map((s) => (
                     <option key={s.id} value={s.id}>
@@ -217,7 +217,7 @@ export function AddWidgetModal({ open, onClose, dashboardId, pageId, range, sour
               <button
                 onClick={addBlank}
                 disabled={pending || !blankSource}
-                className="h-8 px-4 bg-primary-container hover:bg-primary text-on-primary rounded text-[0.875rem] font-semibold shadow-sm transition-all flex items-center gap-1.5 disabled:opacity-60"
+                className="btn btn-primary"
               >
                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                 {pending ? "Creating…" : "Create and pick fields"}

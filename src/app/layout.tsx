@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import { Suspense } from "react";
 import { Sidebar } from "@/components/sidebar";
 import { GlobalHeader } from "@/components/global-header";
@@ -7,12 +7,7 @@ import { loadStore } from "@/lib/store";
 import type { DashboardNav } from "@/components/sidebar";
 import "./globals.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
-const jetbrains = JetBrains_Mono({
-  variable: "--font-jetbrains",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
+const geist = Geist({ variable: "--font-geist", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Stats — Studio Ops",
@@ -42,13 +37,13 @@ async function SidebarData() {
 
 function SidebarShell() {
   return (
-    <aside className="fixed left-0 top-0 h-full w-[240px] bg-surface-container-lowest border-r border-outline-variant/30 z-50" />
+    <aside className="fixed left-0 top-0 h-full w-[240px] bg-surface border-r border-outline-variant/30 z-50" />
   );
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable} h-full`}>
+    <html lang="en" className={`${geist.variable} h-full`}>
       <head>
         <link
           rel="stylesheet"

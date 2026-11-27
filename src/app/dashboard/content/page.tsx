@@ -42,17 +42,17 @@ const missingEs = translationGaps.filter((g) => !g.hasEs).length;
 
 export default function ContentPage() {
   return (
-    <div className="space-y-4 max-w-[1400px]">
+    <div className="space-y-4 max-w-350">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((k) => (
           <StatCard key={k.title} title={k.title} value={k.value} delta={k.delta}
-            description={k.description} source={k.source} />
+            description={k.description}/>
         ))}
       </div>
 
       {/* Page status + Editor activity */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-        <WidgetCard title="Pages by status" source="cms.pages" className="lg:col-span-4">
+        <WidgetCard title="Pages by status" className="lg:col-span-4">
           <div className="space-y-3.5 pt-1">
             {pagesByStatus.map(({ label, count, pct }, i) => (
               <div key={label}>
@@ -72,14 +72,14 @@ export default function ContentPage() {
           </div>
         </WidgetCard>
 
-        <WidgetCard title="Editor activity — changes / day (7d)" source="cms.edits" className="lg:col-span-8">
+        <WidgetCard title="Editor activity — changes / day (7d)" className="lg:col-span-8">
           <BarChart data={editorActivity} height={120} showAllLabels />
         </WidgetCard>
       </div>
 
       {/* Translation gaps + Catalog health */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <WidgetCard title="Translation gaps — EN slugs missing in other locales" source="cms.translations">
+        <WidgetCard title="Translation gaps — EN slugs missing in other locales">
           <div className="flex gap-6 mb-4">
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-widest text-outline mb-1">Missing FR</div>
@@ -118,7 +118,7 @@ export default function ContentPage() {
           </table>
         </WidgetCard>
 
-        <WidgetCard title="Catalog health" source="catalog.sync">
+        <WidgetCard title="Catalog health">
           <table className="w-full text-[0.75rem]">
             <thead>
               <tr className="border-b border-surface-container">
@@ -145,7 +145,7 @@ export default function ContentPage() {
             </tbody>
           </table>
           {catalogs.some((c) => !c.healthy) && (
-            <div className="mt-4 rounded-[6px] p-3 bg-error-container/40 border border-error/20">
+            <div className="mt-4 rounded-md p-3 bg-error-container/40 border border-error/20">
               <div className="flex items-start gap-2">
                 <span className="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">warning</span>
                 <div>

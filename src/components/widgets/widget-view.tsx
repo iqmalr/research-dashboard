@@ -46,10 +46,8 @@ function issueDetail(i: SlotIssue) {
 }
 
 export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewProps) {
-  const mainPath = widget.type === "stat" ? widget.bindings.value : widget.bindings.rows;
-  const footer = sourceName ? `${sourceName}${mainPath ? ` · ${mainPath}` : ""}` : undefined;
   const frame = (children: React.ReactNode, meta?: string) => (
-    <WidgetCard title={widget.title} meta={meta ?? staleLabel} source={footer} className="h-full">
+    <WidgetCard title={widget.title} meta={meta ?? staleLabel} className="h-full">
       {children}
     </WidgetCard>
   );
@@ -83,7 +81,7 @@ export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewP
         value={fmt(view.value, widget.format?.value)}
         delta={typeof view.delta === "number" ? view.delta : undefined}
         description={widget.bindings.delta ? (typeof view.delta === "number" ? `vs. previous ${typeof range === "string" ? range : "period"}` : "No previous period to compare") : undefined}
-        source={footer}
+       
         stale={Boolean(staleLabel)}
         staleLabel={staleLabel}
       />
@@ -119,7 +117,7 @@ export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewP
     const f = widget.format?.value;
     const range = getPath(data, "meta.range").value;
     return (
-      <WidgetCard title={widget.title} meta={staleLabel} source={footer} className="h-full">
+      <WidgetCard title={widget.title} meta={staleLabel} className="h-full">
         <div className="flex flex-col h-full">
           <div className="text-[1.75rem] font-bold text-on-surface leading-none mb-1">{fmt(view.value, f)}</div>
           {typeof view.delta === "number" && (

@@ -246,7 +246,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
           )}
 
           {sampleRow !== undefined && draft.type !== "stat" && (
-            <details className="w-full max-w-[620px] bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden" open>
+            <details className="w-full max-w-[620px] bg-surface-container-lowest border border-outline-variant/30 rounded-[18px] overflow-hidden" open>
               <summary className="px-4 py-2.5 cursor-pointer text-[0.75rem] font-medium text-on-surface-variant hover:bg-surface-container-low">
                 Sample row ({draft.bindings.rows}.0)
               </summary>
@@ -485,7 +485,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
             <Link href={back} className="h-8 px-3 flex items-center text-outline hover:text-on-surface text-[0.875rem] transition-colors">
               Cancel
             </Link>
-            <button onClick={apply} disabled={pending} className="h-8 px-4 bg-primary-container hover:bg-primary text-on-primary rounded text-[0.875rem] font-semibold shadow-sm transition-all flex items-center gap-1.5 disabled:opacity-60">
+            <button onClick={apply} disabled={pending} className="btn btn-primary">
               <span className="material-symbols-outlined text-[16px]">check</span>
               {pending ? "Saving…" : "Apply changes"}
             </button>
@@ -502,7 +502,7 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function Hint({ icon, text, action }: { icon: string; text: string; action?: React.ReactNode }) {
   return (
-    <div className="mx-4 mt-2 p-3 rounded bg-surface-container-low border border-outline-variant/30 text-[0.75rem] text-on-surface-variant space-y-1.5">
+    <div className="mx-4 mt-2 p-3 rounded-[18px] bg-surface-container-low border border-outline-variant/30 text-[0.75rem] text-on-surface-variant space-y-1.5">
       <span className="material-symbols-outlined text-[18px] text-outline block">{icon}</span>
       <p className="leading-snug">{text}</p>
       {action}

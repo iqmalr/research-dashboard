@@ -33,7 +33,7 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4 text-center">
         <span className="material-symbols-outlined text-[48px] text-outline">dashboard</span>
         <div className="text-on-surface-variant text-[0.9375rem]">No dashboards yet</div>
-        <Link href="/manage" className="text-primary font-semibold hover:underline text-[0.875rem]">
+        <Link href="/settings/manage" className="text-primary font-semibold hover:underline text-[0.875rem]">
           Go to Manage to create one
         </Link>
       </div>
@@ -109,7 +109,7 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
             label="Refresh"
             icon="refresh"
             iconClassName="text-[15px] text-outline"
-            className="h-8 px-3 rounded-md bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface transition-all flex items-center gap-1.5 text-[0.875rem] font-medium"
+            className="btn"
           />
         </div>
       </div>
@@ -125,7 +125,7 @@ async function RootDashboardView({ searchParams }: { searchParams: SearchParams 
               This dashboard has no source yet. Register an endpoint first, then add widgets.
             </span>
             <Link
-              href={`/sources?d=${encodeURIComponent(dashboard.id)}&add=1`}
+              href={`/settings/sources?d=${encodeURIComponent(dashboard.id)}&add=1`}
               className="text-[0.75rem] font-semibold border border-amber-300 rounded px-2 py-0.5 hover:bg-amber-100 transition-colors"
             >
               Add source

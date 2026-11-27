@@ -86,7 +86,7 @@ export function AddSourceModal({ kind, editing, dashboards, defaultDashboardId, 
 
   return (
     <div className="fixed inset-0 bg-black/30 backdrop-blur-[2px] z-50 flex items-center justify-center p-6">
-      <div className="w-full max-w-5xl max-h-[calc(100vh-3rem)] bg-surface-container-lowest rounded-lg shadow-xl flex flex-col overflow-hidden">
+      <div className="w-full max-w-5xl max-h-[calc(100vh-3rem)] bg-surface-container-lowest rounded-[18px] shadow-xl flex flex-col overflow-hidden">
         {/* Header */}
         <div className="px-6 py-3 bg-surface-container-lowest flex items-center justify-between border-b border-outline-variant/20">
           <div className="flex items-center gap-3">
@@ -312,7 +312,7 @@ export function AddSourceModal({ kind, editing, dashboards, defaultDashboardId, 
               <button
                 onClick={test}
                 disabled={!canTest || testing}
-                className="h-8 px-4 bg-primary-container hover:bg-primary text-on-primary rounded text-[0.875rem] font-semibold shadow-sm transition-all flex items-center gap-1.5 disabled:opacity-60"
+                className="btn btn-primary"
               >
                 <span className={`material-symbols-outlined text-[16px] ${testing ? "animate-spin" : ""}`}>{testing ? "progress_activity" : "wifi_tethering"}</span>
                 {testing ? "Testing…" : "Test connection"}
@@ -399,7 +399,7 @@ export function AddSourceModal({ kind, editing, dashboards, defaultDashboardId, 
               </div>
 
               <div className="flex items-center justify-between pt-3 mt-3 border-t border-outline-variant/20">
-                <button onClick={() => setResult(null)} className="h-8 px-3 bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface rounded text-[0.875rem] font-medium transition-colors flex items-center gap-1.5">
+                <button onClick={() => setResult(null)} className="btn">
                   <span className="material-symbols-outlined text-[16px]">arrow_back</span>
                   Back
                 </button>
@@ -407,7 +407,7 @@ export function AddSourceModal({ kind, editing, dashboards, defaultDashboardId, 
                   <button onClick={onClose} className="h-8 px-3 text-outline hover:text-on-surface text-[0.875rem] transition-colors">
                     Cancel
                   </button>
-                  <button onClick={save} disabled={saving} className="h-8 px-4 bg-primary-container hover:bg-primary text-on-primary rounded text-[0.875rem] font-semibold shadow-sm transition-all flex items-center gap-1.5 disabled:opacity-70">
+                  <button onClick={save} disabled={saving} className="btn btn-primary">
                     <span className={`material-symbols-outlined text-[16px] ${saving ? "animate-spin" : ""}`}>{saving ? "progress_activity" : "save"}</span>
                     {saving ? "Saving and syncing…" : def && !editing ? `Connect ${def.name}` : "Save source"}
                   </button>

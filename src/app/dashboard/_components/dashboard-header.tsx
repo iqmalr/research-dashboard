@@ -21,9 +21,9 @@ export function SourceBadge({ total, failing, dashboardId }: { total: number; fa
   const none = total === 0;
   return (
     <Link
-      href={`/sources?d=${encodeURIComponent(dashboardId)}`}
+      href={`/settings/sources?d=${encodeURIComponent(dashboardId)}`}
       className={[
-        "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[6px] border text-[0.6875rem] ml-1",
+        "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md border text-[0.6875rem] ml-1",
         none ? "bg-amber-50 text-amber-800 border-amber-200" : ok ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-error-container/60 text-error border-error/30",
       ].join(" ")}
     >
@@ -37,7 +37,7 @@ export function SourceBadge({ total, failing, dashboardId }: { total: number; fa
 
 export function PeriodLinks({ range, hrefFor }: { range: Period; hrefFor: (p: Period) => string }) {
   return (
-    <div className="inline-flex items-center bg-surface-container-low p-0.5 rounded-[6px] border border-outline-variant/30 text-[0.75rem] font-medium">
+    <div className="inline-flex items-center bg-surface-container-low p-0.5 rounded-md border border-outline-variant/30 text-[0.75rem] font-medium">
       {PERIODS.map((p) => (
         <Link
           key={p}
@@ -58,12 +58,12 @@ export function DashboardHeader({ dashboardId, name, sources, pages, activePageI
       {/* Command & action bar */}
       <div className="bg-surface-container-lowest border-b border-outline-variant/30 px-6 py-2 flex flex-wrap items-center justify-between gap-3 select-none">
         <div className="flex items-center gap-3 min-w-0">
-          <Link href="/manage" className="p-0.5 text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors flex items-center justify-center" title="Back to dashboards">
+          <Link href="/settings/manage" className="p-0.5 text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors flex items-center justify-center" title="Back to dashboards">
             <span className="material-symbols-outlined text-[18px]">arrow_back</span>
           </Link>
           <div className="h-4 w-px bg-outline-variant/30" />
           <div className="flex items-center gap-1 text-[0.875rem]">
-            <Link href="/manage" className="text-outline hover:text-on-surface cursor-pointer">
+            <Link href="/settings/manage" className="text-outline hover:text-on-surface cursor-pointer">
               Dashboards
             </Link>
             <span className="text-outline-variant mx-0.5">/</span>
@@ -89,11 +89,11 @@ export function DashboardHeader({ dashboardId, name, sources, pages, activePageI
               label="Refresh"
               icon="refresh"
               iconClassName="text-[15px] text-outline"
-              className="h-8 px-3 rounded-[6px] bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-on-surface transition-all flex items-center gap-1.5 text-[0.875rem] font-medium"
+              className="btn"
             />
             <Link
               href={dashboardHref(dashboardId, activePageId, range, "/dashboard/edit")}
-              className="h-8 px-3 rounded-[6px] bg-primary-container hover:bg-primary text-on-primary transition-all flex items-center gap-1.5 text-[0.875rem] font-semibold"
+              className="btn btn-primary"
             >
               <span className="material-symbols-outlined text-[15px]">edit</span>
               <span>Edit</span>
