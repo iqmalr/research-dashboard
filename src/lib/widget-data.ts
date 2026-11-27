@@ -55,7 +55,7 @@ export interface SlotIssue {
 export type WidgetViewData =
   | { kind: "stat"; value: string | number | boolean | null; delta: number | null | undefined }
   | { kind: "series"; points: { x: string; y: number }[] }
-  | { kind: "items"; items: { label: string; value: number }[] }
+  | { kind: "items"; items: { label: string; value: number; chip?: string; note?: string; text?: string }[] }
   | { kind: "table"; columns: TableColumn[]; rows: unknown[] }
   | { kind: "gauge"; value: number | null; target: number | null }
   | { kind: "scatter"; points: { x: number; y: number; label: string }[] }
@@ -175,7 +175,7 @@ export function resolveWidget(widget: Widget, data: unknown): Resolved {
     };
   }
 
-  if (widget.type === "breakdown" || widget.type === "funnel" || widget.type === "donut" || widget.type === "list" || widget.type === "heatmap") {
+  if (widget.type === "breakdown" || widget.type === "funnel" || widget.type === "donut" || widget.type === "list" || widget.type === "heatmap" || widget.type === "radial" || widget.type === "tiles" || widget.type === "digest" || widget.type === "kpis") {
     const okL = rowField(list, "label", b.label, false);
     const okV = rowField(list, "value", b.value, true);
     if (!okL || !okV) return { issues, rowCount };
@@ -184,7 +184,13 @@ export function resolveWidget(widget: Widget, data: unknown): Resolved {
       rowCount,
       view: {
         kind: "items",
-        items: list.map((r) => ({ label: text(getPath(r, b.label).value), value: num(getPath(r, b.value).value) })),
+        items: list.map((r) => {
+          const extra = (k: "chip" | "note" | "text") => {
+            const v = b[k] ? getPath(r, b[k]!).value : undefined;
+            return v === undefined || v === null || v === "" ? undefined : String(v);
+          };
+          return { label: text(getPath(r, b.label).value), value: num(getPath(r, b.value).value), chip: extra("chip"), note: extra("note"), text: extra("text") };
+        }),
       },
     };
   }

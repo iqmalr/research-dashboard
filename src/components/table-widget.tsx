@@ -92,7 +92,7 @@ export function TableWidget({ columns, rows, currency, search, sortable, pageSiz
       )}
 
       <div className="overflow-x-auto flex-1 min-h-0">
-        <table className="w-full text-[0.75rem]">
+        <table className="w-full text-[0.875rem]">
           <thead>
             <tr className="border-b border-surface-container">
               {columns.map((c, i) => (
@@ -100,7 +100,7 @@ export function TableWidget({ columns, rows, currency, search, sortable, pageSiz
                   key={i}
                   onClick={() => toggleSort(i)}
                   className={[
-                    "pb-2.5 font-semibold text-on-surface-variant whitespace-nowrap",
+                    "pb-2.5 text-[0.75rem] font-normal text-on-surface-variant whitespace-nowrap",
                     i === 0 ? "text-left pr-4" : "text-right pl-4",
                     sortable ? "cursor-pointer select-none hover:text-on-surface" : "",
                   ].join(" ")}
@@ -147,13 +147,11 @@ export function TableWidget({ columns, rows, currency, search, sortable, pageSiz
                         {empty ? (
                           <span className="text-outline-variant">—</span>
                         ) : c.format?.unit === "percent" && typeof v === "number" ? (
-                          <span
-                            className="inline-block px-1.5 py-0.5 rounded font-semibold"
-                            style={{
-                              backgroundColor: `color-mix(in srgb, var(--primary-container) ${Math.round(Math.min(Math.max(v, 0), 100) * 0.4)}%, transparent)`,
-                            }}
-                          >
-                            {fmt(v, c.format)}
+                          <span className="inline-flex items-center gap-2 w-full min-w-[140px]">
+                            <span className="flex-1 h-1.5 rounded-full bg-surface-container overflow-hidden">
+                              <span className="block h-full rounded-full bg-primary-container" style={{ width: `${Math.min(Math.max(v, 0), 100)}%` }} />
+                            </span>
+                            <span className="font-semibold w-12 text-right">{fmt(v, c.format)}</span>
                           </span>
                         ) : (
                           fmt(v, c.format)

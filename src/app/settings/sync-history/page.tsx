@@ -20,7 +20,7 @@ async function SyncHistoryView() {
   return (
     <div className="p-6 max-w-[1400px] mx-auto space-y-6">
       <div className="pb-4 border-b border-outline-variant/30">
-        <h1 className="text-[1.5rem] leading-8 font-semibold tracking-[-0.02em] text-on-surface">Sync history</h1>
+        <h1 className="text-[2.125rem] leading-tight font-normal tracking-[-0.02em] text-on-surface">Sync history</h1>
         <p className="text-[0.8125rem] text-on-surface-variant mt-0.5">
           <span className="font-mono font-medium text-on-surface">{runs.length} calls</span> · one per source and period ·{" "}
           <span className={failed ? "text-error font-medium" : ""}>{failed} failed</span>

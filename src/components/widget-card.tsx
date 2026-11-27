@@ -16,9 +16,9 @@ export function WidgetCard({ title, children, className, meta }: WidgetCardProps
         .join(" ")}
     >
       <div className="flex-1 flex flex-col min-h-0">
-        <div className="flex items-center justify-between border-b border-surface-container pb-2 mb-3">
+        <div className="flex items-center justify-between border-surface-container pb-2 mb-3">
           <div className="flex items-center gap-2">
-            <span className="text-[1.125rem] leading-6 tracking-[-0.01em] font-semibold text-on-surface">
+            <span className="text-[1rem] leading-6 font-medium text-on-surface">
               {title}
             </span>
             {meta && (
@@ -28,12 +28,6 @@ export function WidgetCard({ title, children, className, meta }: WidgetCardProps
               </>
             )}
           </div>
-          <button
-            className="text-outline hover:text-on-surface p-0.5 rounded transition-colors"
-            type="button"
-          >
-            <span className="material-symbols-outlined text-[16px]">more_horiz</span>
-          </button>
         </div>
         <div className="flex-1 min-h-0">{children}</div>
       </div>

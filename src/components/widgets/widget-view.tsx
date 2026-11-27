@@ -8,7 +8,10 @@ import { DonutChart } from "../donut-chart";
 import { GaugeChart } from "../gauge-chart";
 import { ScatterChart } from "../scatter-chart";
 import { SparklineChart } from "../sparkline-chart";
+import { DataTable } from "../data-table";
 import { TableWidget } from "../table-widget";
+import { Digest } from "./digest";
+import { KpiGrid, RadialFunnel, StatusTiles } from "./item-widgets";
 
 export interface WidgetViewProps {
   widget: Widget;
@@ -142,6 +145,11 @@ export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewP
       return frame(<DonutChart slices={slices} fmt={(v) => fmt(v, f)} />);
     }
 
+    if (widget.type === "radial") return frame(<RadialFunnel items={view.items} fmt={(v) => fmt(v, f)} />);
+    if (widget.type === "kpis") return <KpiGrid cols={widget.grid.w >= 12 ? 4 : undefined} items={view.items} fmt={(v) => fmt(v, f)} />;
+    if (widget.type === "tiles") return frame(<StatusTiles items={view.items} fmt={(v) => fmt(v, f)} />);
+    if (widget.type === "digest") return frame(<Digest items={view.items.map((it) => ({ label: it.label, text: fmt(it.value, f) }))} />);
+
     if (widget.type === "list") {
       const max = view.items[0]?.value || 1;
       return frame(
@@ -242,6 +250,8 @@ export function WidgetView({ widget, sourceName, data, staleLabel }: WidgetViewP
 
   // table
   if (view.rows.length === 0) return frame(<Problem icon="table_rows" title="No rows" />);
+  if (widget.type === "datatable")
+    return <DataTable title={widget.title} columns={view.columns} rows={view.rows} currency={currency} search={widget.tableOptions?.search} sortable={widget.tableOptions?.sortable} pageSize={widget.tableOptions?.pageSize} />;
   return frame(
     <TableWidget
       columns={view.columns}

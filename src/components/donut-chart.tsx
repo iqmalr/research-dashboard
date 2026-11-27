@@ -4,32 +4,9 @@ export interface DonutSlice {
   tip?: string;
 }
 
-const PALETTE = [
-  "#0f766e", "#86f2e4", "#6366f1", "#f59e0b",
-  "#ec4899", "#10b981", "#8b5cf6", "#f97316",
-];
-
-function polarToCartesian(cx: number, cy: number, r: number, angleDeg: number) {
-  const rad = (angleDeg * Math.PI) / 180;
-  return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
-}
-
-function segmentPath(cx: number, cy: number, outer: number, inner: number, startAngle: number, endAngle: number): string {
-  const delta = Math.min(endAngle - startAngle, 359.99);
-  const end = startAngle + delta;
-  const large = delta > 180 ? 1 : 0;
-  const os = polarToCartesian(cx, cy, outer, startAngle);
-  const oe = polarToCartesian(cx, cy, outer, end);
-  const is = polarToCartesian(cx, cy, inner, startAngle);
-  const ie = polarToCartesian(cx, cy, inner, end);
-  return [
-    `M ${os.x.toFixed(2)} ${os.y.toFixed(2)}`,
-    `A ${outer} ${outer} 0 ${large} 1 ${oe.x.toFixed(2)} ${oe.y.toFixed(2)}`,
-    `L ${ie.x.toFixed(2)} ${ie.y.toFixed(2)}`,
-    `A ${inner} ${inner} 0 ${large} 0 ${is.x.toFixed(2)} ${is.y.toFixed(2)}`,
-    "Z",
-  ].join(" ");
-}
+const PALETTE = ["#2a78d6", "#eb6834", "#1baf7a", "#6b4fd3", "#f0b64a", "#9aa0a9", "#ec4899", "#0f766e"];
+const R = 46;
+const CIRC = 2 * Math.PI * R;
 
 interface DonutChartProps {
   slices: DonutSlice[];
@@ -37,41 +14,48 @@ interface DonutChartProps {
 }
 
 export function DonutChart({ slices, fmt }: DonutChartProps) {
-  const total = slices.reduce((s, it) => s + it.value, 0) || 1;
-  let angle = -90;
-  const segments = slices.map((s, i) => {
-    const sweep = (s.value / total) * 360;
-    const start = angle;
-    angle += sweep;
-    return { ...s, start, sweep, color: PALETTE[i % PALETTE.length] };
-  });
-
+  const total = slices.reduce((s, it) => s + it.value, 0);
+  const gap = slices.length > 1 ? 1.5 : 0;
+  let offset = 0;
   return (
-    <div className="h-full flex items-center gap-4 py-1 min-h-0">
-      <div className="shrink-0" style={{ width: 110, height: 110 }}>
-        <svg viewBox="0 0 100 100" width={110} height={110}>
-          {segments.map((seg, i) => (
-            <path
-              key={i}
-              d={segmentPath(50, 50, 42, 24, seg.start, seg.start + seg.sweep)}
-              fill={seg.color}
-              opacity={0.9}
-            >
-              <title>{seg.label}: {fmt(seg.value)} ({((seg.value / total) * 100).toFixed(1)}%)</title>
-            </path>
-          ))}
-          <circle cx={50} cy={50} r={23} fill="var(--surface-container-lowest)" />
-          <text x={50} y={47} textAnchor="middle" dominantBaseline="middle" fontSize={9} fontFamily="inherit" fill="var(--on-surface-variant)">Total</text>
-          <text x={50} y={57} textAnchor="middle" dominantBaseline="middle" fontSize={10} fontWeight="bold" fontFamily="inherit" fill="var(--on-surface)">{fmt(total)}</text>
-        </svg>
-      </div>
-      <div className="flex-1 min-w-0 space-y-1.5 overflow-y-auto max-h-[110px]">
-        {segments.map((seg, i) => (
-          <div key={i} className="flex items-center gap-2 text-[0.75rem]">
-            <span className="w-2.5 h-2.5 rounded-sm shrink-0" style={{ background: seg.color }} />
-            <span className="truncate text-on-surface-variant flex-1">{seg.label}</span>
-            <span className="font-mono font-semibold text-on-surface tabular-nums shrink-0">{fmt(seg.value)}</span>
-            <span className="font-mono text-outline tabular-nums shrink-0">{((seg.value / total) * 100).toFixed(0)}%</span>
+    <div className="flex flex-col items-center gap-3 py-1 min-h-0">
+      <svg viewBox="0 0 120 120" width={120} height={120} className="shrink-0 [&_circle]:transition-opacity [&:hover_circle.seg:not(:hover)]:opacity-55" role="img" aria-label="Donut chart">
+        <g transform="rotate(-90 60 60)">
+          <circle cx={60} cy={60} r={R} fill="none" stroke="var(--surface-container)" strokeWidth={16} />
+          {slices.map((s, i) => {
+            const len = total ? (s.value / total) * CIRC : 0;
+            const seg = (
+              <circle
+                key={i}
+                className="seg"
+                cx={60}
+                cy={60}
+                r={R}
+                fill="none"
+                stroke={PALETTE[i % PALETTE.length]}
+                strokeWidth={16}
+                strokeDasharray={`${Math.max(len - gap, 0.5)} ${CIRC}`}
+                strokeDashoffset={-offset}
+              >
+                <title>{`${s.label}: ${fmt(s.value)} (${total ? ((s.value / total) * 100).toFixed(1) : 0}%)`}</title>
+              </circle>
+            );
+            offset += len;
+            return seg;
+          })}
+        </g>
+        <text x={60} y={62} textAnchor="middle" fontSize={20} fill="var(--on-surface)" style={{ fontVariantNumeric: "tabular-nums" }}>{fmt(total)}</text>
+        <text x={60} y={76} textAnchor="middle" fontSize={9} fill="var(--outline)">total</text>
+      </svg>
+      <div className="w-full space-y-1.5 overflow-y-auto">
+        {slices.map((s, i) => (
+          <div key={i} className="grid grid-cols-[10px_1fr_auto] items-center gap-2 text-[0.8125rem]">
+            <span className="w-2.5 h-2.5 rounded-[3px]" style={{ background: PALETTE[i % PALETTE.length] }} />
+            <span className="truncate text-on-surface-variant">{s.label}</span>
+            <span className="tabular-nums text-right">
+              {fmt(s.value)}
+              <small className="text-outline ml-1 text-[0.6875rem]">{total ? ((s.value / total) * 100).toFixed(0) : 0}%</small>
+            </span>
           </div>
         ))}
       </div>

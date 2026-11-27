@@ -9,7 +9,7 @@ import { DEMO_HINT } from "./connectors/catalog";
 import { open, seal } from "./secrets";
 import { fetchAllPeriods, syncSources, validateSourceUrl } from "./sync";
 import { TEMPLATE_PAGES, TEMPLATE_WIDGETS } from "./templates";
-import { DEFAULT_PERIOD, DEFAULT_SIZE, SOURCE_KINDS, WIDGET_TYPES, type FetchResult, type SourceKind, type Store, type Widget, type WidgetType } from "./types";
+import { isTable, DEFAULT_PERIOD, DEFAULT_SIZE, SOURCE_KINDS, WIDGET_TYPES, type FetchResult, type SourceKind, type Store, type Widget, type WidgetType } from "./types";
 
 // Prototype: there is no login yet. Every action here must check the super
 // admin session before this goes anywhere near production.
@@ -216,7 +216,7 @@ function cleanWidget(w: Widget): Widget {
     title: String(w.title ?? "").trim() || "Untitled",
     source_id: String(w.source_id ?? ""),
     bindings,
-    ...(type === "table"
+    ...(isTable(type)
       ? { columns: (w.columns ?? []).filter((c) => c.field?.trim()).map((c) => ({ ...c, field: c.field.trim(), label: c.label?.trim() || c.field.trim() })) }
       : {}),
     ...(w.format && Object.keys(w.format).length ? { format: w.format } : {}),

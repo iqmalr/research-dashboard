@@ -86,7 +86,7 @@
 
 @theme inline {
   --font-sans: var(--font-geist);
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 
   /* ── MD3 color utilities ── */
   --color-primary: var(--primary);
@@ -130,6 +130,8 @@ body {
   background: var(--surface);
   color: var(--on-surface);
   -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* ── Shared primitives, mirrored from footballanalytic-stat (.btn, .card) ── */
@@ -149,3 +151,6 @@ body {
     padding: 18px 20px; box-shadow: var(--shadow); min-width: 0;
   }
 }
+
+/* Reference design has no monospace UI text: numbers are Geist with tabular figures. */
+.font-mono { font-variant-numeric: tabular-nums; }

@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 export interface ChartPoint {
   label: string;
   value: number;
@@ -39,27 +42,49 @@ export function ChartGrid() {
 
 export function BarChart({ data, height = 160, showAllLabels = false }: BarChartProps) {
   const max = Math.max(...data.map((d) => d.value), 1);
+  const [picked, setPicked] = useState<number | null>(null);
+  const sel = picked !== null && data[picked] ? picked : data.length - 1;
+  const cur = data[sel];
 
   return (
     <div className="h-full flex flex-col">
-      {/* Chart area: at least `height`, taller when the card has room */}
-      <div className="relative w-full flex-1" style={{ minHeight: height }}>
-        <ChartGrid />
-        {/* Bars */}
-        <div className={`absolute inset-0 z-10 flex items-end pt-4 ${data.length > 45 ? "gap-px" : "gap-[3px]"}`}>
-          {data.map((d, i) => (
-            <div key={i} className="flex-1 h-full flex flex-col justify-end group cursor-pointer">
-              <div
-                className="w-full bg-primary-container/85 hover:bg-primary rounded-t-[2px] transition-all"
-                style={{ height: `${Math.max((d.value / max) * 100, 1)}%` }}
-                title={d.tip ?? `${d.label}: ${d.value.toLocaleString("en-US")}`}
-              />
-            </div>
-          ))}
-        </div>
+      <div
+        className="flex items-end gap-1 pt-[18px] flex-1"
+        style={{
+          minHeight: height,
+          background: "repeating-linear-gradient(to top, var(--surface-container) 0 1px, transparent 1px 38px)",
+        }}
+      >
+        {data.map((d, i) => (
+          <button
+            key={i}
+            type="button"
+            aria-label={`${d.label}: ${d.value}`}
+            title={d.tip ?? `${d.label}: ${d.value.toLocaleString("en-US")}`}
+            onClick={() => setPicked(i)}
+            onMouseEnter={() => setPicked(i)}
+            className={[
+              "relative flex-1 min-w-0 min-h-[3px] p-0 border-0 rounded-t-[5px] rounded-b-[2px] cursor-pointer transition-colors",
+              i === sel ? "bg-[#2563eb]" : "bg-[#dde8fd] hover:bg-[#8fb0f1]",
+            ].join(" ")}
+            style={{ height: `${Math.max((d.value / max) * 100, 1)}%` }}
+          >
+            {data.length <= 24 && (
+              <span className={`absolute bottom-full left-1/2 -translate-x-1/2 pb-0.5 text-[10px] tabular-nums ${i === sel ? "font-semibold text-on-surface" : "text-outline"}`}>
+                {d.value.toLocaleString("en-US")}
+              </span>
+            )}
+          </button>
+        ))}
       </div>
 
       <ChartXAxis data={data} showAllLabels={showAllLabels} />
+      {cur && (
+        <div className="mt-3 rounded-xl bg-surface-container-low px-4 py-3 text-[0.8125rem] flex justify-between gap-3">
+          <span className="font-semibold text-on-surface">{cur.label}</span>
+          <span className="text-on-surface-variant tabular-nums">{cur.tip?.split(": ").slice(1).join(": ") || cur.value.toLocaleString("en-US")}</span>
+        </div>
+      )}
     </div>
   );
 }

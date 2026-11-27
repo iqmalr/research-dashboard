@@ -192,7 +192,7 @@ function SidebarContent({ dashboards }: SidebarProps) {
     isOnDashboard ? (currentPageId || (currentDashboard?.pages[0]?.id ?? "")) : "";
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-60 bg-surface border-r border-outline-variant/30 z-50 flex flex-col select-none">
+    <aside className="fixed left-0 top-0 h-full w-60 bg-white border-r border-outline-variant/30 z-50 flex flex-col select-none">
       <div className="flex flex-col flex-1 overflow-y-auto">
         {/* Brand */}
         <div className="h-14 px-5 flex items-center gap-2.5 shrink-0">

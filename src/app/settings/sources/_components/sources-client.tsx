@@ -71,7 +71,7 @@ export function SourcesClient({ rows: allRows, dashboards, filter, openAdd, mock
 
       <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30">
         <div>
-          <h1 className="text-[1.5rem] leading-8 font-semibold tracking-[-0.02em] text-on-surface">Sources</h1>
+          <h1 className="text-[2.125rem] leading-tight font-normal tracking-[-0.02em] text-on-surface">Sources</h1>
           <p className="text-[0.8125rem] text-on-surface-variant mt-0.5">
             <span className="font-mono font-medium text-on-surface">
               {rows.length} source{rows.length === 1 ? "" : "s"}

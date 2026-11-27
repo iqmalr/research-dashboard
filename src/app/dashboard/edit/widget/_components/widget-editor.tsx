@@ -7,7 +7,7 @@ import { FieldTree } from "@/components/field-tree";
 import { WidgetView } from "@/components/widgets/widget-view";
 import { saveWidgetAction } from "@/lib/actions";
 import { GRID_COLS, MAX_H } from "@/lib/grid";
-import { PERIODS, SLOTS, UNITS, WIDGET_META, WIDGET_TYPES, type Format, type Period, type SlotKind, type SourceInfo, type TableColumn, type TableOptions, type Unit, type Widget, type WidgetType } from "@/lib/types";
+import { isTable, PERIODS, SLOTS, UNITS, WIDGET_META, WIDGET_TYPES, type Format, type Period, type SlotKind, type SourceInfo, type TableColumn, type TableOptions, type Unit, type Widget, type WidgetType } from "@/lib/types";
 import { viewProps, type SnapMap } from "@/lib/view";
 import { formatValue, getPath, isNumeric, isScalar, resolveWidget } from "@/lib/widget-data";
 
@@ -59,7 +59,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
   const [filter, setFilter] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
-  const firstEmpty = (w: Widget) => SLOTS[w.type].find((s) => !s.optional && !w.bindings[s.key])?.key ?? (w.type === "table" ? COLUMNS : SLOTS[w.type][0].key);
+  const firstEmpty = (w: Widget) => SLOTS[w.type].find((s) => !s.optional && !w.bindings[s.key])?.key ?? (isTable(w.type) ? COLUMNS : SLOTS[w.type][0].key);
   const [activeSlot, setActiveSlot] = useState<string>(() => firstEmpty(widget));
 
   const back = `/dashboard/edit?d=${encodeURIComponent(dashboardId)}&page=${encodeURIComponent(pageId)}&range=${range}`;
@@ -93,7 +93,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
     // move on to the next slot that still needs a field
     const empty = SLOTS[next.type].find((s) => !s.optional && !next.bindings[s.key]);
     if (empty) setActiveSlot(empty.key);
-    else if (next.type === "table" && (next.columns ?? []).length === 0) setActiveSlot(COLUMNS);
+    else if (isTable(next.type) && (next.columns ?? []).length === 0) setActiveSlot(COLUMNS);
   }
 
   function changeType(type: WidgetType) {
@@ -118,7 +118,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
       type,
       bindings,
       format: f && newMain && fromList === LIST_TYPES.includes(type) ? { [newMain]: f } : undefined,
-      columns: type === "table" ? (draft.columns ?? []) : undefined,
+      columns: isTable(type) ? (draft.columns ?? []) : undefined,
     };
     setDraft(next);
     setActiveSlot(firstEmpty(next));
@@ -145,7 +145,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
   /* ── left panel content ── */
   const treeData = rowMode ? sampleRow : data;
   const selectedPaths = rowMode
-    ? draft.type === "table"
+    ? isTable(draft.type)
       ? (draft.columns ?? []).map((c) => c.field)
       : slots.filter((s) => s.kind !== "rows").map((s) => draft.bindings[s.key]).filter(Boolean)
     : [draft.bindings.value, draft.bindings.delta, draft.bindings.rows].filter(Boolean);
@@ -343,7 +343,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
               );
             })}
 
-            {draft.type === "table" && (
+            {isTable(draft.type) && (
               <div>
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-[0.8125rem] font-medium text-on-surface">Columns</span>
@@ -385,7 +385,7 @@ export function WidgetEditor({ dashboardId, pageId, pageName, widget, initialRan
           </div>
 
           {/* Table options */}
-          {draft.type === "table" && (
+          {isTable(draft.type) && (
             <div className="space-y-2.5">
               <Label>Table options</Label>
               <label className="flex items-center gap-2 cursor-pointer">

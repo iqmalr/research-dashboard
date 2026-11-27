@@ -27,20 +27,13 @@ export function StatCard({
     <div className="card flex flex-col justify-between hover:border-outline-variant/60 transition-colors">
       <div>
         <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[0.75rem] leading-4 tracking-[0.02em] font-semibold uppercase text-on-surface-variant">
+          <span className="text-[0.8125rem] text-on-surface-variant">
             {title}
           </span>
-          <button
-            className="text-outline hover:text-on-surface p-0.5 rounded transition-colors"
-            title="Widget menu"
-            type="button"
-          >
-            <span className="material-symbols-outlined text-[16px]">more_horiz</span>
-          </button>
         </div>
 
         <div className="flex items-baseline gap-2">
-          <span className={["text-[1.75rem] leading-9 tracking-tight font-semibold text-on-surface [font-variant-numeric:tabular-nums]", stale ? "opacity-50" : ""].join(" ")}>
+          <span className={["text-[2.5rem] leading-[1.15] tracking-[-0.02em] font-light text-on-surface [font-variant-numeric:tabular-nums]", stale ? "opacity-50" : ""].join(" ")}>
             {prefix && (
               <span className="text-[1.25rem] text-on-surface-variant mr-0.5">{prefix}</span>
             )}
@@ -52,7 +45,7 @@ export function StatCard({
           {delta !== undefined && (
             <span
               className={[
-                "inline-flex items-center text-[11px] font-semibold px-1.5 py-0.5 rounded border [font-variant-numeric:tabular-nums]",
+                "inline-flex items-center text-[0.75rem] font-medium px-1.5 py-0.5 rounded border [font-variant-numeric:tabular-nums]",
                 isPositive
                   ? "text-emerald-700 bg-emerald-50 border-emerald-200"
                   : "text-error bg-error-container border-error/20",
@@ -65,7 +58,7 @@ export function StatCard({
         </div>
 
         {description && (
-          <p className="text-[0.8125rem] text-outline mt-0.5">{description}</p>
+          <p className="text-[0.75rem] text-outline mt-0.5">{description}</p>
         )}
       </div>
 

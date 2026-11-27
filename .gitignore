@@ -43,3 +43,5 @@ next-env.d.ts
 # local prototype store (sources, snapshots, widget config)
 /.data/
 /test-results
+.playwright-mcp/
+.codegraph/

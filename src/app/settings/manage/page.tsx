@@ -36,7 +36,7 @@ async function ManageView() {
     <div className="p-6 max-w-[1400px] mx-auto space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-outline-variant/30">
         <div>
-          <h1 className="text-[1.5rem] leading-8 font-semibold tracking-[-0.02em] text-on-surface">Dashboards</h1>
+          <h1 className="text-[2.125rem] leading-tight font-normal tracking-[-0.02em] text-on-surface">Dashboards</h1>
           <p className="text-[0.8125rem] text-on-surface-variant mt-0.5 flex items-center gap-2 flex-wrap">
             <span className="font-mono text-on-surface font-medium">
               {dashboards.length} dashboard{dashboards.length === 1 ? "" : "s"}
